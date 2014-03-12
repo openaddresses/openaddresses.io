@@ -1,66 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>OpenAddresses by openaddresses</title>
+<head>
+  <meta charset=utf-8 />
+  <title>OpenAddresses</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <link href='site.css' rel='stylesheet' />
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+</head>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>OpenAddresses</h1>
-        <p>A Free and Open collection of addresses from around the world.</p>
-
-        <p class="view"><a href="https://github.com/openaddresses/openaddresses.io">View the Project on GitHub <small>openaddresses/openaddresses.io</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/openaddresses/openaddresses.io/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/openaddresses/openaddresses.io/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/openaddresses/openaddresses.io">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-openaddresses" class="anchor" href="#welcome-to-openaddresses"><span class="octicon octicon-link"></span></a>Welcome to OpenAddresses</h3>
-
-<p>We're collecting every single address in the world, associating it with a point on Earth, and letting you download the whole thing as a CSV.</p>
-
-<h3>
-<a name="why-do-this" class="anchor" href="#why-do-this"><span class="octicon octicon-link"></span></a>Why do this?</h3>
-
-<p>Addresses are a helpful dataset </p>
-
-<h3>
-<a name="where-can-i-get-data" class="anchor" href="#where-can-i-get-data"><span class="octicon octicon-link"></span></a>Where can I get data?</h3>
-
-<p>Right now we're collecting and collating data sources. We don't have a compiled dataset yet, but you can check out our list of <a href="https://github.com/osmlab/addresses/tree/master/sources">data sources</a> and add your own.</p>
-
-<h3>
-<a name="how-can-i-help" class="anchor" href="#how-can-i-help"><span class="octicon octicon-link"></span></a>How can I help?</h3>
-
-<p>You can help immediately by <a href="https://osmus.wufoo.com/forms/qzb06k411dgrz4/">filling out this form</a>.</p>
-
-<p>If you're comfortable with GitHub, you can find your local data set and <a href="https://github.com/osmlab/addresses/issues/new?labels=data-sources">open an issue</a> with information about how to access it and what area is covered.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>This is based on a Google Spreadsheet started by <a href="https://github.com/iandees" class="user-mention">@iandees</a>, with subsequent help by <a href="https://github.com/lxbarth" class="user-mention">@lxbarth</a>, <a href="https://github.com/tlpinney" class="user-mention">@tlpinney</a>, <a href="https://github.com/ingalls" class="user-mention">@ingalls</a>, <a href="https://github.com/tmcw" class="user-mention">@tmcw</a>, and <a href="https://github.com/mvexel" class="user-mention">@mvexel</a>.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/openaddresses">openaddresses</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<body>
+  <div class='slide cover'>
+    <div class='inner'>
+        <h1><div>Open</div><div>Addresses</div></h1>
+        <p id='tagline'>The free and open global address collection</p>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+  </div>
+  <div class='slide download'>
+    <div class='inner'>
+      <h2><a name='download'>Download all addresses</h2>
+      <div class='action'>  
+        <a href='downloads/open-addresses-0.0.1.tar.gz'><div class='button'><i class="icon-download"></i><l>Download<l></div></div></a>
+        <p>open-addresses-0.0.1.tar.gz <span class='light'>125MB 2014-02-12 12:30</span></p>
+      </div>
+    </div>
+  </div>
+  <div class='slide add'>
+    <div class='inner'>
+      <h2><a name='add'>Submit an address file</a></h2>
+      <div class='action'>
+        <a href="https://osmus.wufoo.com/forms/open-addresses-data-donation/"><div class='button'><i class="icon-upload"></i><l>Submit</l></div></a>
+        <p>Help grow OpenAddresses and submit an address file.</p>
+      </div>
+    </div>  
+  </div>
+  <div class='slide coding'>
+    <div class='inner'>
+      <h2><a name='download'>Developers</a></h2>
+      <p>
+        OpenAddresses is a node.js module. Add it to your code to work directly with address sources.
+      </p>
+      <p>
+        <a href="https://github.com/osmlab/addresses">Learn more on Github</a>. 
+      </p>
+    </div>
+  </div>
+  <div class='slide about'>
+    <div class='inner'>
+      <h2><a name='about'>About</a></h2>
+      <p>
+        Addresses are meant to be free. OpenAddresses tracks openly available address sources. Our goal is not less than to collect all addresses in the world. Join the effort and submit address files you know about.
+      </p>
+      <p>
+        Questions? <a href='mailto:info@openaddresses.in'>Drop us a line.</a>
+      </p>
+    </div>
+  </div>
+  <div class='footer'>
+    <p class='light small'><a href='https://gist.github.com/lxbarth/9433468'>Photo credits</a></p>
+  </div>
+</body>
 </html>
