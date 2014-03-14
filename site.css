@@ -77,10 +77,13 @@ a {
   font-weight:bold;
   }
 p {
-  line-height: 25px;
+  line-height: 28px;
   padding-bottom: 25px;
   max-width: 900px;
-}
+  }
+.clear-left {
+  clear: left;
+  }
 h1 {
   font-size: 75px;
   letter-spacing:-4px;
@@ -103,6 +106,7 @@ h2 {
   }
 .small {
   font-size: 12px;
+  line-height: 20px;
   }
 
 /* buttons */
@@ -168,18 +172,32 @@ h2 {
   .slide.about    { background-color: #f0f0e8; }
   .slide.cover {
     color: #fff;
-    background: url('addresses.jpg') repeat fixed center;
-    padding-left: 0px;
-    padding-right: 0px;
+    background: url('addresses-lighter.jpg') repeat fixed center;
+    font-weight: lighter;
+    padding: 0;
+    border: 0;
+    }
+    .slide.cover h1 {
+      margin: 0 0 0 -5px;
     }
     .slide.cover .inner {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 0;
+      height: 100%;
+      }
+    .slide.cover .inner > div {
+      padding: 30px 30px 30px 55px;
+      }
+    .slide.cover .inner .header {
       padding-top: 150px;
       border-bottom: 1px solid rgba(255,255,255,0.3);
       }
+      .slide.cover .about {
+        max-width: 600px;
+        }
     #tagline {
-      font-weight: lighter;
       font-size: 25px;
-      padding: 25px 0 0 25px;
+      padding: 25px 0 0;
       clear: left;
       }
   .slide .action {
