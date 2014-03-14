@@ -172,7 +172,7 @@ h2 {
   .slide.about    { background-color: #f0f0e8; }
   .slide.cover {
     color: #fff;
-    background: url('addresses-lighter.jpg') repeat fixed center;
+    background: url('addresses.jpg') repeat fixed center;
     font-weight: lighter;
     padding: 0;
     border: 0;
