@@ -148,6 +148,14 @@ h2 {
   padding-top: 25px;
 }
 
+.anchor .anchor-symbol {
+  color: #000; opacity: 0; position: absolute; margin-left: -40px;
+  transition: .2s opacity;
+  }
+  .anchor:hover .anchor-symbol {
+    opacity: 0.3;
+    }
+
 /* slide layout */
 .slide  {
     width: 100%;
@@ -166,10 +174,10 @@ h2 {
     background-color: rgba(0,0,0,0.1);
     }
   /* slide colors */
-  .slide.download { background-color: #f98; }    
-  .slide.add      { background-color: #0fa; }
-  .slide.coding   { background-color: #0ff; }
-  .slide.about    { background-color: #f0f0e8; }
+  .slide.download   { background-color: #f98; }    
+  .slide.contribute { background-color: #0fa; }
+  .slide.developers { background-color: #0ff; }
+  .slide.about      { background-color: #f0f0e8; }
   .slide.cover {
     color: #fff;
     background: url('addresses.jpg') repeat fixed center;
