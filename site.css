@@ -159,7 +159,7 @@ h2 {
 /* slide layout */
 .slide  {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     border-top: 20px solid rgba(0,0,0,0.1);
     border-bottom: 20px solid rgba(0,0,0,0.1);
   }
@@ -184,20 +184,19 @@ h2 {
     font-weight: lighter;
     padding: 0;
     border: 0;
+    height: 100%;
     }
     .slide.cover h1 {
       margin: 0 0 0 -5px;
     }
     .slide.cover .inner {
       background-color: rgba(0, 0, 0, 0.9);
-      padding: 0;
       height: 100%;
-      }
-    .slide.cover .inner > div {
-      padding: 30px 30px 30px 55px;
+      position: inline;
       }
     .slide.cover .inner .header {
-      padding-top: 150px;
+      padding: 150px 0 20px 75px;
+      margin: 0 -75px 30px -75px;
       border-bottom: 1px solid rgba(255,255,255,0.3);
       }
       .slide.cover .about {
@@ -216,11 +215,15 @@ h2 {
 @media only screen and (max-width:700px) {
   .slide .inner { padding-left: 25px; padding-right: 25px;}
   h1 { font-size: 60px; }
-  h2 {
+  h2,
+  .slide.cover .inner .header {
       margin-left: -25px;
       margin-right: -25px;
       padding-left: 25px;
       padding-right: 25px;
+      }
+  .slide.cover .inner .header {
+      padding-top: 25px;
       }
   .footer { padding-left: 25px; padding-right: 25px; }
   p { clear: left; }
