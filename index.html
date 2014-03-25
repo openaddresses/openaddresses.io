@@ -1,85 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset=utf-8 />
-  <title>OpenAddresses</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-  <link href='site.css' rel='stylesheet' />
-  <link rel="shortcut icon" href='/17.png'>
-  <link rel="apple-touch-icon-precomposed" href='/17.png'>
-  <script src="site.js"></script>
+<meta charset=utf-8 />
+<title>OpenAddresses</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<link href='site.css' rel='stylesheet' />
+<link href='style.css' rel='stylesheet' />
+<link rel='shortcut icon' href='/17.png'>
+<link rel='apple-touch-icon-precomposed' href='/17.png'>
+<script src="site.js"></script>
 </head>
 
 <body>
-  <div class='slide cover'>
-    <div class='inner'>
-        <div class='header'>
-          <h1><div>Open</div><div>Addresses</div></h1>
-          <p id='tagline'>The free and open global address collection</p>
-        </div>
-        <div class='about'>
-          <p>OpenAddresses tracks open street address sources world wide. Download addresses and share address files.</p>
+<div class='col12 pad4y splash'>
+    <div class='wrapper'>
+        <div class='white'>
+            <h1>Open Addresses</h1>
+            <p class='big'>Addresses are meant to be free. OpenAddresses tracks openly available
+            address sources. Our goal is not less than to collect all addresses in the world. Join the effort and submit address files you know about. We're just getting started.</p>
         </div>
     </div>
-  </div>
-  <div class='slide download'>
-    <div class='inner'>
-      <h2><a href='#' class='anchor'><span class='anchor-symbol'>#</span>Download all addresses</h2>
-      <div class='action'>  
-        <a href='http://s3.amazonaws.com/openaddresses/openaddresses.zip'><div class='button'><i class="icon-download"></i><l>Download<l></div></div></a>
-        <p>openaddresses.zip <span class='light'>1.9GB 2014-03-21 02:30</span></p>
-        <p class='clear-left small light'>
-          The address file collection is available under the public domain license waiver <a href='https://github.com/openaddresses/openaddresses/blob/master/sources/LICENSE'>cc0</a>. Contained address files are licensed individually by the originator, see description file with each address file.
+</div>
+<div class='wrapper clearfix'>
+    <div class='col4 pad1'>
+        <a class='col12 button' href='http://s3.amazonaws.com/openaddresses/openaddresses.zip'>Download</a>
+        <code>openaddresses.zip 1.9GB 2014-03-21</code>
+        <p>
+        <a href='https://github.com/openaddresses/openaddresses/blob/master/sources/LICENSE'>CC0</a> Licensed. Address files licensed individually.
         </p>
-      </div>
     </div>
-  </div>
-  <div class='slide contribute'>
-    <div class='inner'>
-      <h2><a href='#' class='anchor'><span class='anchor-symbol'>#</span>Contribute an address file</a></h2>
-      <div class='action'>
-        <a href="https://docs.google.com/forms/d/1qyep9mxNtYBGV__NOGqJOUEg95-flWJnnD-FEcga0EQ/viewform"><div class='button'><i class="icon-upload"></i><l>Submit</l></div></a>
+    <div class='col4 pad1'>
+        <a class='col12 button' href="https://docs.google.com/forms/d/1qyep9mxNtYBGV__NOGqJOUEg95-flWJnnD-FEcga0EQ/viewform">Submit addresses</a>
         <p>Help grow OpenAddresses and submit an address file.</p>
-      </div>
-      <p class='clear-left'>
         Or add an address file directly through <a href='http://github.com/openaddresses/openaddresses/'>Github</a>.
-      </p>
-    </div>  
-  </div>
-  <div class='slide developers'>
-    <div class='inner'>
-      <h2><a href='#' class='anchor'><span class='anchor-symbol'>#</span>Developers</a></h2>
-      <p>
-        OpenAddresses is a node.js module. Add it to your code to work directly with address sources to parse them, import them into a database, put them on a map or use them for geocoding.
-      </p>
-      <p>
-        <a href="http://github.com/openaddresses/openaddresses/">Learn more on Github</a>. 
-      </p>
     </div>
-  </div>
-  <div class='slide about'>
-    <div class='inner'>
-      <h2><a href='#' class='anchor'><span class='anchor-symbol'>#</span>About</a></h2>
-      <p>
-        Addresses are meant to be free. OpenAddresses tracks openly available address sources. Our goal is not less than to collect all addresses in the world. Join the effort and submit address files you know about. We're just getting started.
-      </p>
-      <p>
-        Questions? <a href='https://docs.google.com/a/openstreetmap.us/forms/d/1Aodu__Q2dq_wHoe9n1d_aKjXsPoKjQ8aJm2MAvD6zaE/viewform?fbzx=7135302723347369542'>Drop us a line.</a>
-      </p>
+    <div class='col4 pad1'>
+        <a class='col12 button' href="http://github.com/openaddresses/openaddresses/">Develop</a>
+        <p>OpenAddresses is a node.js module. Add it to your code to work directly with address sources to parse them, import them into a database, put them on a map or use them for geocoding.</p>
     </div>
-  </div>
-  <div class='footer'>
-    <p class='light small'><a href="http://openaddresses.tumblr.com">Blog</a> | <a href='https://github.com/openaddresses/openaddresses/graphs/contributors'>Contributors</a> | <a href='https://gist.github.com/lxbarth/9433468'>Photo credits</a></p>
-  </div>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</div>
+<div class='footer pad2 center col12'>
+    <small>
+        <p class='light small'>
+        <a href='https://docs.google.com/a/openstreetmap.us/forms/d/1Aodu__Q2dq_wHoe9n1d_aKjXsPoKjQ8aJm2MAvD6zaE/viewform?fbzx=7135302723347369542'>Contact</a> |
+        <a href="http://openaddresses.tumblr.com">Blog</a> | <a href='https://github.com/openaddresses/openaddresses/graphs/contributors'>Contributors</a>
+    </small>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-49306454-1', 'openaddresses.io');
-    ga('send', 'pageview');
+ga('create', 'UA-49306454-1', 'openaddresses.io');
+ga('send', 'pageview');
 
-  </script>
+</script>
 </body>
 </html>
