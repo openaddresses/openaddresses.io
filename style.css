@@ -173,3 +173,13 @@ body {
     width: 100px;
     margin-bottom: 10px;
 }
+
+.footer {
+    font-family: "Titillium Web",sans-serif;
+    height: 100px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #2E343A;
+    text-align: center;
+    color: #FFF;
+}
