@@ -76,10 +76,10 @@ body {
     position: absolute;
     margin-left: auto ;
     margin-right: auto ;
-    height: 20px;
+    height: 25px;
     width: 40px;
     background-color: #2E343A;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 7px 7px 0px 0px;
     text-align: center;
 }
 
