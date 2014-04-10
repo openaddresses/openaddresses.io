@@ -70,18 +70,23 @@ body {
     right:0;
     margin-left:auto;
     margin-right:auto;
-    bottom: 0px;
+    top: -25px;
     position: absolute;
     margin-left: auto ;
     margin-right: auto ;
     height: 25px;
     width: 40px;
+    background-position:center; 
+    background-image: url('down.svg');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
     background-color: #2E343A;
     border-radius: 7px 7px 0px 0px;
     text-align: center;
 }
 
 .divider {
+    position: relative;
     font-family: "Titillium Web",sans-serif;
     height: 60px;
     width: 100%;
@@ -139,7 +144,7 @@ body {
 .leftimg {
     margin-left:auto;
     margin-right:auto;
-    background: url('download.svg');
+    background-image: url('download.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100px;
@@ -150,7 +155,7 @@ body {
 .midimg {
     margin-left:auto;
     margin-right:auto;
-    background: url('add.svg');
+    background-image: url('add.svg');
     background-size: 100px 100px;
     background-repeat: no-repeat;
     height: 100px;
@@ -161,7 +166,7 @@ body {
 .rightimg {
     margin-left:auto;
     margin-right:auto;
-    background: url('code.svg');
+    background-image: url('code.svg');
     background-size: 100px 100px;
     background-repeat: no-repeat;
     height: 100px;
