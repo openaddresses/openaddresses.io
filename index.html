@@ -59,9 +59,12 @@
         
         <div id='map'></div>
         <script>
-            var map = L.mapbox.map('map', 'aaronlidman.hm81en7g')
-                .setView([40, -74.50], 3);
-            map.scrollWheelZoom.disable();
+            var map = L.mapbox.map('map').setView([40, -74.50], 3);
+            L.control.layers({
+                'Base Map': L.mapbox.tileLayer('aaronlidman.hm81en7g').addTo(map)
+            }, {
+                'Coverage': L.mapbox.tileLayer('aaronlidman.yg1a714i').addTo(map)
+            }).addTo(map);
         </script>
         
         <script>
