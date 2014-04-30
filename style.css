@@ -86,6 +86,7 @@ body {
 }
 
 .divider {
+    float: left;
     position: relative;
     font-family: "Titillium Web",sans-serif;
     height: 60px;
@@ -94,6 +95,10 @@ body {
     background-color: #2E343A;
     text-align: center;
     color: #FFF;
+}
+
+.map-divider {
+    margin-top: 50px;
 }
 
 .col {
@@ -174,12 +179,7 @@ body {
     margin-bottom: 10px;
 }
 
-.footer {
-    font-family: "Titillium Web",sans-serif;
-    height: 100px;
-    width: 100%;
-    line-height: 60px;
-    background-color: #2E343A;
-    text-align: center;
-    color: #FFF;
+#map {
+    height: 90%;
+    width:  100%;
 }
