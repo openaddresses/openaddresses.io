@@ -20,6 +20,22 @@ body {
     min-height: 400px;
 }
 
+.news {
+    float: left;
+    position: relative;
+    font-family: "Titillium Web",sans-serif;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #2E343A;
+    text-align: center;
+    color: #FFF;
+}
+
+.news > a {
+        color: #ffffff;
+    }
+
 .logo {
     float: left;
     margin: 30px;
