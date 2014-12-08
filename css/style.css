@@ -15,7 +15,7 @@ body {
     color: #FFF;
     height: 100%;
     width:100%;
-    background-image:url('addresses.jpg');
+    background-image:url('../img/addresses.jpg');
     background-size: cover;
     min-height: 400px;
 }
@@ -93,7 +93,7 @@ body {
     height: 25px;
     width: 40px;
     background-position:center;
-    background-image: url('down.svg');
+    background-image: url('../img/down.svg');
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-color: #2E343A;
@@ -166,7 +166,7 @@ body {
 .leftimg {
     margin-left:auto;
     margin-right:auto;
-    background-image: url('download.svg');
+    background-image: url('../img/download.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100px;
@@ -177,7 +177,7 @@ body {
 .midimg {
     margin-left:auto;
     margin-right:auto;
-    background-image: url('add.svg');
+    background-image: url('../img/add.svg');
     background-size: 100px 100px;
     background-repeat: no-repeat;
     height: 100px;
@@ -188,7 +188,7 @@ body {
 .rightimg {
     margin-left:auto;
     margin-right:auto;
-    background-image: url('code.svg');
+    background-image: url('../img/code.svg');
     background-size: 100px 100px;
     background-repeat: no-repeat;
     height: 100px;
