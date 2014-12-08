@@ -20,6 +20,10 @@ body {
     min-height: 400px;
 }
 
+.bg > a {
+    color: #ffffff;
+}
+
 .news {
     float: left;
     position: relative;
