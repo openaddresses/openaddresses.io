@@ -24,6 +24,18 @@ body {
     color: #ffffff;
 }
 
+.bg-bar {
+    color: #FFF;
+    width:100%;
+    background-image:url('../img/addresses.jpg');
+    background-size: cover;
+    min-height: 100px;
+}
+
+.bg-bar > a {
+    color: #ffffff;
+}
+
 .news {
     float: left;
     position: relative;
@@ -37,14 +49,21 @@ body {
 }
 
 .news > a {
-        color: #ffffff;
-    }
+    color: #ffffff;
+}
 
 .logo {
     float: left;
-    margin: 30px;
+    margin: 30px 10px 30px 30px;
     font-family: "Titillium Web",sans-serif;
     font-size: 30px;
+}
+
+.logo-sub {
+    float: left;
+    margin: 30px 0px 30px 0px;
+    font-family: "Titillium Web",sans-serif;
+    font-size: 25px;
 }
 
 .nav {
