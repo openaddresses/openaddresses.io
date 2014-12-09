@@ -15,7 +15,7 @@
         <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
         <script>
             $(function() {
-                if (JSON.parse(localStorage.hello).github.expires > Date.now) $(".content-container").load("blocks/contribute-main.html"); });
+                if (JSON.parse(localStorage.hello).github.expires > Date.now) $(".content-container").load("blocks/contribute-main.html");
                 else $(".content-container").load("blocks/contribute-login.html"); });
         </script>
     </head>
@@ -34,6 +34,7 @@
         </div>
 
         <!-- Application Content-->
+
         <div class='content-container'></div>
     </body>
 </html>
