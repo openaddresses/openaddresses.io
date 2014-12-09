@@ -68,27 +68,78 @@ body {
 }
 
 /*Top Nav Bar*/
-.nav {
-    float: right;
-    margin: 30px;
+@media screen and (min-width: 800px) {
+    .nav-container {
+        float: right;
+        margin: 30px;
+    }
+
+    /*Keep links looking pretty*/
+    .nav-container > a:link, .nav-container > a:visited {
+        font-family: "Titillium Web",sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px;
+        margin: 3px;
+        font-size: 14px;
+        border-style:solid;
+        border-width:1px;
+        border-color: #B8B8B8;
+        border-radius: 5px;
+        text-align: center;
+        color: #FFF;
+    }
+    .nav-container > a:hover {
+        background-color: #2E343A;
+    }
 }
 
-/*Keep links looking pretty*/
-.nav > a:link, .nav > a:visited {
-    font-family: "Titillium Web",sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 14px;
-    border-style:solid;
-    border-width:1px;
-    border-color: #B8B8B8;
-    border-radius: 5px;
-    text-align: center;
-    color: #FFF;
-}
-.nav > a:hover {
-    background-color: #2E343A;
+@media screen and (max-width: 799px) {
+    .nav-container {
+        float: right;
+        width: 130px;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        float: right;
+        margin: 30px 30px 10px 0px;
+        background-position:center;
+        background-image: url('../img/menu.svg');
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+    }
+
+    .nav-container > a {
+        float: left;
+        display: none;
+        font-family: "Titillium Web",sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px;
+        margin: 3px;
+        font-size: 14px;
+        border-style:solid;
+        border-width:1px;
+        border-color: #B8B8B8;
+        border-radius: 5px;
+        background-color: #575c61;
+        text-align: center;
+        color: #FFF;
+    }
+
+    .nav-container > a:hover {
+        background-color: #2E343A;
+    }
+
+    .nav-container:hover > a {
+        float: left;
+        display: block;
+        height: 50px;
+        width: 100px;
+    }
 }
 
 /*Used on the mainpage to centre slogan*/
