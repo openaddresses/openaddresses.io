@@ -11,6 +11,7 @@ body {
     background-color: white;
 }
 
+/*Setup up mainpage fullbleed background*/
 .bg {
     color: #FFF;
     height: 100%;
@@ -20,22 +21,24 @@ body {
     min-height: 400px;
 }
 
-.bg > a {
-    color: #ffffff;
-}
-
+/*Smaller bar for non-bleed headers*/
 .bg-bar {
     color: #FFF;
     width:100%;
     background-image:url('../img/addresses.jpg');
     background-size: cover;
     min-height: 100px;
+    height: 100px;
 }
 
-.bg-bar > a {
+/*Make links stay white*/
+.bg > a,
+.bg-bar > a,
+.news > a {
     color: #ffffff;
 }
 
+/*Puts header at top of page for urgent news*/
 .news {
     float: left;
     position: relative;
@@ -48,10 +51,7 @@ body {
     color: #FFF;
 }
 
-.news > a {
-    color: #ffffff;
-}
-
+/*Styles OpenAddresses Logo*/
 .logo {
     float: left;
     margin: 30px 10px 30px 30px;
@@ -59,6 +59,7 @@ body {
     font-size: 30px;
 }
 
+/*Used for sub pages eg. OpenAddresses | {{logo-sub}} */
 .logo-sub {
     float: left;
     margin: 30px 0px 30px 0px;
@@ -66,11 +67,13 @@ body {
     font-size: 25px;
 }
 
+/*Top Nav Bar*/
 .nav {
     float: right;
     margin: 30px;
 }
 
+/*Keep links looking pretty*/
 .nav > a:link, .nav > a:visited {
     font-family: "Titillium Web",sans-serif;
     text-transform: uppercase;
@@ -88,7 +91,8 @@ body {
     background-color: #2E343A;
 }
 
-.tagline {
+/*Used on the mainpage to centre slogan*/
+.bg > .tagline {
     min-width: 350px;
     background-color: rgba(46, 52, 58, 0.3);
     padding: 20px;
@@ -104,6 +108,7 @@ body {
     color: #E4E4E4;
 }
 
+/*Adds small down arrow to prompt users to scroll on fullbleed*/
 .down {
     left:0;
     right:0;
@@ -124,6 +129,7 @@ body {
     text-align: center;
 }
 
+/*Small separators that can contain text*/
 .divider {
     float: left;
     position: relative;
