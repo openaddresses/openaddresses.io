@@ -1,3 +1,34 @@
 <div class="sidebar"></div>
 <div class="content">
 </div>
+
+<script>
+
+    var base = 'https://api.github.com/';
+    var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+    var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
+    var userRef = '';
+
+    jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
+        var sha = data.object.sha
+    });
+
+    jQuery.post(base + 'repos/openaddresses/openaddresses/forks' + auth, function(data) {
+        userRef = data.full_name;
+    });
+
+    $.ajax({
+        contentType: 'application/json',
+        data: '{"ref":""}',
+        dataType: 'json',
+        success: function (data) {
+            console.log(JSON.stringify(data));
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        processData: false,
+        type: 'POST',
+        url: base + 'repos/' + userRef + '/git/refs'
+    });
+</script>
