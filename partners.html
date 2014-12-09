@@ -9,6 +9,8 @@
         <link href='css/style.css' rel='stylesheet' />
         <link rel='shortcut icon' href='img/17.png'>
         <link rel='apple-touch-icon-precomposed' href='img/17.png'>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script> $(function(){ $(".nav").load("blocks/nav.html"); });</script>
     </head>
 
     <body>
@@ -19,13 +21,8 @@
                 </div>
             </a><div class="logo-sub">| partners</div>
             <div class='nav'>
-                <a href="mailto:openaddresses@gmail.com">Contact</a>
-                <a href="http://data.openaddresses.io">Data</a>
-                <a href="http://openaddresses.tumblr.com/">Blog</a>
-                <a href="partners.html">Partners</a>
-                <a id="here" href="https://github.com/openaddresses/openaddresses/graphs/contributors">Contributors</a>
+                <!-- blocks/nav.html dynamically loaded here-->
             </div>
-
         </div>
         <div class='divider'>Organizations</div>
         <div class='divider map-divider'>States</div>
