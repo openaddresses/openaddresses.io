@@ -1,0 +1,30 @@
+.content {
+    float: left;
+    margin-left: 300px;
+    height: calc(100% - 100px);
+    width: calc(100% - 300px);
+    position: relative;
+    overflow: auto;
+    z-index: 1;
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    background-color: blue;
+    height: calc(100% - 100px);
+}
+
+.login-container {
+    height: calc(100% - 100px);
+    width: auto;
+}
+
+.login {
+    margin-top: 50px;
+    height: 200px;
+    background-position:center;
+    background-image: url('../img/github.svg');
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+}

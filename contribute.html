@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>OpenAddresses</title>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+        <link href='css/reset.css' rel='stylesheet' />
+        <link href='css/style.css' rel='stylesheet' />
+        <link href='css/contribute.css' rel='stylesheet' />
+        <link rel='shortcut icon' href='img/17.png'>
+        <link rel='apple-touch-icon-precomposed' href='img/17.png'>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="lib/hello.min.js"></script>
+        <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
+        <script>
+            $(function() {
+                if (JSON.parse(localStorage.hello).github.expires > Date.now) $(".content-container").load("blocks/contribute-main.html"); });
+                else $(".content-container").load("blocks/contribute-login.html"); });
+        </script>
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <div class='bg-bar'>
+            <a href="index.html">
+                <div class='logo'>
+                    OpenAddresses
+                </div>
+            </a><div class="logo-sub">| contribute</div>
+            <div class='nav-container'>
+                <!-- blocks/nav.html dynamically loaded here-->
+            </div>
+        </div>
+
+        <!-- Application Content-->
+        <div class='content-container'></div>
+    </body>
+</html>
