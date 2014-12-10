@@ -6,7 +6,7 @@ var userName = '';
 var masterSha = '';
 var userRef = '';
 
-//Get Master SHA From oa/oa
+//Create Branch to allow saving/Pull request
 jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
     masterSha = data.object.sha;
     //Fork oa/oa into user account
@@ -32,6 +32,7 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
     });
 });
 
+//Create Sidebar
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
     var sidebar = '<div class="buttonContainer"><div class="infoButton {{colour}}"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
     data.forEach(function(file) {
