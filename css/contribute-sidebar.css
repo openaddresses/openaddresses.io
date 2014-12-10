@@ -1,12 +1,12 @@
 /*=== SIDEBAR ===*/
 
 .sidebar .buttonContainer {
-    width: 100%;
+    width: calc(100% - 20px);
     height: 50px;
     border: 1px solid #CCCCCC;
     background-color: #ffffff;
     border-radius: 3px;
-    margin-top: 9px;
+    margin: 10px;
 }
 
 .sidebar .infoButton {
