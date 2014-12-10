@@ -16,7 +16,7 @@
     background-color: #FAFAFA;
     background-image:url('/img/i.svg');
     background-repeat:no-repeat;
-    background-size: 12px 12px;
+    background-size: 13px 13px;
     background-position:center;
 }
 
@@ -133,6 +133,10 @@
 .sidebar .nz { background-image:url(/img/flags/nz.png); }
 .sidebar .it { background-image:url(/img/flags/it.png); }
 .sidebar .ar { background-image:url(/img/flags/ar.png); }
+.sidebar .plus {
+    background-image:url(/img/plus.svg);
+    background-size: 16px 16px;
+}
 
 .sidebar .buttonText {
     /*Disable Highlighting*/

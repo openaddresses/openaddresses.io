@@ -34,25 +34,32 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
 
 //Create Sidebar
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
-    var sidebar = '<div class="buttonContainer"><div class="infoButton {{colour}}"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
+    var sidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
+    var renderSidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
     data.forEach(function(file) {
         if (file.name.indexOf('.json') !== -1) {
-            $( ".sidebar" ).append(sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]) );
+            renderSidebar = renderSidebar + sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]);
         }
-        $('.buttonContainer').off().on('click', function () {
-            var name = '';
-            $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
-            loadSource(name);
-        });
     });
-    //On sidebar click
+    $('.sidebar').removeClass('loading');
+    $( ".sidebar" ).append(renderSidebar);
+    $('.buttonContainer').off().on('click', function () {
+        var name = '';
+        $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
+        loadSource(name);
+    });
 });
 
 //If a source is clicked on, load it from GH
 function loadSource(name) {
-    jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources/' + name + auth, function(source) {
-        console.log(JSON.parse(atob(source.content)));
-        $(".content").load("../blocks/contribute-main-edit.html");
+    jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources/' + name + auth, function(sourceRaw) {
+        var source = JSON.parse(atob(sourceRaw.content));
+        source.filename = name;
+
+        $.get('../blocks/contribute-main-edit.mst', function(template) {
+            var render = Mustache.render(template, source);
+            $('.content').html(render);
+        });
     });
 }
 
