@@ -95,7 +95,7 @@
 
 .inputContainer {
     width: 80%;
-    height: 90%;
+    height: 100%;
     float: right;
     position: relative;
 }
@@ -133,7 +133,6 @@ input[type=text]#search{
     border-width: 1px;
     border-color: #CCCCCC;
     float: left;
-    background-image:url(/images/pin/pin.svg);
     background-repeat:no-repeat;
     background-size: 32px 32px;
     background-position:center;
@@ -167,6 +166,14 @@ input[type=text]#search{
 .us { background-image:url(/img/flags/us.png); }
 .au { background-image:url(/img/flags/au.png); }
 .ca { background-image:url(/img/flags/ca.png); }
+.be { background-image:url(/img/flags/be.png); }
+.jp { background-image:url(/img/flags/jp.png); }
+.za { background-image:url(/img/flags/za.png); }
+.fr { background-image:url(/img/flags/fr.png); }
+.de { background-image:url(/img/flags/de.png); }
+.nl { background-image:url(/img/flags/nl.png); }
+.nz { background-image:url(/img/flags/nz.png); }
+.it { background-image:url(/img/flags/it.png); }
 
 .buttonText {
     /*Disable Highlighting*/

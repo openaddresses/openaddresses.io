@@ -49,7 +49,7 @@
         var sidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>'
         data.forEach(function(file) {
             if (file.name.indexOf('.json') !== -1)
-                $( ".sidebar" ).append(sidebar.replace('{{name}}', file.name).replace('{{country}}', file.name.split('-')[0]) );
+                $( ".sidebar" ).append(sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]) );
         });
     });
 
