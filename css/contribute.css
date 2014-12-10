@@ -29,6 +29,8 @@
     background-size: 200px 200px;
 }
 
+/*STANDARD FEATURES*/
+
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -38,4 +40,26 @@
     user-select: none;
 }
 
+input[type=text]#hoverEdit{
+    background: transparent;
+    border-style: none;
+    margin: 0px 10px 0px 10px;
+    padding: 5px;
+    height: 35px;
+    width: 200px;
+    font-size: 18px;
+    position: absolute;
+}
 
+input[type=text]#hoverEdit:hover, input[type=text]#hoverEdit:focus {
+    background-color: #ECECEC;
+    border-style: none;
+    font-size: 18px;
+}
+
+input[type=text]#hoverEdit:focus {
+    font-style: italic;
+}
+.bold {
+    font-weight: bold;
+}
