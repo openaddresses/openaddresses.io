@@ -13,11 +13,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="lib/hello.min.js"></script>
         <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
-        <script>
-            $(function() {
-                if (localStorage.hello && JSON.parse(localStorage.hello).github.expires > Date.now() / 1000) $(".content-container").load("blocks/contribute-main.html");
-                else $(".content-container").load("blocks/contribute-login.html"); });
-        </script>
+        <script src="./js/contribute.js"></script>
     </head>
     <body>
         <!-- HEADER -->

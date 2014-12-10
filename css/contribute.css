@@ -188,3 +188,9 @@ input[type=text]#search{
     padding-left: 7px;
     float: left;
 }
+
+/* === COLOURS ===*/
+
+.red { background-color: #ee8a65; }
+.yellow { background-color: #f1f075 }
+.white { background-color: #fff }
