@@ -61,7 +61,7 @@ $('input#search').keypress(function(){
 //Shows Filter
 $('input#search').on("keyup", function() {
     if ($('input#search').val() === '') {
-        $('#filter').css("visibility","visible");
+        $('.filter').css("visibility","visible");
     } else {
         for (var i = 0; i<window.selection.checks.length; i++){
             if (window.selection.checks[i].children === true){
