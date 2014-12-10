@@ -1,0 +1,41 @@
+<div class="editor">
+
+    <h1>{{filename}}</h1>
+
+    Data:
+    <div class="inputContainer">
+        <input id="hoverEdit" type="text" name="input" value="{{data}}"></input>
+        <div class="status save"></div>
+    </div>
+
+    Website:
+    <div class="inputContainer">
+        <input id="hoverEdit" type="text" name="input" value="{{website}}"></input>
+        <div class="status save"></div>
+    </div>
+
+    Attribution:
+    <div class="inputContainer">
+        <input id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
+        <div class="status save"></div>
+    </div>
+
+    Type:
+    <div class="inputContainer">
+        <select>
+            <option value="esri">ESRI</option>
+            <option value="ftp">FTP</option>
+            <option value="http">HTTP(S)</option>
+        </select>
+        <div class="status edit"></div>
+    </div>
+
+    Compression:
+    <div class="inputContainer">
+        <select>
+            <option value="zip">.zip</option>
+            <option value="none">none</option>
+        </select>
+        <div class="status edit"></div>
+    </div>
+</div>
