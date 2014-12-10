@@ -63,6 +63,10 @@ function loadSource(name) {
     });
 }
 
+//If user Saves/Exists an edit session display commit pane
+
+
+
 //==== Search Bar ====
 
 //On focus change color

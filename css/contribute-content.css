@@ -1,9 +1,17 @@
+.content .pane {
+    background-color: #FAFAFA;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .content .toolbar {
     position: absolute;
     background-color: #ECECEC;
     height: 48px;
     width: 100px;
     right: 0px;
+    top: 0px;
     border-bottom-left-radius: 4px;
 }
 

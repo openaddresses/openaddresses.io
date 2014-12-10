@@ -1,5 +1,5 @@
 .content {
-    float: left;
+    float: right;
     margin-left: 300px;
     height: calc(100% - 100px);
     width: calc(100% - 300px);
@@ -38,7 +38,7 @@
 
 .inputContainer {
     height: 35px;
-    width: 200px;
+    width: 100%;
     margin: 0px 10px 0px 10px;
     border-radius: 3px;
 }
@@ -70,6 +70,14 @@
 }
 
 /*==== DROPDOWN ====*/
+
+h1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+    font-weight: bold;
+}
 
 .inputContainer > select {
     float: left;
