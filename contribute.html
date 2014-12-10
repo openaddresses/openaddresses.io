@@ -14,8 +14,9 @@
         <script src="lib/hello.min.js"></script>
         <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
         <script>
+            console.log("test");
             $(function() {
-                if (JSON.parse(localStorage.hello).github.expires > Date.now() / 1000) $(".content-container").load("blocks/contribute-main.html");
+                if (localStorage.hello && JSON.parse(localStorage.hello).github.expires > Date.now() / 1000) $(".content-container").load("blocks/contribute-main.html");
                 else $(".content-container").load("blocks/contribute-login.html"); });
         </script>
     </head>
