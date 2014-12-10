@@ -1,4 +1,4 @@
-<div class="sidebar"></div>
+<div class="sidebar noselect"></div>
 <div class="content">
 </div>
 
@@ -7,28 +7,42 @@
     var base = 'https://api.github.com/';
     var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
     var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
+    var userName = '';
+    var masterSha = '';
     var userRef = '';
 
+    //Get Master SHA From oa/oa
     jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
-        var sha = data.object.sha
+        masterSha = data.object.sha
+        //Fork oa/oa into user account
+        jQuery.post(base + 'repos/openaddresses/openaddresses/forks' + auth, function(data) {
+            userName = data.full_name;
+
+            userRef = Date.now();
+
+            //Create branch that references oa/oa/ref/master
+            $.ajax({
+                contentType: 'application/json',
+                crossDomain: true,
+                data: '{ "ref": "refs/heads/' + userRef + '", "sha":  "327f5375dbc53f4f69a93e2d531cbe27dcc2f00d" }',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(JSON.stringify(data));
+                },
+                error: function() {
+                    console.log('FAIL');
+                },
+                processData: false,
+                type: 'POST',
+                url: base + 'repos/' + userName + '/git/refs' + auth
+            });
+        });
     });
 
-    jQuery.post(base + 'repos/openaddresses/openaddresses/forks' + auth, function(data) {
-        userRef = data.full_name;
-    });
-
-    $.ajax({
-        contentType: 'application/json',
-        data: '{"ref":""}',
-        dataType: 'json',
-        success: function (data) {
-            console.log(JSON.stringify(data));
-        },
-        error: function() {
-            console.log('FAIL');
-        },
-        processData: false,
-        type: 'POST',
-        url: base + 'repos/' + userRef + '/git/refs'
+    jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
+        var sidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="selectedButtonImage"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>'
+        data.forEach(function(file) {
+            if (file.name.indexOf('.json') !== -1) $( ".sidebar" ).append( sidebar.replace('{{name}}', file.name) );
+        });
     });
 </script>

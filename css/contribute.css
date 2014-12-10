@@ -9,9 +9,9 @@
 }
 
 .sidebar {
+    overflow-y:scroll;
     position: fixed;
     width: 300px;
-    background-color: blue;
     height: calc(100% - 100px);
 }
 
@@ -27,4 +27,88 @@
     background-image: url('../img/github.svg');
     background-repeat: no-repeat;
     background-size: 200px 200px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/*=== SIDEBAR ===*/
+
+.buttonContainer {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #CCCCCC;
+    background-color: #ffffff;
+    border-radius: 3px;
+    margin-top: 9px;
+}
+
+.infoButton {
+    float: right;
+    width: 10%;
+    height: 100%;
+    background-color: #FAFAFA;
+    background-image:url('/images/i.svg');
+    background-repeat:no-repeat;
+    background-size: 12px 12px;
+    background-position:center;
+}
+
+.mainButton {
+    height: 100%;
+    width: 90%;
+}
+
+.mainButton:hover .buttonImage{
+    background-color: #ECECEC;
+}
+.mainButton:hover .selectedButtonImage{
+    background-color: #ECECEC;
+}
+
+.selectedButtonImage {
+    height: 100%;
+    min-width: 20px;
+    width: 20%;
+    background-color: ffffff;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    float: left;
+    box-shadow: 0 0 10px #7092FF inset;
+    background-image:url(/images/pin/pin.svg);
+    background-repeat:no-repeat;
+    background-size: 20px 20px;
+    background-position:center;
+}
+
+.buttonTextContainer {
+    background-color: #F6F6F6;
+    height: 100%;
+    width: 79%;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    float: left;
+}
+
+.buttonText {
+    /*Disable Highlighting*/
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 50px;
+    padding-left: 7px;
+    float: left;
 }
