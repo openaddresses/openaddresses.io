@@ -1,4 +1,4 @@
-/*jshint jquery:true,browser:true */
+/*jshint jquery:true,browser:true,curly: false */
 var base = 'https://api.github.com/';
 var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
@@ -39,8 +39,22 @@ jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, f
         if (file.name.indexOf('.json') !== -1) {
             $( ".sidebar" ).append(sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]) );
         }
+        $('.buttonContainer').off().on('click', function () {
+            var name = '';
+            $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
+            loadSource(name);
+        });
     });
+    //On sidebar click
 });
+
+//If a source is clicked on, load it from GH
+function loadSource(name) {
+    jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources/' + name + auth, function(source) {
+        console.log(JSON.parse(atob(source.content)));
+        $(".content").load("../blocks/contribute-main-edit.html");
+    });
+}
 
 //==== Search Bar ====
 
