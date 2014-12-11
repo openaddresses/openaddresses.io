@@ -137,7 +137,7 @@ body {
     .nav-container:hover > a {
         float: left;
         display: block;
-        height: 50px;
+        height: 38px;
         width: 100px;
     }
 }
