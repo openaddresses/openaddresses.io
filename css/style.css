@@ -229,10 +229,21 @@ body {
     min-height: 400px;
 }
 
+@media (min-width: 750px) {
+     .col {
+        height: 250px;   
+     }
+}
+
+@media (max-width: 750px) {
+    .col {
+        height: 300px;   
+    }
+}
+
 .col {
-    font-size: 1.5vmax;;
+    font-size: 12pt;;
     width: 23%;
-    height: 100%;
     float: left;
     margin-top: 5%;
     margin-right: 5%;
@@ -241,6 +252,7 @@ body {
     background-color: white;
     text-align: center;
     position: relative;
+    line-height: 1.2;
 }
 
 .img {
