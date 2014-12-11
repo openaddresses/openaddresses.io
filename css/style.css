@@ -243,37 +243,26 @@ body {
     position: relative;
 }
 
-.leftimg {
+.img {
+    margin-bottom: 20px;
     margin-left:auto;
     margin-right:auto;
-    background-image: url('../img/download.svg');
-    background-size: 100% 100%;
+    background-size: 100px 100px;
     background-repeat: no-repeat;
     height: 100px;
     width: 100px;
-    margin-bottom: 10px;
+}
+
+.leftimg {
+    background-image: url('../img/download.svg');
 }
 
 .midimg {
-    margin-left:auto;
-    margin-right:auto;
     background-image: url('../img/add.svg');
-    background-size: 100px 100px;
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 100px;
-    margin-bottom: 10px;
 }
 
 .rightimg {
-    margin-left:auto;
-    margin-right:auto;
     background-image: url('../img/code.svg');
-    background-size: 100px 100px;
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 100px;
-    margin-bottom: 10px;
 }
 
 #map {
