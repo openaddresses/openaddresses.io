@@ -16,20 +16,6 @@
     font-family: "helvetica;
 }
 
-.login-container {
-    height: calc(100% - 100px);
-    width: auto;
-}
-
-.login {
-    margin-top: 50px;
-    height: 200px;
-    background-position:center;
-    background-image: url('../img/github.svg');
-    background-repeat: no-repeat;
-    background-size: 200px 200px;
-}
-
 /*STANDARD FEATURES*/
 
 .noselect { user-select: none; }
