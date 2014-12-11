@@ -5,6 +5,7 @@
     width: calc(100% - 300px);
     position: relative;
     z-index: 1;
+    font-family: "Titillium Web",sans-serif;
 }
 
 .sidebar {
@@ -12,6 +13,7 @@
     position: fixed;
     width: 300px;
     height: calc(100% - 100px);
+    font-family: "helvetica;
 }
 
 .login-container {
