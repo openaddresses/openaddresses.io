@@ -67,6 +67,19 @@ body {
     font-size: 25px;
 }
 
+/* Non-specific nav link settings*/
+.nav-container > a:link, .nav-container > a:visited {
+    font-family: "Titillium Web",sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    border-style:solid;
+    border-width:1px;
+    border-color: #B8B8B8;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /*Top Nav Bar*/
 @media screen and (min-width: 800px) {
     .nav-container {
@@ -76,19 +89,11 @@ body {
 
     /*Keep links looking pretty*/
     .nav-container > a:link, .nav-container > a:visited {
-        font-family: "Titillium Web",sans-serif;
-        text-transform: uppercase;
-        text-decoration: none;
         padding: 10px;
         margin: 3px;
-        font-size: 14px;
-        border-style:solid;
-        border-width:1px;
-        border-color: #B8B8B8;
-        border-radius: 5px;
-        text-align: center;
         color: #FFF;
     }
+    
     .nav-container > a:hover {
         background-color: #2E343A;
     }
@@ -119,18 +124,10 @@ body {
     .nav-container > a {
         float: left;
         display: none;
-        font-family: "Titillium Web",sans-serif;
-        text-transform: uppercase;
-        text-decoration: none;
         padding: 10px;
         margin: 3px;
         font-size: 14px;
-        border-style:solid;
-        border-width:1px;
-        border-color: #B8B8B8;
-        border-radius: 5px;
         background-color: #575c61;
-        text-align: center;
         color: #FFF;
     }
 
