@@ -94,10 +94,14 @@ body {
     }
 }
 
+/*Small Screen Hamburger menu*/
 @media screen and (max-width: 799px) {
     .nav-container {
-        float: right;
         width: 130px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 1;
     }
 
     .nav-icon {
