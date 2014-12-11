@@ -1,0 +1,40 @@
+.login-container {
+    height: calc(100% - 100px);
+    width: auto;
+    position: relative;
+}
+
+.login {
+    position: absolute;
+    top: calc( 50% - 150px );
+    left: calc( 50% - 150px);
+    margin: 0 auto;
+    height: 300px;
+    width: 300px;
+    border-radius: 3px;
+    border-color: #7d9963;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0px 0px 5px #7d9963;
+}
+
+.oa-logo {
+    margin: 10px 75px;
+    height: 150px;
+    width: 150px;
+    background-position:center;
+    background-color: lightgrey;
+/*    background-image: url('../img/logo.jpg');*/
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    border-radius: 5px
+}
+
+button {
+    margin: 10%;
+    width: 80%;
+    background-color: #425261;
+    height: 30px;
+    border-radius: 3px;
+    border-style: none;
+}
