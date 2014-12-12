@@ -42,14 +42,10 @@
 
 .sidebar-content {
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     width: 100%;
     height: calc(100% - 50px);
     padding: 10px;
-}
-
-.sidebar-content:hover {
-    overflow-y: scroll;
 }
 
 .sidebar .searchContainer {
