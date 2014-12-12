@@ -21,18 +21,26 @@ body {
     min-height: 400px;
 }
 
+.bg-dark {
+    color: #FFF;
+    height: 100%;
+    width:100%;
+    min-height: 400px;
+    background-color: #2E343A;
+}
+
 /*Smaller bar for non-bleed headers*/
 .bg-bar {
     color: #FFF;
     width:100%;
-    background-image:url('../img/addresses.jpg');
-    background-size: cover;
+    background-color: #2E343A;
     min-height: 100px;
     height: 100px;
 }
 
 /*Make links stay white*/
 .bg > a,
+.bg-dark > a,
 .bg-bar > a,
 .news > a {
     color: #ffffff;
@@ -106,7 +114,7 @@ body {
     }
 
     .nav-container > a:hover {
-        background-color: #2E343A;
+        background-color: rgba(255,255,255,0.15);
     }
 }
 
