@@ -67,29 +67,40 @@ body {
     font-size: 25px;
 }
 
+
 /* Non-specific nav link settings*/
-.nav-container > a:link, .nav-container > a:visited {
+.nav-container > a {
     font-family: "Titillium Web",sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
-    border-style:solid;
-    border-width:1px;
-    border-color: #B8B8B8;
     border-radius: 5px;
     text-align: center;
+    float: right;
 }
 
 /*Top Nav Bar*/
 @media screen and (min-width: 800px) {
+    .login-button {
+        border: none !important;
+        height: 40px;
+        width: 40px;
+        background-position:center;
+        background-image: url('../img/person.svg');
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+        margin: 3px 0px 3px 3px;
+    }
+
     .nav-container {
         float: right;
         margin: 40px;
     }
 
     /*Keep links looking pretty*/
-    .nav-container > a:link, .nav-container > a:visited {
-        padding: 10px;
+    .nav-container > a:link, .nav-container > .link:visited {
+        padding: 12px;
         margin: 3px;
         color: #FFF;
     }
@@ -101,6 +112,9 @@ body {
 
 /*Small Screen Hamburger menu*/
 @media screen and (max-width: 799px) {
+    .login-button {
+        display: none !important;
+    }
     .nav-container {
         width: 130px;
         position: absolute;
