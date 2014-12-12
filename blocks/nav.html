@@ -9,9 +9,6 @@
     if (localStorage.hello) {
         var base = 'https://api.github.com/';
         var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
-
-        console.log("here");
-
         jQuery.get(base + 'user' + auth, function (data) {
             console.log(data);
             $('.login-button').css({
