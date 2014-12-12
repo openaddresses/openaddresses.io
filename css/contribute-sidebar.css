@@ -1,13 +1,11 @@
 /*=== SIDEBAR ===*/
 
 .sidebar .buttonContainer {
-    width: calc(100% - 20px);
     height: 50px;
     border: 1px solid #CCCCCC;
     background-color: #ffffff;
     border-radius: 3px;
-    margin-left: 8px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
  .sidebar .red {
