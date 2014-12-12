@@ -10,7 +10,6 @@
         <link href='css/contribute.css' rel='stylesheet' />
         <link href='css/contribute-sidebar.css' rel='stylesheet' />
         <link href='css/contribute-content.css' rel='stylesheet' />
-        <link href='css/contribute-login.css' rel='stylesheet' />
         <link rel='shortcut icon' href='img/17.png'>
         <link rel='apple-touch-icon-precomposed' href='img/17.png'>
         <script src="lib/jquery.min.js"></script>
@@ -32,6 +31,7 @@
                 <!-- blocks/nav.html dynamically loaded here-->
             </div>
         </div>
+
         <div class='content-container'>
             <div class="sidebar noselect loading">
                 <div class="searchContainer">
@@ -39,12 +39,13 @@
                     <div class="searchInputContainer">
                         <div class="filter">Filter</div>
                         <input type="text" id="search" autocomplete="off"></input>
+                    </div>
                 </div>
+                <div class="sidebar-content"></div>
             </div>
-        </div>
-        <div class="content">
-        </div>
-
+            <div class="content">
+            <!--            CONTENT DYNAMICALLY LOADED HERE-->
+            </div>
         </div>
     </body>
 </html>

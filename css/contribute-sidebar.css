@@ -6,7 +6,8 @@
     border: 1px solid #CCCCCC;
     background-color: #ffffff;
     border-radius: 3px;
-    margin: 10px;
+    margin-left: 8px;
+    margin-top: 10px;
 }
 
 .sidebar .infoButton {
@@ -32,11 +33,20 @@
     background-color: #ECECEC;
 }
 
+.sidebar-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 10px;
+}
+
+.sidebar-content:hover {
+    overflow-y: scroll;
+}
+
 .sidebar .searchContainer {
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
     height: 50px;
     width: 100%;
 }

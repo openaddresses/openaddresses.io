@@ -1,7 +1,12 @@
+.content-container {
+    width: 100%;
+    height: calc(100% - 100px);
+}
+
 .content {
     float: right;
     margin-left: 300px;
-    height: calc(100% - 100px);
+    height: 100%;
     width: calc(100% - 300px);
     position: relative;
     z-index: 1;
@@ -9,11 +14,12 @@
 }
 
 .sidebar {
-    overflow-y:scroll;
+    padding-right;
     position: fixed;
     width: 300px;
     height: calc(100% - 100px);
     font-family: "helvetica;
+    border-right: 1px solid #CCCCCC;
 }
 
 /*STANDARD FEATURES*/
