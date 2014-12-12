@@ -1,0 +1,22 @@
+<div class="nav-icon"></div>
+<a class="link login-button" href="contribute-login.html"></a>
+<a class="link" href="partners.html">Partners</a>
+<a class="link" href="http://data.openaddresses.io">Data</a>
+<a class="link contribute-link" href="contribute-login.html">Contribute</a>
+<a class="link" href="mailto:openaddresses@gmail.com">Contact</a>
+
+<script>
+    if (localStorage.hello) {
+        var base = 'https://api.github.com/';
+        var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+        jQuery.get(base + 'user' + auth, function (data) {
+            $('.login-button').css({
+                'background-image': 'url(\'' + data.avatar_url + '\')',
+                'background-size': '40px 40px'
+            });
+            $('.login-button').attr("href", "contribute.html");
+            $('.contribute-link').attr("href", "contribute.html");
+
+        });
+    }
+</script>

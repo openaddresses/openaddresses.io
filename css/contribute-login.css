@@ -1,0 +1,62 @@
+.login-container {
+    background-color: #2E343A;
+    height: calc(100% - 100px);
+    width: auto;
+    position: relative;
+}
+
+.login {
+    padding: 20px;
+    position: absolute;
+    top: 150px;
+    left: calc( 50% - 150px);
+    margin: 0 auto;
+    width: 340px;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 6px;
+}
+
+.oa-logo {
+    margin: 10px 75px 20px 75px;
+    height: 150px;
+    width: 150px;
+    background-position:center;
+    background-color: lightgrey;
+    background-image: url('../img/17.png');*/
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    border-radius: 10px
+}
+
+.login p.big {
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.login p.small {
+    font-size: 14px;
+    margin: 10px;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+
+.login a {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: "Titillium Web",sans-serif;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    margin: 0px 10% 15px 10%;
+    width: 80%;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.login a:hover {
+    background-color: rgba(255,255,255, 0.15);
+}
