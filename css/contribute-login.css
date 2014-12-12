@@ -7,7 +7,7 @@
 
 .login {
     position: absolute;
-    top: calc( 25% - 150px );
+    top: 150px;
     left: calc( 50% - 150px);
     margin: 0 auto;
     height: 300px;
