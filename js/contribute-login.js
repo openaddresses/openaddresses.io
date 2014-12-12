@@ -9,7 +9,7 @@ function login() {
     var github = hello('github');
     github.login( function() {
         github.api( '/me', function(p){
-            if (p.login) $(function() { $(".content-container").load("blocks/contribute-main.html"); });
+            if (p.login) window.location.replace("contribute.html");
         });
     });
 }

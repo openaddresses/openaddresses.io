@@ -6,13 +6,18 @@
 <a class="link" href="mailto:openaddresses@gmail.com">Contact</a>
 
 <script>
-//    if ( $( window ).width() >= 800 && localStorage.hello) {
-//        var base = 'https://api.github.com/';
-//        var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
-//
-//        jQuery.get(base + 'user/' + auth, function (data) {
-//            console.log(data);
-//            //$('.nav-container').append('<a class="userImg" href=""></a>');
-//        });
-//    }
+    if (localStorage.hello) {
+        var base = 'https://api.github.com/';
+        var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+
+        console.log("here");
+
+        jQuery.get(base + 'user' + auth, function (data) {
+            console.log(data);
+            $('.login-button').css({
+                'background-image': 'url(\'' + data.avatar_url + '\')',
+                'background-size': '40px 40px'
+            });
+        });
+    }
 </script>
