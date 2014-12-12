@@ -4,4 +4,15 @@
 <a href="http://data.openaddresses.io">Data</a>
 <a href="partners.html">Partners</a>
 
+<script>
+    if ( $( window ).width() >= 800 && localStorage.hello) {
+        var base = 'https://api.github.com/';
+        var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 
+        jQuery.get(base + 'user/' + auth, function (data) {
+
+            console.log(data);
+            //$('.nav-container').append('<a class="userImg" href=""></a>');
+        });
+    }
+</script>
