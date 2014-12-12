@@ -15,9 +15,10 @@
         <link rel='apple-touch-icon-precomposed' href='img/17.png'>
         <script src="lib/jquery.min.js"></script>
         <script src="lib/hello.min.js"></script>
-        <script>$(document).ready(function(){$(".nav-container").load("blocks/nav.html");});</script>
         <script src="./js/contribute.js"></script>
         <script src="./lib/mustache.js"></script>
+        <script src="./js/contribute.js"></script>
+        <script>$('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });</script>
     </head>
     <body>
         <!-- HEADER -->
@@ -32,7 +33,18 @@
             </div>
         </div>
         <div class='content-container'>
-            <!-- Application Content-->
+            <div class="sidebar noselect loading">
+                <div class="searchContainer">
+                    <div class="searchIcon"></div>
+                    <div class="searchInputContainer">
+                        <div class="filter">Filter</div>
+                        <input type="text" id="search" autocomplete="off"></input>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+        </div>
+
         </div>
     </body>
 </html>
