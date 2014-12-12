@@ -34,8 +34,8 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
 
 //Create Sidebar
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
-    var sidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
-    var renderSidebar = '<div class="buttonContainer"><div class="infoButton"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
+    var sidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
+    var renderSidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
     data.forEach(function(file) {
         if (file.name.indexOf('.json') !== -1) {
             renderSidebar = renderSidebar + sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]);

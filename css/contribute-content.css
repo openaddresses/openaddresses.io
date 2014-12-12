@@ -1,3 +1,11 @@
+/*HELP PAGE*/
+
+.help-container {
+    padding: 20px;
+    height: 100%;
+}
+
+/*CONTENT PAGE*/
 .content .pane {
     background-color: #FAFAFA;
     margin: 20px;

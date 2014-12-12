@@ -10,15 +10,22 @@
     margin-top: 10px;
 }
 
+ .sidebar .red {
+    background-color: #ee8a65;
+}
+
+ .sidebar .yellow {
+    background-color: #f1f075;
+}
+
+.sidebar .green {
+    background-color: #56b881;
+}
+
 .sidebar .infoButton {
     float: right;
-    width: 10%;
-    height: 100%;
-    background-color: #FAFAFA;
-    background-image:url('/img/i.svg');
-    background-repeat:no-repeat;
-    background-size: 13px 13px;
-    background-position:center;
+    height: 50px;
+    width: 28px;
 }
 
 .sidebar .mainButton {
