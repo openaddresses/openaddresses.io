@@ -31,5 +31,7 @@ do
 done
 
 # build mbtiles
-cat $ROOTDIR/build/out.csv | nodejs $ROOTDIR/tippecanoe/monoxylon.js | $ROOTDIR/tippecanoe/tippecanoe -r 1.5 -l "openaddresses" -X -n "OpenAddresses `date`" -f -o $ROOTDIR/openaddresses.mbtiles
-
+# NOTE: the "-r 1.5" flag is aggressive about retaining geometry, producing a very
+# large mbtiles tile. Increasing this value is probably wise. Tippecanoe's default is 
+# 2.5, which is too high to produce pleasing results.
+cat $ROOTDIR/build/out.csv | nodejs $ROOTDIR/tippecanoe/monoxylon.js | $ROOTDIR/tippecanoe/tippecanoe -r 2 -l "openaddresses" -X -n "OpenAddresses `date`" -f -o $ROOTDIR/openaddresses.mbtiles

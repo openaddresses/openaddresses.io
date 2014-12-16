@@ -10,8 +10,8 @@
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="name"><![CDATA[OpenAddresses - 2014-12-15]]></Parameter>
-  <Parameter name="source"><![CDATA[mapbox:///sbma44.zemf5hfr,mapbox.mapbox-streets-v5]]></Parameter>
+  <Parameter name="name"><![CDATA[OpenAddresses20141215]]></Parameter>
+  <Parameter name="source"><![CDATA[mapbox:///sbma44.8dkotj4i,mapbox.mapbox-streets-v5]]></Parameter>
 </Parameters>
 
 
@@ -22,7 +22,7 @@
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <MarkersSymbolizer fill="#ffffff" stroke-width="0" width="1" fill-opacity="0.5" allow-overlap="true" />
+    <MarkersSymbolizer fill="#ffffff" stroke-width="0" width="2" fill-opacity="0.5" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="openaddresses"

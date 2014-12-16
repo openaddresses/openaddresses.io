@@ -26,7 +26,7 @@ maintain or invert existing value (light to dark) scale.
 #openaddresses {
   marker-fill: white;
   marker-line-width: 0;
-  marker-width: 1;
+  marker-width: 2;
   marker-fill-opacity: 0.5;
   marker-allow-overlap: true;
   [zoom>=14] { marker-width: 1.5; marker-opacity: 0.9; }
