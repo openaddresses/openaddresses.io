@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>OpenAddresses</title>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+        <link href='css/reset.css' rel='stylesheet' />
+        <link href='css/style.css' rel='stylesheet' />
+        <link href='css/contribute-login.css' rel='stylesheet' />
+        <link rel='shortcut icon' href='img/17.png'>
+        <link rel='apple-touch-icon-precomposed' href='img/17.png'>
+        <script src="lib/hello.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
+        <script src="./js/index.js"></script>
+    </head>
+    <body>
+        <!--<div class='news'>Urgent News Header</div>-->
+        <div class='bg-dark'>
+            <a class="home" href="index.html">
+                <div class='logo'>
+                    OpenAddresses
+                </div>
+            </a>
+            <div class='nav-container'>
+                <!-- blocks/nav.html dynamically loaded here-->
+            </div>
+
+                <div class='login'>
+                    <div class="oa-logo"></div>
+                    <div class="login-header">
+                        <p class="big">OpenAddresses uses Github to manage contributions.</p>
+                        <p class="small">Please login or create an account to get started!</p>
+                    </div>
+                    <a id='github' onclick="login();">Login Via Github</a>
+                    <a href="https://github.com/join">Create an account</a>
+                </div>
+
+            <!--Auth Managed through: https://auth-server.herokuapp.com-->
+            <script src="./js/contribute-login.js"></script>
+
+    </body>
+</html>

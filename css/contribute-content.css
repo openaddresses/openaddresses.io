@@ -1,0 +1,51 @@
+/*HELP PAGE*/
+
+.help-container {
+    padding: 20px;
+    height: 100%;
+}
+
+/*CONTENT PAGE*/
+.content .pane {
+    background-color: #FAFAFA;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.content .toolbar {
+    position: absolute;
+    background-color: #ECECEC;
+    height: 48px;
+    width: 100px;
+    right: 0px;
+    top: 0px;
+    border-bottom-left-radius: 4px;
+}
+
+.content .tool {
+    border-radius: 3px;
+    float:left;
+    position: relative;
+    margin: 12px;
+    height: 24px;
+    width: 24px;
+    background-repeat:no-repeat;
+    background-size: 13px 13px;
+    background-position:center;
+}
+
+.content .closeTool {
+    background-image:url('/img/x.svg');
+}
+
+.content .saveTool {
+    background-image:url('/img/save.svg');
+}
+
+.content .tool:hover {
+    margin: 6px;
+    height: 36px;
+    width: 36px;
+    background-color: #7D7D7D;
+}

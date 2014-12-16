@@ -1,0 +1,311 @@
+html {
+    width:100%;
+    height:100%;
+    min-width: 580px;
+}
+
+body {
+    width:100%;
+    height:100%;
+    font-family: 'raleway',sans-serif;
+    background-color: white;
+}
+
+/*Stupid Firefox Bug*/
+.home {
+    text-decoration: none;
+}
+
+/*Setup up mainpage fullbleed background*/
+.bg {
+    color: #FFF;
+    height: 100%;
+    width:100%;
+    background-image:url('../img/addresses.jpg');
+    background-size: cover;
+    min-height: 400px;
+}
+
+.bg-dark {
+    color: #FFF;
+    height: 100%;
+    width:100%;
+    min-height: 400px;
+    background-color: #2E343A;
+}
+
+/*Smaller bar for non-bleed headers*/
+.bg-bar {
+    color: #FFF;
+    width:100%;
+    background-color: #2E343A;
+    min-height: 100px;
+    height: 100px;
+}
+
+/*Make links stay white*/
+.bg > a,
+.bg-dark > a,
+.bg-bar > a,
+.news > a {
+    color: #ffffff;
+}
+
+/*Puts header at top of page for urgent news*/
+.news {
+    float: left;
+    position: relative;
+    font-family: "Titillium Web",sans-serif;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #2E343A;
+    text-align: center;
+    color: #FFF;
+}
+
+/*Styles OpenAddresses Logo*/
+.logo {
+    float: left;
+    margin: 30px 10px 30px 30px;
+    font-family: "Titillium Web",sans-serif;
+    font-size: 30px;
+}
+
+/*Used for sub pages eg. OpenAddresses | {{logo-sub}} */
+.logo-sub {
+    float: left;
+    margin: 34px 0px 30px 0px;
+    font-family: "Titillium Web",sans-serif;
+    font-size: 25px;
+}
+
+
+/* Non-specific nav link settings*/
+.nav-container > a {
+    font-family: "Titillium Web",sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    float: right;
+}
+
+/*Top Nav Bar*/
+@media screen and (min-width: 800px) {
+    .login-button {
+        border: none !important;
+        height: 40px;
+        width: 40px;
+        background-position:center;
+        background-image: url('../img/person.svg');
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+        margin: 3px 0px 3px 3px;
+    }
+
+    .nav-container {
+        float: right;
+        margin: 25px;
+    }
+
+    /*Keep links looking pretty*/
+    .nav-container > a:link, .nav-container > .link:visited {
+        padding: 12px;
+        margin: 3px;
+        color: #FFF;
+    }
+
+    .nav-container > a:hover {
+        background-color: rgba(255,255,255,0.15);
+    }
+}
+
+/*Small Screen Hamburger menu*/
+@media screen and (max-width: 799px) {
+    .login-button {
+        display: none !important;
+    }
+    .nav-container {
+        width: 130px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 1;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        float: right;
+        margin: 30px 30px 10px 0px;
+        background-position:center;
+        background-image: url('../img/menu.svg');
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+    }
+
+    .nav-container > a {
+        float: left;
+        display: none;
+        padding: 10px;
+        margin: 3px;
+        font-size: 14px;
+        background-color: #575c61;
+        color: #FFF;
+    }
+
+    .nav-container > a:hover {
+        background-color: #2E343A;
+    }
+
+    .nav-container:hover > a {
+        float: left;
+        display: block;
+        height: 38px;
+        width: 100px;
+    }
+}
+
+/*Used on the mainpage to centre slogan*/
+.bg > .tagline {
+    min-width: 350px;
+    background-color: rgba(46, 52, 58, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    left: 10%;
+    font-size: 50px;
+    line-height: 55px;
+    font-family: 'Raleway', sans-serif;
+    color: #E4E4E4;
+}
+
+/*Adds small down arrow to prompt users to scroll on fullbleed*/
+.down {
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    top: -25px;
+    position: absolute;
+    margin-left: auto ;
+    margin-right: auto ;
+    height: 25px;
+    width: 40px;
+    background-position:center;
+    background-image: url('../img/down.svg');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-color: #2E343A;
+    border-radius: 7px 7px 0px 0px;
+    text-align: center;
+}
+
+/*Small separators that can contain text*/
+.divider {
+    float: left;
+    position: relative;
+    font-family: "Titillium Web",sans-serif;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #2E343A;
+    text-align: center;
+    color: #FFF;
+}
+
+.map-divider {
+    margin-top: 50px;
+}
+
+.button > a:link, .button > a:visited {
+        font-family: "Titillium Web",sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 14px;
+        border-style:solid;
+        border-width:1px;
+        border-color: #B8B8B8;
+        border-radius: 5px;
+        text-align: center;
+        color: black;
+        position: absolute;
+        bottom: -30px;
+        left: 0px;
+        right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.button > a:hover {
+    background-color: #2E343A;
+    color: white;
+}
+
+.col-pane {
+    background-color: white;
+    width: 100%;
+    height: 40%;
+    min-height: 400px;
+}
+
+@media (min-width: 750px) {
+     .col {
+        height: 250px;
+     }
+}
+
+@media (max-width: 750px) {
+    .col {
+        height: 300px;
+    }
+}
+
+.col {
+    font-size: 12pt;;
+    width: 23%;
+    float: left;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    line-height: 1.2;
+}
+
+.img {
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
+
+.leftimg {
+    background-image: url('../img/download.svg');
+}
+
+.midimg {
+    background-image: url('../img/add.svg');
+}
+
+.rightimg {
+    background-image: url('../img/code.svg');
+}
+
+#map {
+    height: 100%;
+    width:  100%;
+}
