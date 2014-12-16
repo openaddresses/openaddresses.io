@@ -75,10 +75,12 @@ Map { background-color: @land; }
   polygon-fill: mix(@land,@fill1,95);
 }
 
+/*
 #building { 
   polygon-fill: mix(@fill2,@land,25);
   [zoom>=16]{ polygon-fill: mix(@fill2,@land,50);}
 }
+*/
 
 #aeroway {
   ['mapnik::geometry_type'=3][type!='apron'] { 
