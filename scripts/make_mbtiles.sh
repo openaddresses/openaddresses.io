@@ -9,7 +9,7 @@ rm -rf tippecanoe build openaddresses-download
 
 sudo apt-get update -y
 sudo apt-get install -y git make g++ libsqlite3-dev protobuf-compiler libprotobuf-dev awscli nodejs
-git clone git@github.com:mapbox/tippecanoe.git
+git clone https://github.com/mapbox/tippecanoe.git
 cd $ROOTDIR/tippecanoe && make
 curl https://raw.githubusercontent.com/sbma44/monoxylon/master/monoxylon.js > $ROOTDIR/tippecanoe/monoxylon.js
 
