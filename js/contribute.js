@@ -1,6 +1,9 @@
 /*jshint jquery:true,browser:true,curly: false */
 var base = 'https://api.github.com/';
-var auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+var auth;
+if (localStorage.hello) auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+else auth = '?access_token=' + localStorage.token;
+
 var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
 var userName = '';
 var masterSha = '';
