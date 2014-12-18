@@ -7,6 +7,8 @@
 <div class="logout-button">Logout</div>
 
 <script>
+    var logoutTimeout;
+    
     if (localStorage.hello || localStorage.token) {
         var base = 'https://api.github.com/';
         var auth;
@@ -21,15 +23,14 @@
             $('.login-button').attr("href", "contribute.html");
             $('.login-button').addClass('logout');
             $('.contribute-link').attr("href", "contribute.html");
-            
-            var delay=1000, logoutTimeout;
-            $('.login-button .logout').hover ( function() {
-                console.log("HOVER LOGOUT");
+                       
+            $('.logout').hover ( function() {
                 $('.logout-button').css('display', 'block');
-                logoutTimeout = setTimeout(function(){
+            }, function() {
+                logoutTimeout = setTimeout(function() {
                     $('.logout-button').css('display', 'none');
-                }, delay);
-            }, function() {});
+                }, 200);
+            });
         });
     }
     
@@ -42,10 +43,8 @@
     );
 
     $('.logout-button').click(function() {
-        $('.login-button').css({
-            'background-image': 'url(\'../img/person.svg\')',
-            'background-size': '32px 32px'
-        });
         delete localStorage.hello;
+        delete localStorage.token;
+        location.reload();
     });
 </script>
