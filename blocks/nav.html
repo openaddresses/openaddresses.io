@@ -1,9 +1,10 @@
 <div class="nav-icon"></div>
 <a class="link login-button" href="contribute-login.html"></a>
-<a class="link" href="partners.html">Partners</a>
+<!--<a class="link" href="partners.html">Partners</a>-->
 <a class="link" href="http://data.openaddresses.io">Data</a>
 <a class="link contribute-link" href="contribute-login.html">Contribute</a>
 <a class="link" href="mailto:openaddresses@gmail.com">Contact</a>
+<div class="logout-button">Logout</div>
 
 <script>
     if (localStorage.hello) {
@@ -15,8 +16,34 @@
                 'background-size': '40px 40px'
             });
             $('.login-button').attr("href", "contribute.html");
+            $('.login-button').addClass('logout');
             $('.contribute-link').attr("href", "contribute.html");
-
         });
     }
+    
+    var delay=1000, logoutTimeout;
+    $('.login-button logout').hover (
+        function() {
+            $('.logout-button').css('display', 'block');
+            logoutTimeout = setTimeout(function(){
+               $('.logout-button').css('display', 'none');
+            }, delay);
+        }, function() {}
+    );
+    
+    $('.logout-button').hover (
+        function() {
+            clearTimeout(logoutTimeout);
+        }, function() {
+            $('.logout-button').css('display', 'none');
+        }
+    );
+    
+    $('.logout-button').click(function() {
+        $('.login-button').css({
+            'background-image': 'url(\'../img/person.svg\')',
+            'background-size': '32px 32px'
+        });
+        delete localStorage.hello;
+    });
 </script>
