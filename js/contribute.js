@@ -48,7 +48,7 @@ jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, f
     $( ".sidebar-content" ).html(renderSidebar);
     $('.buttonContainer').off().on('click', function () {
         if ( $(this).hasClass('newSource') ) {
-            renderSource({});
+            renderSource({filename: "New Source"});
         } else {
             var name = '';
             $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
