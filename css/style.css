@@ -92,6 +92,10 @@ body {
     float: right;
 }
 
+.logout-button {
+    display: none;
+}
+
 /*Top Nav Bar*/
 @media screen and (min-width: 800px) {
     .logout-button {
@@ -112,7 +116,6 @@ body {
         text-decoration: none;
         font-size: 14px;
         text-align: center;
-        display: none;
     }
     
     .nav-container > .logout-button:hover {
