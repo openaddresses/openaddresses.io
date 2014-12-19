@@ -90,46 +90,13 @@ function renderSource(source) {
 //==== Search Bar ====
 
 //On focus change color
-$('input#search').focus(function(){
-    $('.searchContainer').css("background-color","#F1F1F1");
-});
+$( document ).ready(function() {
+    $('input#search').focus(function(){
+        $('.searchContainer').css("background-color","#F1F1F1");
+    });
 
-//On focusoff lose color
-$('input#search').focusout(function(){
-    $('.searchContainer').css("background-color","#ffffff");
-});
-
-//Hides Filter
-$('input#search').keypress(function(){
-    $('.filter').css("visibility","hidden");
-});
-
-//Shows Filter
-$('input#search').on("keyup", function() {
-    if ($('input#search').val() === '') {
-        $('.filter').css("visibility","visible");
-    } else {
-        for (var i = 0; i<window.selection.checks.length; i++){
-            if (window.selection.checks[i].children === true){
-                for (var child = 0; child < window.selection.checks[i].subChecks.length; child++){
-                    if (window.selection.checks[i].subChecks[child].name.contains($('input#search').val()) || window.selection.checks[i].subChecks[child].desc.contains($('input#search').val())){
-                        $('#' + i + '.buttonContainer').css("display", "block");
-                        window.selection.checks[i].enabled = true;
-                    }
-                }
-
-                if ($(i + '.buttonContainer').css("display") != "block"){
-                    $('#' + i + 'buttonContainer').css("display", "none");
-                    window.selection.checks[i].enabled = false;
-                }
-
-            } else if (window.selection.checks[i].name.contains($('input#search').val()) || window.selection.checks[i].desc.contains($('input#search').val())){
-                $('#' + i + '.buttonContainer').css("display", "block");
-                window.selection.checks[i].enabled = true;
-            } else {
-                $('#' + i + '.buttonContainer').css("display", "none");
-                window.selection.checks[i].enabled = false;
-            }
-        }
-    }
+    //On focusoff lose color
+    $('input#search').focusout(function(){
+        $('.searchContainer').css("background-color","#ffffff");
+    }); 
 });
