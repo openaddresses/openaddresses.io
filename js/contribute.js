@@ -3,7 +3,6 @@ var base = 'https://api.github.com/';
 var auth;
 if (localStorage.hello) auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else auth = '?access_token=' + localStorage.token;
-
 var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
 var userName = '';
 var masterSha = '';
@@ -72,40 +71,42 @@ function renderSource(source) {
         }, function() {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
-        
-        $('.actionClose').click(function() {
-            swal({
-                title: "Are you sure?",
-                text: "Any changes you have made will be lost",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Continue",
-                closeOnConfirm: false 
-            }, function() {
-                $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
-            });
-        });
-        
-        $('.actionSave').click(function() {
-            //Create branch that references oa/oa/ref/master
-            $.ajax({
-                contentType: 'application/json',
-                crossDomain: true,
-                data: '{ "ref": "refs/heads/' + userRef + '", "sha":  "327f5375dbc53f4f69a93e2d531cbe27dcc2f00d" }',
-                dataType: 'json',
-                success: function (data) {
-                    swal("Good job!", "You're changes are awaiting review", "success")
-                },
-                error: function() {
-                    console.log('FAIL');
-                },
-                processData: false,
-                type: 'POST',
-                url: base + 'repos/' + userName + '/git/refs' + auth
-            }); 
-        });
+        $('.actionClose').click(closeEdit);
+        $('.actionSave').click(saveEdit);
     });
+}
+
+function closeEdit() {
+    swal({
+        title: "Are you sure?",
+        text: "Any changes you have made will be lost",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Continue",
+        closeOnConfirm: false 
+    }, function() {
+        $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+    });
+}
+
+function saveEdit() {
+    //Create branch that references oa/oa/ref/master
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: '{ "ref": "refs/heads/' + userRef + '", "sha": "' + masterSha + '" }',
+        dataType: 'json',
+        success: function (data) {
+            swal("Good job!", "You're changes are awaiting review", "success")
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        processData: false,
+        type: 'POST',
+        url: base + 'repos/' + userName + '/git/refs' + auth
+    }); 
 }
 
 //==== Search Bar ====
