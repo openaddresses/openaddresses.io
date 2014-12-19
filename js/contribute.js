@@ -90,7 +90,17 @@ function renderSource(source) {
         }); 
         
         $('.actionClose').click(function() {
-             $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+            swal({
+                title: "Are you sure?",
+                text: "Any changes you have made will be lost",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Continue",
+                closeOnConfirm: false 
+            }, function() {
+                $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+            });
         });
     });
 }
