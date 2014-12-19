@@ -17,22 +17,6 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
     jQuery.post(base + 'repos/openaddresses/openaddresses/forks' + auth, function(data) {
         userName = data.full_name;
         userRef = Date.now();
-        //Create branch that references oa/oa/ref/master
-        //            $.ajax({
-        //                contentType: 'application/json',
-        //                crossDomain: true,
-        //                data: '{ "ref": "refs/heads/' + userRef + '", "sha":  "327f5375dbc53f4f69a93e2d531cbe27dcc2f00d" }',
-        //                dataType: 'json',
-        //                success: function (data) {
-        //                    console.log(JSON.stringify(data));
-        //                },
-        //                error: function() {
-        //                    console.log('FAIL');
-        //                },
-        //                processData: false,
-        //                type: 'POST',
-        //                url: base + 'repos/' + userName + '/git/refs' + auth
-        //            });
     });
 });
 
@@ -101,6 +85,25 @@ function renderSource(source) {
             }, function() {
                 $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
             });
+        });
+        
+        $('.actionSave').click(function() {
+            //Create branch that references oa/oa/ref/master
+            $.ajax({
+                contentType: 'application/json',
+                crossDomain: true,
+                data: '{ "ref": "refs/heads/' + userRef + '", "sha":  "327f5375dbc53f4f69a93e2d531cbe27dcc2f00d" }',
+                dataType: 'json',
+                success: function (data) {
+                    swal("Good job!", "You're changes are awaiting review", "success")
+                },
+                error: function() {
+                    console.log('FAIL');
+                },
+                processData: false,
+                type: 'POST',
+                url: base + 'repos/' + userName + '/git/refs' + auth
+            }); 
         });
     });
 }
