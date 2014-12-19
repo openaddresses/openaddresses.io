@@ -1,0 +1,20 @@
+<div class="buttonContainer newSource">
+    <div class="infoButton green"></div>
+    <div class="mainButton">
+        <div class="buttonImage plus"></div>
+        <div class="buttonTextContainer">
+            <div class="buttonText">Add New Source</div>
+        </div>
+    </div>
+</div>
+{{#sources}}
+    <div class="buttonContainer">
+        <div class="infoButton green"></div>
+        <div class="mainButton">
+            <div class="buttonImage {{country}}"></div>
+            <div class="buttonTextContainer">
+                <div class="buttonText">{{name}}</div>
+            </div>
+        </div>
+    </div>
+{{/sources}}

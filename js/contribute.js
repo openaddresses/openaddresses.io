@@ -35,25 +35,22 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
     });
 });
 
-//Create Sidebar
+//Create Sidebar by getting list of sources from GH
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
-    var sidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
-    var renderSidebar = '<div class="buttonContainer newSource"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
-    data.forEach(function(file) {
-        if (file.name.indexOf('.json') !== -1) {
-            renderSidebar = renderSidebar + sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]);
-        }
-    });
-    $('.sidebar').removeClass('loading');
-    $( ".sidebar-content" ).html(renderSidebar);
-    $('.buttonContainer').off().on('click', function () {
-        if ( $(this).hasClass('newSource') ) {
-            renderSource({filename: "New Source"});
-        } else {
-            var name = '';
-            $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
-            loadSource(name);
-        }
+    $.get('../blocks/contribute-sidebar.mst', function(template) {
+        data = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
+        data.sources = data.sources.map(function(source) {
+            source.country = source.name.split('-')[0];
+            return source;
+        });
+        
+        $('.sidebar').removeClass('loading');
+        $('.sidebar-content').html(Mustache.render(template, data));
+        
+        $('.buttonContainer').off().on('click', function () {
+            if ( $(this).hasClass('newSource') ) renderSource({filename: "New Source"});
+            else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
+        });
     });
 });
 
@@ -68,8 +65,7 @@ function loadSource(name) {
 
 function renderSource(source) {
     $.get('../blocks/contribute-main-edit.mst', function(template) {
-    var render = Mustache.render(template, source);
-        $('.content').html(render);
+        $('.content').html(Mustache.render(template, source));
         if (source.type) $('.type > .' + source.type) .prop('selected', true);
         
         if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
@@ -88,7 +84,6 @@ function renderSource(source) {
 }
 
 //==== Search Bar ====
-
 //On focus change color
 $( document ).ready(function() {
     $('input#search').focus(function(){
