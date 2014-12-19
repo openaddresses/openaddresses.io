@@ -67,10 +67,14 @@ function loadSource(name) {
 }
 
 function renderSource(source) {
-     $.get('../blocks/contribute-main-edit.mst', function(template) {
-        var render = Mustache.render(template, source);
+    $.get('../blocks/contribute-main-edit.mst', function(template) {
+    var render = Mustache.render(template, source);
         $('.content').html(render);
-         
+        if (source.type) $('.type > .' + source.type) .prop('selected', true);
+        
+        if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
+        else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
+        
         $('.paneTitle').hover(function() {
             $(this).find('> .helpIcon').css('display', 'block');
         }, function() {
