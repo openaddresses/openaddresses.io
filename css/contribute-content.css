@@ -1,5 +1,11 @@
 /*HELP PAGE*/
 
+.content .paneTitle {
+    cursor: pointer;
+    float: left;
+    margin: 5px 10px 5px 5px;
+}
+
 .help-container {
     padding: 20px;
     height: 100%;
@@ -7,10 +13,12 @@
 
 /*CONTENT PAGE*/
 .content .pane {
+    float: left;
     background-color: #FAFAFA;
     margin: 20px;
     border-radius: 5px;
     padding: 5px;
+    height: auto;
 }
 
 .content .toolbar {
@@ -21,6 +29,10 @@
     right: 0px;
     top: 0px;
     border-bottom-left-radius: 4px;
+}
+
+.content .buttonContainer {
+    margin-right: 20px;
 }
 
 .content .tool {

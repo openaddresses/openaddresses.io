@@ -48,7 +48,7 @@ jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, f
     $( ".sidebar-content" ).html(renderSidebar);
     $('.buttonContainer').off().on('click', function () {
         if ( $(this).hasClass('newSource') ) {
-            renderSource({});
+            renderSource({filename: "New Source"});
         } else {
             var name = '';
             $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
@@ -67,9 +67,19 @@ function loadSource(name) {
 }
 
 function renderSource(source) {
-     $.get('../blocks/contribute-main-edit.mst', function(template) {
-        var render = Mustache.render(template, source);
+    $.get('../blocks/contribute-main-edit.mst', function(template) {
+    var render = Mustache.render(template, source);
         $('.content').html(render);
+        if (source.type) $('.type > .' + source.type) .prop('selected', true);
+        
+        if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
+        else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
+        
+        $('.paneTitle').hover(function() {
+            $(this).find('> .helpIcon').css('display', 'block');
+        }, function() {
+            $(this).find('> .helpIcon').css('display', 'none');
+        }); 
     });   
 }
 
