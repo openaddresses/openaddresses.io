@@ -26,6 +26,7 @@
 
 .noselect { user-select: none; }
 .bold { font-weight: bold; }
+.help { background-image: url(../img/help.svg); }
 .edit { background-image: url(../img/edit.svg); }
 .save { background-image: url(../img/check.svg); }
 .warn { background-image: url(../img/warn.svg); }
@@ -55,6 +56,7 @@
     float: left;
     height: 100%;
     width: 24px;
+    cursor: pointer;
     background-repeat: no-repeat;
     background-size: 12px 12px;
     background-position: center;

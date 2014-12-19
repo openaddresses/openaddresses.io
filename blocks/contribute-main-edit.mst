@@ -8,41 +8,41 @@
     <h1>{{filename}}</h1>
 
     <div class="pane">
-        <div class="paneTitle">Data:<div class="helpIcon"></div></div>
+        <div class="paneTitle">Data:</div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{data}}"></input>
-            <div class="status save"></div>
+            <div class="status help"></div>
         </div>
 
-        <div class="paneTitle">Website:<div class="helpIcon"></div></div>
+        <div class="paneTitle">Website:</div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{website}}"></input>
-            <div class="status save"></div>
+            <div class="status help"></div>
         </div>
 
-        <div class="paneTitle">Attribution:<div class="helpIcon"></div></div>
+        <div class="paneTitle">Attribution:</div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
-            <div class="status save"></div>
+            <div class="status help"></div>
         </div>
 
-        <div class="paneTitle">Type:<div class="helpIcon"></div></div>
+        <div class="paneTitle">Type:</div>
         <div class="inputContainer">
             <select>
                 <option value="esri">ESRI</option>
                 <option value="ftp">FTP</option>
                 <option value="http">HTTP(S)</option>
             </select>
-            <div class="status edit"></div>
+            <div class="status help"></div>
         </div>
 
-        <div class="paneTitle">Compression:<div class="helpIcon"></div></div>
+        <div class="paneTitle">Compression:</div>
         <div class="inputContainer">
             <select>
                 <option value="zip">.zip</option>
                 <option value="none">none</option>
             </select>
-            <div class="status edit"></div>
+            <div class="status help"></div>
         </div>
     </div>
 </div>
