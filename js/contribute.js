@@ -1,43 +1,25 @@
 /*jshint jquery:true,browser:true,curly: false */
-var base = 'https://api.github.com/';
-var auth;
-if (localStorage.hello) auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
-else auth = '?access_token=' + localStorage.token;
+var GH = {
+    base: 'https://api.github.com/',
+    masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
+}
+if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
+else GH.auth = '?access_token=' + localStorage.token;
 
-var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
-var userName = '';
-var masterSha = '';
-var userRef = '';
 var sidebarList = {};
 
 //Create Branch to allow saving/Pull request
-jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
-    masterSha = data.object.sha;
+jQuery.get(GH.base + 'repos/' + GH.masterRef + GH.auth, function (data) {
+    GH.masterSha = data.object.sha;
     //Fork oa/oa into user account
-    jQuery.post(base + 'repos/openaddresses/openaddresses/forks' + auth, function(data) {
-        userName = data.full_name;
-        userRef = Date.now();
-        //Create branch that references oa/oa/ref/master
-        //            $.ajax({
-        //                contentType: 'application/json',
-        //                crossDomain: true,
-        //                data: '{ "ref": "refs/heads/' + userRef + '", "sha":  "327f5375dbc53f4f69a93e2d531cbe27dcc2f00d" }',
-        //                dataType: 'json',
-        //                success: function (data) {
-        //                    console.log(JSON.stringify(data));
-        //                },
-        //                error: function() {
-        //                    console.log('FAIL');
-        //                },
-        //                processData: false,
-        //                type: 'POST',
-        //                url: base + 'repos/' + userName + '/git/refs' + auth
-        //            });
+    jQuery.post(GH.base + 'repos/openaddresses/openaddresses/forks' + GH.auth, function(data) {
+        GH.userName = data.full_name;
+        GH.userRef = Date.now();
     });
 });
 
 //Create Sidebar by getting list of sources from GH
-jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
+jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources' + GH.auth, function(data) {
     sidebarList = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
     sidebarList.sources = sidebarList.sources.map(function(source) {
         source.country = source.name.split('-')[0];
@@ -68,7 +50,7 @@ function renderSidebar(list) {
 
 //If a source is clicked on, load it from GH
 function loadSource(name) {
-    jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources/' + name + auth, function(sourceRaw) {
+    jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources/' + name + GH.auth, function(sourceRaw) {
         var source = JSON.parse(atob(sourceRaw.content));
         source.filename = name;
         renderSource(source);
@@ -88,21 +70,50 @@ function renderSource(source) {
         }, function() {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
-        
-        $('.actionClose').click(function() {
+        $('.actionClose').click(closeEdit);
+        $('.actionSave').click(saveEdit);
+    });
+}
+
+function closeEdit() {
+    swal({
+        title: "Are you sure?",
+        text: "Any changes you have made will be lost",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Continue",
+        closeOnConfirm: false 
+    }, function() {
+        $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+    });
+}
+
+function saveEdit() {
+    //Create branch that references oa/oa/ref/master
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: '{ "ref": "refs/heads/' + GH.userRef + '", "sha": "' + GH.masterSha + '" }',
+        dataType: 'json',
+        success: function (data) {
             swal({
-                title: "Are you sure?",
-                text: "Any changes you have made will be lost",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
+                title: "Saved!",
+                text: "Your changes are awaiting review",
+                type: "success",
                 confirmButtonText: "Continue",
                 closeOnConfirm: false 
             }, function() {
                 $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
             });
-        });
-    });
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        processData: false,
+        type: 'POST',
+        url: GH.base + 'repos/' + GH.userName + '/git/refs' + GH.auth
+    }); 
 }
 
 //==== Search Bar ====
