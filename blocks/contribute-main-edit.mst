@@ -10,19 +10,19 @@
     <div class="pane">
         <div class="paneTitle">Data:</div>
         <div class="inputContainer">
-            <input id="hoverEdit" type="text" name="input" value="{{data}}"></input>
+            <input placeholder="http://www.caemlyn.com/addresses.zip" id="hoverEdit" type="text" name="input" value="{{data}}"></input>
             <div class="status help"></div>
         </div>
 
         <div class="paneTitle">Website:</div>
         <div class="inputContainer">
-            <input id="hoverEdit" type="text" name="input" value="{{website}}"></input>
+            <input placeholder="http://www.caemlyn.com/home.html" id="hoverEdit" type="text" name="input" value="{{website}}"></input>
             <div class="status help"></div>
         </div>
 
         <div class="paneTitle">Attribution:</div>
         <div class="inputContainer">
-            <input id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
+            <input placeholder="CCBY: City of Caemlyn" id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
             <div class="status help"></div>
         </div>
 
