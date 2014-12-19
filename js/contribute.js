@@ -38,7 +38,7 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
 //Create Sidebar
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
     var sidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
-    var renderSidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
+    var renderSidebar = '<div class="buttonContainer newSource"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
     data.forEach(function(file) {
         if (file.name.indexOf('.json') !== -1) {
             renderSidebar = renderSidebar + sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]);
@@ -47,9 +47,13 @@ jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, f
     $('.sidebar').removeClass('loading');
     $( ".sidebar-content" ).html(renderSidebar);
     $('.buttonContainer').off().on('click', function () {
-        var name = '';
-        $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
-        loadSource(name);
+        if ( $(this).hasClass('newSource') ) {
+            renderSource({});
+        } else {
+            var name = '';
+            $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
+            loadSource(name);
+        }
     });
 });
 
@@ -58,17 +62,16 @@ function loadSource(name) {
     jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources/' + name + auth, function(sourceRaw) {
         var source = JSON.parse(atob(sourceRaw.content));
         source.filename = name;
-
-        $.get('../blocks/contribute-main-edit.mst', function(template) {
-            var render = Mustache.render(template, source);
-            $('.content').html(render);
-        });
+        renderSource(source);
     });
 }
 
-//If user Saves/Exists an edit session display commit pane
-
-
+function renderSource(source) {
+     $.get('../blocks/contribute-main-edit.mst', function(template) {
+        var render = Mustache.render(template, source);
+        $('.content').html(render);
+    });   
+}
 
 //==== Search Bar ====
 
