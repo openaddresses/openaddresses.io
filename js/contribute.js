@@ -8,6 +8,7 @@ var masterRef = 'openaddresses/openaddresses/git/refs/heads/master';
 var userName = '';
 var masterSha = '';
 var userRef = '';
+var sidebarList = {};
 
 //Create Branch to allow saving/Pull request
 jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
@@ -37,22 +38,33 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
 
 //Create Sidebar by getting list of sources from GH
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
+    sidebarList = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
+    sidebarList.sources = sidebarList.sources.map(function(source) {
+        source.country = source.name.split('-')[0];
+        return source;
+    });
+    renderSidebar(sidebarList);
+});
+
+function filter(query) {
+    query = query.replace(/[-_\ ]/g, '');
+    var lists = sidebarList.sources.filter(function(list) {
+        return list.name.replace(/[-_\ ]*/g, '').indexOf(query) !== -1;
+    });
+    renderSidebar({"sources": lists});
+}
+
+function renderSidebar(list) {
     $.get('../blocks/contribute-sidebar.mst', function(template) {
-        data = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
-        data.sources = data.sources.map(function(source) {
-            source.country = source.name.split('-')[0];
-            return source;
-        });
-        
         $('.sidebar').removeClass('loading');
-        $('.sidebar-content').html(Mustache.render(template, data));
-        
+        $('.sidebar-content').html(Mustache.render(template, list));
+
         $('.buttonContainer').off().on('click', function () {
             if ( $(this).hasClass('newSource') ) renderSource({filename: "New Source"});
             else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
         });
     });
-});
+}
 
 //If a source is clicked on, load it from GH
 function loadSource(name) {
@@ -80,7 +92,7 @@ function renderSource(source) {
         $('.actionClose').click(function() {
              $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
         });
-    });   
+    });
 }
 
 //==== Search Bar ====
@@ -94,4 +106,8 @@ $( document ).ready(function() {
     $('input#search').focusout(function(){
         $('.searchContainer').css("background-color","#ffffff");
     }); 
+    
+    $('input#search').keyup(function() {
+        filter($(this).val()); 
+    });
 });
