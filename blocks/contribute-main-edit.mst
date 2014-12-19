@@ -1,8 +1,8 @@
 <div class="editor">
 
     <div class="toolbar">
-        <div class="tool saveTool"></div>
-        <div class="tool closeTool"></div>
+        <div class="tool saveTool actionSave"></div>
+        <div class="tool closeTool actionClose"></div>
     </div>
 
     <h1>{{filename}}</h1>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="buttonContainer">
-        <div class="button right">Save</div>
-        <div class="button right">Close</div>
+        <div class="button right actionSave">Save</div>
+        <div class="button right actionClose">Close</div>
     </div>
 </div>

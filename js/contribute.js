@@ -35,25 +35,22 @@ jQuery.get(base + 'repos/' + masterRef + auth, function (data) {
     });
 });
 
-//Create Sidebar
+//Create Sidebar by getting list of sources from GH
 jQuery.get(base + 'repos/openaddresses/openaddresses/contents/sources' + auth, function(data) {
-    var sidebar = '<div class="buttonContainer"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage {{country}}"></div><div class="buttonTextContainer"><div class="buttonText">{{name}}</div></div></div></div>';
-    var renderSidebar = '<div class="buttonContainer newSource"><div class="infoButton green"></div><div class="mainButton"><div class="buttonImage plus"></div><div class="buttonTextContainer"><div class="buttonText">Add New Source</div></div></div></div>';
-    data.forEach(function(file) {
-        if (file.name.indexOf('.json') !== -1) {
-            renderSidebar = renderSidebar + sidebar.replace('{{name}}', file.name.replace('.json', '')).replace('{{country}}', file.name.replace('.json', '').split('-')[0]);
-        }
-    });
-    $('.sidebar').removeClass('loading');
-    $( ".sidebar-content" ).html(renderSidebar);
-    $('.buttonContainer').off().on('click', function () {
-        if ( $(this).hasClass('newSource') ) {
-            renderSource({filename: "New Source"});
-        } else {
-            var name = '';
-            $(this).each( function(index) { if (index === 0) name = $(this).text() + '.json'; });
-            loadSource(name);
-        }
+    $.get('../blocks/contribute-sidebar.mst', function(template) {
+        data = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
+        data.sources = data.sources.map(function(source) {
+            source.country = source.name.split('-')[0];
+            return source;
+        });
+        
+        $('.sidebar').removeClass('loading');
+        $('.sidebar-content').html(Mustache.render(template, data));
+        
+        $('.buttonContainer').off().on('click', function () {
+            if ( $(this).hasClass('newSource') ) renderSource({filename: "New Source"});
+            else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
+        });
     });
 });
 
@@ -68,8 +65,7 @@ function loadSource(name) {
 
 function renderSource(source) {
     $.get('../blocks/contribute-main-edit.mst', function(template) {
-    var render = Mustache.render(template, source);
-        $('.content').html(render);
+        $('.content').html(Mustache.render(template, source));
         if (source.type) $('.type > .' + source.type) .prop('selected', true);
         
         if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
@@ -80,52 +76,22 @@ function renderSource(source) {
         }, function() {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
+        
+        $('.actionClose').click(function() {
+             $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+        });
     });   
 }
 
 //==== Search Bar ====
-
 //On focus change color
-$('input#search').focus(function(){
-    $('.searchContainer').css("background-color","#F1F1F1");
-});
+$( document ).ready(function() {
+    $('input#search').focus(function(){
+        $('.searchContainer').css("background-color","#F1F1F1");
+    });
 
-//On focusoff lose color
-$('input#search').focusout(function(){
-    $('.searchContainer').css("background-color","#ffffff");
-});
-
-//Hides Filter
-$('input#search').keypress(function(){
-    $('.filter').css("visibility","hidden");
-});
-
-//Shows Filter
-$('input#search').on("keyup", function() {
-    if ($('input#search').val() === '') {
-        $('.filter').css("visibility","visible");
-    } else {
-        for (var i = 0; i<window.selection.checks.length; i++){
-            if (window.selection.checks[i].children === true){
-                for (var child = 0; child < window.selection.checks[i].subChecks.length; child++){
-                    if (window.selection.checks[i].subChecks[child].name.contains($('input#search').val()) || window.selection.checks[i].subChecks[child].desc.contains($('input#search').val())){
-                        $('#' + i + '.buttonContainer').css("display", "block");
-                        window.selection.checks[i].enabled = true;
-                    }
-                }
-
-                if ($(i + '.buttonContainer').css("display") != "block"){
-                    $('#' + i + 'buttonContainer').css("display", "none");
-                    window.selection.checks[i].enabled = false;
-                }
-
-            } else if (window.selection.checks[i].name.contains($('input#search').val()) || window.selection.checks[i].desc.contains($('input#search').val())){
-                $('#' + i + '.buttonContainer').css("display", "block");
-                window.selection.checks[i].enabled = true;
-            } else {
-                $('#' + i + '.buttonContainer').css("display", "none");
-                window.selection.checks[i].enabled = false;
-            }
-        }
-    }
+    //On focusoff lose color
+    $('input#search').focusout(function(){
+        $('.searchContainer').css("background-color","#ffffff");
+    }); 
 });
