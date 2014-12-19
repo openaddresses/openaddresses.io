@@ -8,25 +8,25 @@
     <h1>{{filename}}</h1>
 
     <div class="pane">
-        Data:
+        <div class="paneTitle">Data:<div class="helpIcon"></div></div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{data}}"></input>
             <div class="status save"></div>
         </div>
 
-        Website:
+        <div class="paneTitle">Website:<div class="helpIcon"></div></div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{website}}"></input>
             <div class="status save"></div>
         </div>
 
-        Attribution:
+        <div class="paneTitle">Attribution:<div class="helpIcon"></div></div>
         <div class="inputContainer">
             <input id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
             <div class="status save"></div>
         </div>
 
-        Type:
+        <div class="paneTitle">Type:<div class="helpIcon"></div></div>
         <div class="inputContainer">
             <select>
                 <option value="esri">ESRI</option>
@@ -36,7 +36,7 @@
             <div class="status edit"></div>
         </div>
 
-        Compression:
+        <div class="paneTitle">Compression:<div class="helpIcon"></div></div>
         <div class="inputContainer">
             <select>
                 <option value="zip">.zip</option>

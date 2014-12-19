@@ -1,5 +1,23 @@
 /*HELP PAGE*/
 
+.content .paneTitle {
+    cursor: pointer;
+    float: left;
+    margin: 5px 10px 5px 5px;
+}
+
+.content .helpIcon {
+    display: none;
+    margin: 1px 5px;
+    float: right;
+    height: 14px;
+    width: 14px;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: center;
+    background-image: url(../img/help.svg);
+}
+
 .help-container {
     padding: 20px;
     height: 100%;

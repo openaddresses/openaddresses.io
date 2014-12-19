@@ -31,9 +31,10 @@
 .warn { background-image: url(../img/warn.svg); }
 
 .inputContainer {
+    float: left;
     height: 35px;
     width: calc(100% - 20px);
-    margin: 10px;
+    margin: 2px 10px;
     border-radius: 3px;
 }
 

@@ -70,6 +70,12 @@ function renderSource(source) {
      $.get('../blocks/contribute-main-edit.mst', function(template) {
         var render = Mustache.render(template, source);
         $('.content').html(render);
+         
+        $('.paneTitle').hover(function() {
+            $(this).find('> .helpIcon').css('display', 'block');
+        }, function() {
+            $(this).find('> .helpIcon').css('display', 'none');
+        }); 
     });   
 }
 
