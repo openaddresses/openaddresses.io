@@ -80,6 +80,10 @@ function renderSource(source) {
         }, function() {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
+        
+        $('.actionClose').click(function() {
+             $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+        });
     });   
 }
 
