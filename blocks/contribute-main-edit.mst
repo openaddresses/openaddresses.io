@@ -45,4 +45,8 @@
             <div class="status help"></div>
         </div>
     </div>
+    <div class="buttonContainer">
+        <div class="button right">Save</div>
+        <div class="button right">Close</div>
+    </div>
 </div>

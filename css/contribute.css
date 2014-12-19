@@ -30,6 +30,27 @@
 .edit { background-image: url(../img/edit.svg); }
 .save { background-image: url(../img/check.svg); }
 .warn { background-image: url(../img/warn.svg); }
+.left { float: left !important; } 
+.right {float: right !important; }
+
+/*==== BUTTON ====*/
+.button {
+    padding: 0px 10px;
+    float: left;
+    height: 35px;
+    width: auto;
+    color: white;
+    text-transform: uppercase;
+        background-color: #7D7D7D;
+    border-radius: 3px;
+    margin: 2px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #2E343A;
+}
 
 .inputContainer {
     float: left;

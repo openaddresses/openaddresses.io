@@ -13,10 +13,12 @@
 
 /*CONTENT PAGE*/
 .content .pane {
+    float: left;
     background-color: #FAFAFA;
     margin: 20px;
     border-radius: 5px;
     padding: 5px;
+    height: auto;
 }
 
 .content .toolbar {
@@ -27,6 +29,12 @@
     right: 0px;
     top: 0px;
     border-bottom-left-radius: 4px;
+}
+
+.content .buttonContainer {
+    height: 35px;
+    width: 90%;
+    margin: 10px;
 }
 
 .content .tool {
