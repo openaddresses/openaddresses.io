@@ -10,25 +10,25 @@
     <div class="pane">
         <div class="paneTitle">Data:</div>
         <div class="inputContainer">
-            <input placeholder="Link to data download" id="hoverEdit" type="text" name="input" value="{{data}}"></input>
+            <input placeholder="Link to data download" class="sourceData" id="hoverEdit" type="text" name="input" value="{{data}}"></input>
             <div class="status help"></div>
         </div>
 
         <div class="paneTitle">Website:</div>
         <div class="inputContainer">
-            <input placeholder="Link to homepage" id="hoverEdit" type="text" name="input" value="{{website}}"></input>
+            <input placeholder="Link to homepage" class="sourceWebsite" id="hoverEdit" type="text" name="input" value="{{website}}"></input>
             <div class="status help"></div>
         </div>
 
         <div class="paneTitle">Attribution:</div>
         <div class="inputContainer">
-            <input placeholder="Attribution" id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
+            <input placeholder="Attribution" class="sourceAttribution" id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
             <div class="status help"></div>
         </div>
 
         <div class="paneTitle">Type:</div>
         <div class="inputContainer">
-            <select class="type">
+            <select class="type sourceType">
                 <option class="text" value="text">Select a download type</option>
                 <option class="ESRI" value="ESRI">ESRI</option>
                 <option class="ftp" value="ftp">FTP</option>
@@ -39,7 +39,7 @@
 
         <div class="paneTitle">Compression:</div>
         <div class="inputContainer">
-            <select class="compression">
+            <select class="compression sourceCompression">
                 <option class="text" value="text">Select a compression type</option>
                 <option class="zip" value="zip">.zip</option>
                 <option class="none" value="none">none</option>

@@ -2,19 +2,21 @@
 var GH = {
     base: 'https://api.github.com/',
     masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
+    currentSource: {},
+    filename: ""
 }
+var newSource = false;
 if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else GH.auth = '?access_token=' + localStorage.token;
 
 var sidebarList = {};
 
-//Create Branch to allow saving/Pull request
+//Ensure fork exists in user account
 jQuery.get(GH.base + 'repos/' + GH.masterRef + GH.auth, function (data) {
     GH.masterSha = data.object.sha;
     //Fork oa/oa into user account
     jQuery.post(GH.base + 'repos/openaddresses/openaddresses/forks' + GH.auth, function(data) {
         GH.userName = data.full_name;
-        GH.userRef = Date.now();
     });
 });
 
@@ -42,8 +44,11 @@ function renderSidebar(list) {
         $('.sidebar-content').html(Mustache.render(template, list));
 
         $('.buttonContainer').off().on('click', function () {
-            if ( $(this).hasClass('newSource') ) renderSource({filename: "New Source"});
-            else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
+            if ( $(this).hasClass('newSource') ) {
+                newSource = true;
+                GH.filename="NewSource.json";
+                renderSource({filename: "NewSource.json"});
+            } else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
         });
     });
 }
@@ -51,10 +56,19 @@ function renderSidebar(list) {
 //If a source is clicked on, load it from GH
 function loadSource(name) {
     jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources/' + name + GH.auth, function(sourceRaw) {
-        var source = JSON.parse(atob(sourceRaw.content));
-        source.filename = name;
-        renderSource(source);
+        GH.currentSource = JSON.parse(atob(sourceRaw.content));
+        GH.sha = sourceRaw.sha;
+        GH.filename = name;
+        renderSource(GH.currentSource);
     });
+}
+
+function getValues() {
+    GH.currentSource.data = $('.sourceData').val();
+    GH.currentSource.website = $('.sourceWebsite').val();
+    GH.currentSource.attribution = $('.sourceAttribution').val();
+    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceType option:selected').val();
+    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceCompression option:selected').val();
 }
 
 function renderSource(source) {
@@ -71,7 +85,7 @@ function renderSource(source) {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
         $('.actionClose').click(closeEdit);
-        $('.actionSave').click(saveEdit);
+        $('.actionSave').click(createBranch);
     });
 }
 
@@ -89,23 +103,19 @@ function closeEdit() {
     });
 }
 
-function saveEdit() {
+function createBranch() {
+    GH.userRef = Date.now();
     //Create branch that references oa/oa/ref/master
     $.ajax({
         contentType: 'application/json',
         crossDomain: true,
-        data: '{ "ref": "refs/heads/' + GH.userRef + '", "sha": "' + GH.masterSha + '" }',
+        data: JSON.stringify({ 
+            "ref": 'refs/heads/' + GH.userRef, 
+            "sha": GH.masterSha 
+        }),
         dataType: 'json',
         success: function (data) {
-            swal({
-                title: "Saved!",
-                text: "Your changes are awaiting review",
-                type: "success",
-                confirmButtonText: "Continue",
-                closeOnConfirm: false 
-            }, function() {
-                $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
-            });
+            saveSource();
         },
         error: function() {
             console.log('FAIL');
@@ -114,6 +124,70 @@ function saveEdit() {
         type: 'POST',
         url: GH.base + 'repos/' + GH.userName + '/git/refs' + GH.auth
     }); 
+}
+
+function saveSource() {
+    getValues();
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: JSON.stringify({
+            "message": "Add " + GH.filename,
+            "path": "sources/" + GH.filename,
+            "content": btoa(JSON.stringify(GH.currentSource, null, 4)),
+            "branch": '' + GH.userRef,
+            "sha": GH.sha ? GH.sha : ""
+        }),
+        dataType: 'json',
+        success: function (data) {
+                prSource();
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        type: 'PUT',
+        url: GH.base + 'repos/' + GH.userName + '/contents/sources/' + GH.filename + GH.auth
+    }); 
+}
+
+function prSource() {
+    console.log(JSON.stringify({
+          "title": "Contributing to: " + GH.filename,
+          "body": "Adding/Updating " + GH.filename,
+          "head": GH.userName.split('/')[0] + ":" + GH.userRef,
+          "base": "master"
+        }));
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: JSON.stringify({
+          "title": "Contributing to: " + GH.filename,
+          "body": "Adding/Updating " + GH.filename,
+          "head": GH.userName.split('/')[0] + ":" + GH.userRef,
+          "base": "master"
+        }),
+        dataType: 'json',
+        success: function (data) {
+            sourceSaved();
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        type: 'POST',
+        url: GH.base + 'repos/openaddresses/openaddresses/pulls' + GH.auth
+    }); 
+}
+
+function sourceSaved() {
+    swal({
+        title: "Saved!",
+        text: "Your changes are awaiting review",
+        type: "success",
+        confirmButtonText: "Continue",
+        closeOnConfirm: false 
+    }, function() {
+        $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+    });
 }
 
 //==== Search Bar ====
