@@ -6,23 +6,16 @@
     background-color: #ffffff;
     border-radius: 3px;
     margin-top: 5px;
+    width: 100%;
 }
 
- .sidebar .red {
-    background-color: #ee8a65;
-}
-
- .sidebar .yellow {
-    background-color: #f1f075;
-}
-
-.sidebar .green {
-    background-color: #56b881;
-}
+.sidebar .red { background-color: #ee8a65; }
+.sidebar .yellow { background-color: #f1f075; }
+.sidebar .green { background-color: #56b881; }
 
 .sidebar .infoButton {
     float: right;
-    height: 50px;
+    height: 100%;
     width: 10%;
 }
 
@@ -127,7 +120,7 @@
     white-space:nowrap;
     background-color: #F6F6F6;
     height: 100%;
-    width: 79%;
+    width: 80%;
     border-right-style: solid;
     border-width: 1px;
     border-color: #CCCCCC;
