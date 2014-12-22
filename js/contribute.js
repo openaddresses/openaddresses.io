@@ -3,18 +3,19 @@ var GH = {
     base: 'https://api.github.com/',
     masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
 }
+var currentSource = {};
+var newSource = false;
 if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else GH.auth = '?access_token=' + localStorage.token;
 
 var sidebarList = {};
 
-//Create Branch to allow saving/Pull request
+//Ensure fork exists in user account
 jQuery.get(GH.base + 'repos/' + GH.masterRef + GH.auth, function (data) {
     GH.masterSha = data.object.sha;
     //Fork oa/oa into user account
     jQuery.post(GH.base + 'repos/openaddresses/openaddresses/forks' + GH.auth, function(data) {
         GH.userName = data.full_name;
-        GH.userRef = Date.now();
     });
 });
 
@@ -42,8 +43,10 @@ function renderSidebar(list) {
         $('.sidebar-content').html(Mustache.render(template, list));
 
         $('.buttonContainer').off().on('click', function () {
-            if ( $(this).hasClass('newSource') ) renderSource({filename: "New Source"});
-            else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
+            if ( $(this).hasClass('newSource') ) {
+                newSource = true;
+                renderSource({filename: "NewSource.json"});
+            } else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
         });
     });
 }
@@ -58,6 +61,7 @@ function loadSource(name) {
 }
 
 function renderSource(source) {
+    currentSource = source;
     $.get('../blocks/contribute-main-edit.mst', function(template) {
         $('.content').html(Mustache.render(template, source));
         if (source.type) $('.type > .' + source.type) .prop('selected', true);
@@ -90,22 +94,19 @@ function closeEdit() {
 }
 
 function saveEdit() {
+    GH.userRef = Date.now();
     //Create branch that references oa/oa/ref/master
     $.ajax({
         contentType: 'application/json',
         crossDomain: true,
-        data: '{ "ref": "refs/heads/' + GH.userRef + '", "sha": "' + GH.masterSha + '" }',
+        data: JSON.stringify({ 
+            "ref": 'refs/heads/' + GH.userRef, 
+            "sha": GH.masterSha 
+        }),
         dataType: 'json',
         success: function (data) {
-            swal({
-                title: "Saved!",
-                text: "Your changes are awaiting review",
-                type: "success",
-                confirmButtonText: "Continue",
-                closeOnConfirm: false 
-            }, function() {
-                $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
-            });
+            if (newSource) createSource();
+            else modifySource();
         },
         error: function() {
             console.log('FAIL');
@@ -114,6 +115,46 @@ function saveEdit() {
         type: 'POST',
         url: GH.base + 'repos/' + GH.userName + '/git/refs' + GH.auth
     }); 
+}
+
+function createSource() {
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: JSON.stringify({
+            "message": "Add " + currentSource.filename,
+            "path": "sources/" + currentSource.filename,
+            "content": btoa(currentSource),
+            "branch": '' + GH.userRef
+        }),
+        dataType: 'json',
+        success: function (data) {
+                sourceSaved();
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        processData: false,
+        processData: false,
+        type: 'PUT',
+        url: GH.base + 'repos/' + GH.userName + '/contents/sources/' + currentSource.filename + GH.auth
+    }); 
+}
+
+function modifySource() {
+    
+}
+
+function sourceSaved() {
+    swal({
+        title: "Saved!",
+        text: "Your changes are awaiting review",
+        type: "success",
+        confirmButtonText: "Continue",
+        closeOnConfirm: false 
+    }, function() {
+        $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
+    });
 }
 
 //==== Search Bar ====
