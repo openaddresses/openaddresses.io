@@ -123,6 +123,8 @@
 }
 
 .sidebar .buttonTextContainer {
+    overflow: hidden;
+    white-space:nowrap;
     background-color: #F6F6F6;
     height: 100%;
     width: 79%;
