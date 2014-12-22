@@ -28,7 +28,23 @@ jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources' + GH.a
         return source;
     });
     renderSidebar(sidebarList);
+    setStatus();
 });
+
+function setStatus() {
+    //Set status by getting list of sources from data.openaddresses.io
+    $.ajax({
+        url: "http://data.openaddresses.io/state.json",
+        type: "GET",
+        crossDomain: true,
+        success: function (res) {
+            console.log(res);
+        },
+        error: function (xhr, status) {
+            console.error(status);
+        }
+    });
+}
 
 function filter(query) {
     query = query.replace(/[-_\ ]/g, '');
