@@ -2,8 +2,9 @@
 var GH = {
     base: 'https://api.github.com/',
     masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
+    currentSource: {},
+    filename: ""
 }
-var currentSource = {};
 var newSource = false;
 if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else GH.auth = '?access_token=' + localStorage.token;
@@ -45,6 +46,7 @@ function renderSidebar(list) {
         $('.buttonContainer').off().on('click', function () {
             if ( $(this).hasClass('newSource') ) {
                 newSource = true;
+                GH.filename="NewSource.json";
                 renderSource({filename: "NewSource.json"});
             } else $(this).each(function(index) { if (index === 0) loadSource($(this).text().trim()); });
         });
@@ -54,14 +56,22 @@ function renderSidebar(list) {
 //If a source is clicked on, load it from GH
 function loadSource(name) {
     jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources/' + name + GH.auth, function(sourceRaw) {
-        var source = JSON.parse(atob(sourceRaw.content));
-        source.filename = name;
-        renderSource(source);
+        GH.currentSource = JSON.parse(atob(sourceRaw.content));
+        GH.sha = sourceRaw.sha;
+        GH.filename = name;
+        renderSource(GH.currentSource);
     });
 }
 
+function getValues() {
+    GH.currentSource.data = $('.sourceData').val();
+    GH.currentSource.website = $('.sourceWebsite').val();
+    GH.currentSource.attribution = $('.sourceAttribution').val();
+    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceType option:selected').val();
+    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceCompression option:selected').val();
+}
+
 function renderSource(source) {
-    currentSource = source;
     $.get('../blocks/contribute-main-edit.mst', function(template) {
         $('.content').html(Mustache.render(template, source));
         if (source.type) $('.type > .' + source.type) .prop('selected', true);
@@ -75,7 +85,7 @@ function renderSource(source) {
             $(this).find('> .helpIcon').css('display', 'none');
         }); 
         $('.actionClose').click(closeEdit);
-        $('.actionSave').click(saveEdit);
+        $('.actionSave').click(createBranch);
     });
 }
 
@@ -93,7 +103,7 @@ function closeEdit() {
     });
 }
 
-function saveEdit() {
+function createBranch() {
     GH.userRef = Date.now();
     //Create branch that references oa/oa/ref/master
     $.ajax({
@@ -105,8 +115,7 @@ function saveEdit() {
         }),
         dataType: 'json',
         success: function (data) {
-            if (newSource) createSource();
-            else modifySource();
+            saveSource();
         },
         error: function() {
             console.log('FAIL');
@@ -117,32 +126,56 @@ function saveEdit() {
     }); 
 }
 
-function createSource() {
+function saveSource() {
+    getValues();
     $.ajax({
         contentType: 'application/json',
         crossDomain: true,
         data: JSON.stringify({
-            "message": "Add " + currentSource.filename,
-            "path": "sources/" + currentSource.filename,
-            "content": btoa(currentSource),
-            "branch": '' + GH.userRef
+            "message": "Add " + GH.filename,
+            "path": "sources/" + GH.filename,
+            "content": btoa(JSON.stringify(GH.currentSource, null, 4)),
+            "branch": '' + GH.userRef,
+            "sha": GH.sha ? GH.sha : ""
         }),
         dataType: 'json',
         success: function (data) {
-                sourceSaved();
+                prSource();
         },
         error: function() {
             console.log('FAIL');
         },
-        processData: false,
-        processData: false,
         type: 'PUT',
-        url: GH.base + 'repos/' + GH.userName + '/contents/sources/' + currentSource.filename + GH.auth
+        url: GH.base + 'repos/' + GH.userName + '/contents/sources/' + GH.filename + GH.auth
     }); 
 }
 
-function modifySource() {
-    
+function prSource() {
+    console.log(JSON.stringify({
+          "title": "Contributing to: " + GH.filename,
+          "body": "Adding/Updating " + GH.filename,
+          "head": GH.userName.split('/')[0] + ":" + GH.userRef,
+          "base": "master"
+        }));
+    $.ajax({
+        contentType: 'application/json',
+        crossDomain: true,
+        data: JSON.stringify({
+          "title": "Contributing to: " + GH.filename,
+          "body": "Adding/Updating " + GH.filename,
+          "head": GH.userName.split('/')[0] + ":" + GH.userRef,
+          "base": "master"
+        }),
+        dataType: 'json',
+        success: function (data) {
+            sourceSaved();
+        },
+        error: function() {
+            console.log('FAIL');
+        },
+        type: 'POST',
+        url: GH.base + 'repos/openaddresses/openaddresses/pulls' + GH.auth
+    }); 
 }
 
 function sourceSaved() {
