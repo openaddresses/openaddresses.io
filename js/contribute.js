@@ -91,17 +91,59 @@ function renderSource(source) {
     $.get('../blocks/contribute-main-edit.mst', function(template) {
         $('.content').html(Mustache.render(template, source));
         if (source.type) $('.type > .' + source.type) .prop('selected', true);
-        
+
         if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
         else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
-        
+
         $('.paneTitle').hover(function() {
             $(this).find('> .helpIcon').css('display', 'block');
         }, function() {
             $(this).find('> .helpIcon').css('display', 'none');
-        }); 
+        });
         $('.actionClose').click(closeEdit);
         $('.actionSave').click(createBranch);
+        $('.help').click(help);
+    });
+}
+
+function help(){
+    var helpText = {
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Documentation",
+        cancelButtonText: "Cancel",
+        closeOnConfirm: false,
+        closeOnCancel: false
+    };
+
+    if ($(this).hasClass('helpData')) {
+        helpText.title = "Data Tag";
+        helpText.text = "Link to the raw data";
+    } else if ($(this).hasClass('helpWebsite')) {
+        helpText.title = "Website Tag";
+        helpText.text = "Link to human readable web portal";
+    } else if ($(this).hasClass('helpAttribution')) {
+        helpText.title = "Attribution Tag";
+        helpText.text = "If the source requests attribution";
+    } else if ($(this).hasClass('helpType')) {
+        helpText.title = "Type Tag";
+        helpText.text = "The protocol used to download the file";
+    } else if ($(this).hasClass('helpCompression')) {
+        helpText.title = "Compression Tag";
+        helpText.text = "Is the source within a zipfile?";
+    } else if ($(this).hasClass('helpLicense')) {
+        helpText.title = "License Tag";
+        helpText.text = "If a license is listed for the file either link to it or put the name of it here";
+    } else if ($(this).hasClass('helpNote')) {
+        helpText.title = "Note Tag";
+        helpText.text = "Any notes about the source can be added here";
+    } else {
+        helpText.title = "Help Docs";
+        helpText.text = "We don't have specific help on this tag";
+    }
+
+    swal(helpText, function() {
+        window.open('https://github.com/openaddresses/openaddresses/blob/master/CONTRIBUTING.md', '_blank');
     });
 }
 
@@ -111,9 +153,8 @@ function closeEdit() {
         text: "Any changes you have made will be lost",
         type: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
         confirmButtonText: "Continue",
-        closeOnConfirm: false 
+        closeOnConfirm: false
     }, function() {
         $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
     });
@@ -125,9 +166,9 @@ function createBranch() {
     $.ajax({
         contentType: 'application/json',
         crossDomain: true,
-        data: JSON.stringify({ 
-            "ref": 'refs/heads/' + GH.userRef, 
-            "sha": GH.masterSha 
+        data: JSON.stringify({
+            "ref": 'refs/heads/' + GH.userRef,
+            "sha": GH.masterSha
         }),
         dataType: 'json',
         success: function (data) {
@@ -139,7 +180,7 @@ function createBranch() {
         processData: false,
         type: 'POST',
         url: GH.base + 'repos/' + GH.userName + '/git/refs' + GH.auth
-    }); 
+    });
 }
 
 function saveSource() {
@@ -163,7 +204,7 @@ function saveSource() {
         },
         type: 'PUT',
         url: GH.base + 'repos/' + GH.userName + '/contents/sources/' + GH.filename + GH.auth
-    }); 
+    });
 }
 
 function prSource() {
@@ -191,7 +232,7 @@ function prSource() {
         },
         type: 'POST',
         url: GH.base + 'repos/openaddresses/openaddresses/pulls' + GH.auth
-    }); 
+    });
 }
 
 function sourceSaved() {
@@ -200,7 +241,7 @@ function sourceSaved() {
         text: "Your changes are awaiting review",
         type: "success",
         confirmButtonText: "Continue",
-        closeOnConfirm: false 
+        closeOnConfirm: false
     }, function() {
         $('.content').ready(function() { $(".content").load("blocks/contribute-main-help.html"); });
     });
@@ -216,9 +257,9 @@ $( document ).ready(function() {
     //On focusoff lose color
     $('input#search').focusout(function(){
         $('.searchContainer').css("background-color","#ffffff");
-    }); 
-    
+    });
+
     $('input#search').keyup(function() {
-        filter($(this).val()); 
+        filter($(this).val());
     });
 });
