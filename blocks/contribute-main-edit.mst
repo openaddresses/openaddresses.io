@@ -11,19 +11,19 @@
         <div class="paneTitle">Data:</div>
         <div class="inputContainer">
             <input placeholder="Link to data download" class="sourceData" id="hoverEdit" type="text" name="input" value="{{data}}"></input>
-            <div class="status help"></div>
+            <div class="status help helpData"></div>
         </div>
 
         <div class="paneTitle">Website:</div>
         <div class="inputContainer">
             <input placeholder="Link to homepage" class="sourceWebsite" id="hoverEdit" type="text" name="input" value="{{website}}"></input>
-            <div class="status help"></div>
+            <div class="status help helpWebsite"></div>
         </div>
 
         <div class="paneTitle">Attribution:</div>
         <div class="inputContainer">
             <input placeholder="Attribution" class="sourceAttribution" id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
-            <div class="status help"></div>
+            <div class="status help helpAttribution"></div>
         </div>
 
         <div class="paneTitle">Type:</div>
@@ -34,7 +34,7 @@
                 <option class="ftp" value="ftp">FTP</option>
                 <option class="http" value="http">HTTP(S)</option>
             </select>
-            <div class="status help"></div>
+            <div class="status help helpType"></div>
         </div>
 
         <div class="paneTitle">Compression:</div>
@@ -44,19 +44,19 @@
                 <option class="zip" value="zip">.zip</option>
                 <option class="none" value="none">none</option>
             </select>
-            <div class="status help"></div>
+            <div class="status help helpCompression"></div>
         </div>
 
         <div class="paneTitle">License:</div>
             <div class="inputContainer">
                 <input placeholder="License" class="sourceLicense" id="hoverEdit" type="text" name="input" value="{{license}}"></input>
-            <div class="status help"></div>
+            <div class="status help helpLicense"></div>
         </div>
 
         <div class="paneTitle">Note:</div>
             <div class="inputContainer">
-                <input placeholder="License" class="sourceNote" id="hoverEdit" type="text" name="input" value="{{note}}"></input>
-            <div class="status help"></div>
+                <input placeholder="Notes" class="sourceNote" id="hoverEdit" type="text" name="input" value="{{note}}"></input>
+            <div class="status help helpNote"></div>
         </div>
     </div>
     <div class="buttonContainer">
