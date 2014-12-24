@@ -38,7 +38,17 @@ function setStatus() {
         type: "GET",
         crossDomain: true,
         success: function (res) {
-            console.log(res);
+            $.ajax({
+                url: "http://data.openaddresses.io/" + res,
+                type: "GET",
+                crossDomain: true,
+                success: function (status) {
+                    console.log(status);
+                },
+                error: function (xhr, status) {
+                    console.error(status);
+                }
+            });
         },
         error: function (xhr, status) {
             console.error(status);
