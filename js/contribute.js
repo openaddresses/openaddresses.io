@@ -5,6 +5,7 @@ var GH = {
     currentSource: {},
     filename: ""
 }
+var machine = {};
 var newSource = false;
 if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else GH.auth = '?access_token=' + localStorage.token;
@@ -43,7 +44,13 @@ function setStatus() {
                 type: "GET",
                 crossDomain: true,
                 success: function (status) {
-                    console.log(status);
+                    status.forEach(function(stat){
+                        machine[stat[0]] = {
+                            "source": stat[0],
+                            "cache": stat[1],
+                            "processed": stat[7],
+                        }
+                    });
                 },
                 error: function (xhr, status) {
                     console.error(status);
