@@ -46,6 +46,18 @@
             </select>
             <div class="status help"></div>
         </div>
+
+        <div class="paneTitle">License:</div>
+            <div class="inputContainer">
+                <input placeholder="License" class="sourceLicense" id="hoverEdit" type="text" name="input" value="{{license}}"></input>
+            <div class="status help"></div>
+        </div>
+
+        <div class="paneTitle">Note:</div>
+            <div class="inputContainer">
+                <input placeholder="License" class="sourceNote" id="hoverEdit" type="text" name="input" value="{{note}}"></input>
+            <div class="status help"></div>
+        </div>
     </div>
     <div class="buttonContainer">
         <div class="button right actionSave">Save</div>
