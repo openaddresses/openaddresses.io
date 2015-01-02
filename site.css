@@ -212,8 +212,8 @@ label {
 /* Frontpage
 ------------------------------------------------------- */
 .map {
-  height:100%;
   width:100%;
+  height:100vh;
   }
   .leaflet-container { background:#eee; }
   .map input,
@@ -224,6 +224,8 @@ label {
   background-size:cover;
   position:relative;
   }
+  .splash-login { height:280px; }
+
 .space-top8 { padding-top:80px; }
 .dot-legend { vertical-align:middle; }
 
@@ -295,6 +297,8 @@ label {
   .keyline-left   { border-left:none; }
   .keyline-right  { border-right:none; }
   .v-full-height  { height:auto; }
+  .map { height:600px; }
+  .splash-login { height:200px; }
   .sprite.logo-big {
     background-position:0 0;
     width:170px;
