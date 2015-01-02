@@ -62,6 +62,11 @@ function renderSidebar(list) {
     });
 
     $('.js-data-source').on('click', function() {
+
+      // Toggle an active class.
+      $('.js-data-source').removeClass('active');
+      $(this).addClass('active');
+
       $(this).each(function(index) {
         if (index === 0) loadSource($(this).text().trim());
       });
@@ -81,11 +86,11 @@ function loadSource(name) {
 }
 
 function getValues() {
-  GH.currentSource.data = $('.sourceData').val();
-  GH.currentSource.website = $('.sourceWebsite').val();
-  GH.currentSource.attribution = $('.sourceAttribution').val();
-  if ($('.sourceCompression option:selected').val() !== 'none') {
-    GH.currentSource.type = $('.sourceType option:selected').val();
+  GH.currentSource.data = $('#source-data').val();
+  GH.currentSource.website = $('#source-website').val();
+  GH.currentSource.attribution = $('#source-attribution').val();
+  if ($('#source-compression option:selected').val() !== 'none') {
+    GH.currentSource.type = $('#source-type option:selected').val();
   }
 }
 

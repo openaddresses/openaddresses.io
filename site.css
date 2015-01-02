@@ -55,6 +55,7 @@ textarea {
     font-weight:normal;
     }
   a,
+  label,
   h3,h4,
   .strong,
   strong {
@@ -69,7 +70,6 @@ textarea {
 
 a       { color:#2d7bb2; }
 a:hover { color:#202020; }
-
 .button       { background-color:#4A9FDB; color:#fff; }
 .button:hover { background-color:#66aee1; color:#fff; }
 
@@ -84,6 +84,16 @@ h2 {
 h3 {
   font-size:20px;
   line-height:24px;
+  }
+
+fieldset {
+  margin-bottom:10px;
+  }
+label {
+  font-size:12px;
+  line-height:20px;
+  margin-bottom:5px;
+  display:block;
   }
 
 /* Global
@@ -196,6 +206,7 @@ h3 {
   font-family:'Open Sans';
   color:#404040;
   }
+  .data-source.active,
   .data-source:hover {
     background-color:#f0f0f0; 
     }
