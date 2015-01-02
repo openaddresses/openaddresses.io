@@ -162,6 +162,7 @@ h3 {
     .sprite.icon.login    { background-position:-170px -20px; }
     .sprite.icon.search   { background-position:-170px -40px; }
     .sprite.icon.refresh  { background-position:-170px -60px; }
+    .sprite.icon.plus     { background-position:-170px -80px; }
 
 /* Frontpage
 ------------------------------------------------------- */
@@ -191,20 +192,33 @@ h3 {
   border:none;
   padding-left:40px;
   }
+.data-source {
+  font-family:'Open Sans';
+  color:#404040;
+  }
+  .data-source:hover {
+    background-color:#f0f0f0; 
+    }
 
 /* Flags */
-.us { background-image:url(img/flags/us.png); }
-.au { background-image:url(img/flags/au.png); }
-.ca { background-image:url(img/flags/ca.png); }
-.be { background-image:url(img/flags/be.png); }
-.jp { background-image:url(img/flags/jp.png); }
-.za { background-image:url(img/flags/za.png); }
-.fr { background-image:url(img/flags/fr.png); }
-.de { background-image:url(img/flags/de.png); }
-.nl { background-image:url(img/flags/nl.png); }
-.nz { background-image:url(img/flags/nz.png); }
-.it { background-image:url(img/flags/it.png); }
-.ar { background-image:url(img/flags/ar.png); }
+.flag {
+  width:32px;
+  height:32px;
+  display:inline-block;
+  vertical-align:middle;
+  }
+.flag.us { background-image:url(img/flags/us.png); }
+.flag.au { background-image:url(img/flags/au.png); }
+.flag.ca { background-image:url(img/flags/ca.png); }
+.flag.be { background-image:url(img/flags/be.png); }
+.flag.jp { background-image:url(img/flags/jp.png); }
+.flag.za { background-image:url(img/flags/za.png); }
+.flag.fr { background-image:url(img/flags/fr.png); }
+.flag.de { background-image:url(img/flags/de.png); }
+.flag.nl { background-image:url(img/flags/nl.png); }
+.flag.nz { background-image:url(img/flags/nz.png); }
+.flag.it { background-image:url(img/flags/it.png); }
+.flag.ar { background-image:url(img/flags/ar.png); }
 
 /* Template classes
 ------------------------------------------------------- */

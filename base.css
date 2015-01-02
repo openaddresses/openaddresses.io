@@ -908,6 +908,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
 .text-left                    { text-align:left; }
 .text-right                   { text-align:right; }
 .space > *                    { margin-right:5px; }
+.space-bottom0                { margin-bottom:5px; }
 .space-bottom1                { margin-bottom:10px; }
 .space-bottom2, .space-bottom { margin-bottom:20px; }
 .space-bottom4                { margin-bottom:40px; }

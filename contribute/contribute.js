@@ -49,19 +49,23 @@ function filter(query) {
 
 function renderSidebar(list) {
   $.get('../blocks/contribute-sidebar.mst', function(template) {
-    $('.sidebar').removeClass('loading');
+    $('.sidebar').find('.overlay').remove();
     $('.sidebar-content').html(Mustache.render(template, list));
 
-    $('.buttonContainer').off().on('click', function() {
-      if ($(this).hasClass('newSource')) {
-        newSource = true;
-        GH.filename = "NewSource.json";
-        renderSource({
-          filename: "NewSource.json"
-        });
-      } else $(this).each(function(index) {
+    $('.js-add-source').on('click', function() {
+      newSource = true;
+      GH.filename = "NewSource.json";
+      renderSource({
+        filename: "NewSource.json"
+      });
+      return false;
+    });
+
+    $('.js-data-source').on('click', function() {
+      $(this).each(function(index) {
         if (index === 0) loadSource($(this).text().trim());
       });
+      return false;
     });
   });
 }
@@ -93,52 +97,14 @@ function renderSource(source) {
     if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
     else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
 
-    $('.paneTitle').hover(function() {
-      $(this).find('> .helpIcon').css('display', 'block');
-    }, function() {
-      $(this).find('> .helpIcon').css('display', 'none');
-    });
-    $('.actionClose').on('click', function() {
+    $('.js-close').on('click', function() {
       window.confirm('Are you sure? your changes will be lost', function() {
         $('.content').html('');
       });
       return false;
     });
-    $('.actionSave').click(createBranch);
-    $('.help').click(help);
+    $('.js-save').click(createBranch);
   });
-}
-
-function help() {
-  var helpText = {};
-
-  if ($(this).hasClass('helpData')) {
-    helpText.title = "Data Tag";
-    helpText.text = "Link to the raw data";
-  } else if ($(this).hasClass('helpWebsite')) {
-    helpText.title = "Website Tag";
-    helpText.text = "Link to human readable web portal";
-  } else if ($(this).hasClass('helpAttribution')) {
-    helpText.title = "Attribution Tag";
-    helpText.text = "If the source requests attribution";
-  } else if ($(this).hasClass('helpType')) {
-    helpText.title = "Type Tag";
-    helpText.text = "The protocol used to download the file";
-  } else if ($(this).hasClass('helpCompression')) {
-    helpText.title = "Compression Tag";
-    helpText.text = "Is the source within a zipfile?";
-  } else if ($(this).hasClass('helpLicense')) {
-    helpText.title = "License Tag";
-    helpText.text = "If a license is listed for the file either link to it or put the name of it here";
-  } else if ($(this).hasClass('helpNote')) {
-    helpText.title = "Note Tag";
-    helpText.text = "Any notes about the source can be added here";
-  } else {
-    helpText.title = "Help Docs";
-    helpText.text = "We don't have specific help on this tag";
-  }
-
-  window.alert(htmlText.text);
 }
 
 function createBranch() {
@@ -162,6 +128,8 @@ function createBranch() {
     type: 'POST',
     url: GH.base + 'repos/' + GH.userName + '/git/refs' + GH.auth
   });
+
+  return false;
 }
 
 function saveSource() {
