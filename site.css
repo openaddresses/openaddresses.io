@@ -189,7 +189,7 @@ label {
   background-size:cover;
   position:relative;
   }
-.space-top8 { margin-top:80px; }
+.space-top8 { padding-top:80px; }
 .dot-legend { vertical-align:middle; }
 
 /* Contribute page
