@@ -229,8 +229,8 @@ function load() {
   });
 }
 
-//if (localStorage.hello || localStorage.token) {
+if (localStorage.hello || localStorage.token) {
   $(load);
-//} else {
-  //window.location.href = '{{site.baseurl}}/login/';
-//}
+} else {
+  window.location.href = '{{site.baseurl}}/login/';
+}
