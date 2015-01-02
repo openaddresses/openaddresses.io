@@ -1,3 +1,9 @@
+/*jshint jquery:true,browser:true,curly: false */
+/* jshint ignore:start */
+---
+---
+/* jshint ignore:end */
+
 hello.init({
   github : '4b8d48289d4d2d36833d'
 },{
@@ -9,7 +15,7 @@ $('.js-login-github').on('click', function() {
   var github = hello('github');
   github.login(function() {
     github.api( '/me', function(p) {
-      if (p.login) window.location.href = '/contribute/';
+      if (p.login) window.location.href = '{{site.baseurl}}/contribute/';
     });
   });
   return false;

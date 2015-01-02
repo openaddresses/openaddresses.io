@@ -1,4 +1,9 @@
 /*jshint jquery:true,browser:true,curly: false */
+/* jshint ignore:start */
+---
+---
+/* jshint ignore:end */
+
 var GH = {
   base: 'https://api.github.com/',
   masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
@@ -103,11 +108,10 @@ function renderSource(source) {
     else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
 
     $('.js-close').on('click', function() {
-      window.confirm('Are you sure? your changes will be lost', function() {
-        $('.content').html('');
-      });
+      $('.content').html('');
       return false;
     });
+
     $('.js-save').click(createBranch);
   });
 }
@@ -228,5 +232,5 @@ function load() {
 if (localStorage.hello || localStorage.token) {
   $(load);
 } else {
-  window.location.href = '/login/';
+  window.location.href = '{{site.baseurl}}/login/';
 }

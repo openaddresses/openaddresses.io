@@ -1,4 +1,4 @@
-<h2 class="space-bottom2">{{filename}}</h2>
+<h2 class="space-bottom2">Edit {{filename}}</h2>
 
 <form class="keyline-all pad2 round space-bottom2">
   <fieldset>
@@ -46,9 +46,7 @@
 </form>
 
 <div class="pill col12 clearfix"><!--
-  --><a href='#' class="col2 button quiet js-close">Cancel</a><!--
-  --><a href='#' class="col2 button js-save">Save</a>
+  --><a href='#' class="col3 button quiet js-close">Cancel</a><!--
+  --><a href='#' class="col3 button js-save">Save</a>
 </div>
-
-
 
