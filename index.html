@@ -121,7 +121,7 @@ map.addControl(L.mapbox.geocoderControl('mapbox.places-v1', {
 }));
 
 $('.js-more').on('click', function() {
-  $('html,body').animate({scrollTop: ($('#js-more').offset().top)}, 300);
+  $('html,body').animate({scrollTop: ($('#js-more').offset().top - 40)}, 300);
   return false;
 });
 
