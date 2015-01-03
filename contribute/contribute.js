@@ -1,9 +1,7 @@
-/*jshint jquery:true,browser:true,curly: false */
-/* jshint ignore:start */
 ---
 ---
-/* jshint ignore:end */
 
+/*jshint jquery:true,browser:true,curly: false */
 var GH = {
   base: 'https://api.github.com/',
   masterRef: 'openaddresses/openaddresses/git/refs/heads/master',

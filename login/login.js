@@ -1,9 +1,7 @@
-/*jshint jquery:true,browser:true,curly: false */
-/* jshint ignore:start */
 ---
 ---
-/* jshint ignore:end */
 
+/*jshint jquery:true,browser:true,curly: false */
 hello.init({
   github : '4b8d48289d4d2d36833d'
 },{
