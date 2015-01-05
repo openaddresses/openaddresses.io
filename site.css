@@ -96,6 +96,7 @@ label {
   display:block;
   }
 
+.small, small { font-size:13px; }
 /* Global
 ------------------------------------------------------- */
 .button {
