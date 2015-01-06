@@ -35,3 +35,15 @@ done
 # large mbtiles tile. Increasing this value is probably wise. Tippecanoe's default is 
 # 2.5, which is too high to produce pleasing results.
 cat $ROOTDIR/build/out.csv | nodejs $ROOTDIR/tippecanoe/monoxylon.js | $ROOTDIR/tippecanoe/tippecanoe -r 2 -l "openaddresses" -X -n "OpenAddresses `date`" -f -o $ROOTDIR/openaddresses.mbtiles
+
+
+# upload & replace existing source if appropriate 
+if [ -n "$MapboxAccessToken" ]
+then
+    sudo apt-get install -y npm
+    git clone https://github.com/mapbox/mapbox-upload.git $ROOTDIR/mapbox-upload
+    cd $ROOTDIR/mapbox-upload
+    git fetch && git checkout -b cli origin/cli
+    npm install
+    nodejs $ROOTDIR/mapbox-upload/bin/upload.js sbma44.8dkotj4i $ROOTDIR/openaddresses.mbtiles
+fi

@@ -10,7 +10,7 @@
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="name"><![CDATA[OpenAddresses20141215]]></Parameter>
+  <Parameter name="name"><![CDATA[OpenAddresses20150105]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///sbma44.8dkotj4i,mapbox.mapbox-streets-v5]]></Parameter>
 </Parameters>
 

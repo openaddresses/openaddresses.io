@@ -20,7 +20,7 @@ interactivity_layer: ''
 layers: null
 maxzoom: 22
 minzoom: 0
-name: OpenAddresses20141215
+name: OpenAddresses20150105
 source: "mapbox:///sbma44.8dkotj4i,mapbox.mapbox-streets-v5"
 styles: 
   - style.mss
