@@ -51,60 +51,17 @@ noheader: true
     <div class='col12'>
       <div class='fill-white round space-bottom1 pad2x pad4y col12 prose'>
         <h2>Where's the coverage?</h2>
-
-        <p>Browse the dataset by exploring the map. For the very latest data, visit:</p>
+        <p>Explore the map to browse the dataset. For nightly snapshots of the coverage, visit:</p>
         <a class='button space-bottom2 fill-green' href='http://data.openaddresses.io/'>data.openaddresses.io</a>
-        <p><strong class='strong small block space-bottom1'>Don't see coverage in your area?</strong> Help grow openAddresses by <a href='{{site.baseurl}}/contribute/'>contributing to the project</a>.</p>
-        <span class='dot fill-orange inline pad0 dot-legend'></span> <em class='quiet small'>= Address coverage</em>
+        <p><strong class='strong small block space-bottom1'>Don't see coverage in your area?</strong> Help grow OpenAddresses by <a href='{{site.baseurl}}/contribute/'>contributing</a>.</p>
+        <span class='dot fill-orange inline pad0 dot-legend'></span> <em class='quiet small'>= Address</em>
       </div>
 
-      <a href='#next' class='button col12 js-next' id='next'>
-        <span class='js-text'>Melbourne</span>
-        <span class='sprite icon refresh'></span>
-      </a>
     </div>
   </div>
 </div>
 
 <script>
-var locations = [
-{
-  lat: -37.8307,
-  lon: 144.9086,
-  z: 12,
-  description: 'Melbourne'
-}, {
-  lat: 37.7683,
-  lon: -122.4534,
-  z: 13,
-  description: 'San Francisco'
-}, {
-  lat: 35.213,
-  lon: -80.8341,
-  z: 12,
-  description: 'Charlotte'
-}, {
-  lat: 36.0891,
-  lon: 136.0822,
-  z: 7,
-  description: 'Japan'
-}, {
-  lat: 50.8398,
-  lon: 4.3274,
-  z: 14,
-  description: 'Brussel'
-}, {
-  lat: 41.3842,
-  lon: 2.1564,
-  z: 13,
-  description: 'Barcelona'
-}, {
-  lat: 38.9011,
-  lon: -77.0406,
-  z: 13,
-  description: 'Washington DC'
-}];
-
 // Initialize map
 L.mapbox.accessToken = 'pk.eyJ1IjoidHJpc3RlbiIsImEiOiJiUzBYOEJzIn0.VyXs9qNWgTfABLzSI3YcrQ';
 var map = L.mapbox.map('map',  'tristen.0c01f8ab', {
@@ -112,7 +69,7 @@ var map = L.mapbox.map('map',  'tristen.0c01f8ab', {
   minZoom: 2
 });
 
-map.setView([locations[0].lat,locations[0].lon],locations[0].z);
+map.setView([32.24,-22.15], 2);
 map.scrollWheelZoom.disable();
 
 new L.Control.Zoom({ position: 'topright' }).addTo(map);
@@ -123,15 +80,6 @@ map.addControl(L.mapbox.geocoderControl('mapbox.places-v1', {
 
 $('.js-more').on('click', function() {
   $('html,body').animate({scrollTop: ($('#js-more').offset().top - 40)}, 300);
-  return false;
-});
-
-var i = 1;
-$('.js-next').on('click', function() {
-  if (i === locations.length) i = 0;
-  map.setView([locations[i].lat,locations[i].lon],locations[i].z);
-  $(this).find('.js-text').text(locations[i].description);
-  i++;
   return false;
 });
 

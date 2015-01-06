@@ -94,8 +94,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="-33.634078"
-     inkscape:cy="436.5742"
+     inkscape:cx="171.51311"
+     inkscape:cy="248.14275"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -6487,6 +6487,9 @@ gLjv7mopmjSPAX5jyT0x9KaA/9k=
        height="2"
        x="-38"
        y="7"
-       transform="translate(0,612.36218)" />
+       transform="translate(0,612.36218)"
+       inkscape:export-filename="../favicon.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
