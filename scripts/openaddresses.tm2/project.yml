@@ -14,13 +14,13 @@ center:
   - 15.293
   - 50.8476
   - 4
-description: OpenAddresses data as of 2014-12-15
+description: OpenAddresses data as of 2015-01-09
 format: "png8:m=h"
 interactivity_layer: ''
 layers: null
 maxzoom: 22
 minzoom: 0
-name: OpenAddresses20150105
+name: OpenAddresses20150109
 source: "mapbox:///sbma44.8dkotj4i,mapbox.mapbox-streets-v5"
 styles: 
   - style.mss
