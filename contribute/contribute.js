@@ -18,13 +18,13 @@ var sidebarList = {};
 function setStatus() {
   //Set status by getting list of sources from data.openaddresses.io
   $.ajax({
-    url: "http://data.openaddresses.io/state.json",
-    type: "GET",
+    url: 'http://data.openaddresses.io/state.json',
+    type: 'GET',
     crossDomain: true,
     success: function(res) {
       $.ajax({
-        url: "http://data.openaddresses.io/" + res,
-        type: "GET",
+        url: 'http://data.openaddresses.io/' + res,
+        type: 'GET',
         crossDomain: true,
         success: function(status) {
           console.log(status);
@@ -46,7 +46,7 @@ function filter(query) {
     return list.name.replace(/[-_\ ]*/g, '').indexOf(query) !== -1;
   });
   renderSidebar({
-    "sources": lists
+    'sources': lists
   });
 }
 
@@ -57,9 +57,9 @@ function renderSidebar(list) {
 
     $('.js-add-source').on('click', function() {
       newSource = true;
-      GH.filename = "NewSource.json";
+      GH.filename = 'NewSource.json';
       renderSource({
-        filename: "NewSource.json"
+        filename: 'Add new source'
       });
       return false;
     });
@@ -83,7 +83,7 @@ function loadSource(name) {
   $.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources/' + name + GH.auth, function(sourceRaw) {
     GH.currentSource = JSON.parse(atob(sourceRaw.content));
     GH.sha = sourceRaw.sha;
-    GH.filename = name;
+    GH.filename = 'Edit ' + name;
     renderSource(GH.currentSource);
   });
 }
@@ -92,21 +92,25 @@ function getValues() {
   GH.currentSource.data = $('#source-data').val();
   GH.currentSource.website = $('#source-website').val();
   GH.currentSource.attribution = $('#source-attribution').val();
-  if ($('#source-compression option:selected').val() !== 'none') {
+  if ($('#source-type option:selected').val() !== 'none') {
     GH.currentSource.type = $('#source-type option:selected').val();
+  }
+  if ($('#source-compression option:selected').val() !== 'none') {
+    GH.currentSource.compression = $('#source-compression option:selected').val();
   }
 }
 
 function renderSource(source) {
   $.get('../blocks/contribute-main-edit.mst', function(template) {
     $('.content').html(Mustache.render(template, source));
-    if (source.type) $('.type > .' + source.type).prop('selected', true);
-
-    if (source.compression) $('.compression > .' + source.compression).prop('selected', true);
-    else if (source.data && !source.compression) $('.compression > .none').prop('selected', true);
+    // Render select option values.
+    if (source.type) $('#source-type > .' + source.type).prop('selected', true);
+    if (source.compression) $('#source-compression > .' + source.compression).prop('selected', true);
+    else if (source.data && !source.compression) $('#source-compression > .none').prop('selected', true);
 
     $('.js-close').on('click', function() {
-      $('.content').html('');
+      $('.js-data-source').removeClass('active');
+      $('.content').html('&nbsp;');
       return false;
     });
 
@@ -121,8 +125,8 @@ function createBranch() {
     contentType: 'application/json',
     crossDomain: true,
     data: JSON.stringify({
-      "ref": 'refs/heads/' + GH.userRef,
-      "sha": GH.masterSha
+      'ref': 'refs/heads/' + GH.userRef,
+      'sha': GH.masterSha
     }),
     dataType: 'json',
     success: function(data) {
@@ -145,11 +149,11 @@ function saveSource() {
     contentType: 'application/json',
     crossDomain: true,
     data: JSON.stringify({
-      "message": "Add " + GH.filename,
-      "path": "sources/" + GH.filename,
-      "content": btoa(JSON.stringify(GH.currentSource, null, 4)),
-      "branch": '' + GH.userRef,
-      "sha": GH.sha ? GH.sha : ""
+      'message': 'Add ' + GH.filename,
+      'path': 'sources/' + GH.filename,
+      'content': btoa(JSON.stringify(GH.currentSource, null, 4)),
+      'branch': '' + GH.userRef,
+      'sha': GH.sha ? GH.sha : ""
     }),
     dataType: 'json',
     success: function(data) {

@@ -36,7 +36,7 @@
     <div class='col6'>
       <a class='strong dark sprite logo' href='{{site.baseurl}}/'></a>
     </div>
-    <nav class='col6 text-right space pad2y'>
+    <nav class='col6 text-right pad2y'>
       <a href='{{site.baseurl}}/login/' class='js-login'></a>
     </nav>
   </div>
@@ -44,6 +44,20 @@
 {% endif %}
 
 {{content}}
+
+<footer class='fill-dark dark'>
+  <div class='fill-darken0'>
+    <div class='limiter clearfix pad2y small'>
+      <div class='col6 space'>
+        <span class='sprite icon address-post'></span>
+        <a class='color-white color-hover-white' href='{{site.baseurl}}'>OpenAddresses.io</a>
+      </div>
+      <nav class='col6 text-right'>
+        <a class='quiet' href='mailto:openaddresses@gmail.com'>Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 
 <script src='{{site.baseurl}}/index.js'></script>
 <script>

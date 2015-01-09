@@ -1,7 +1,6 @@
-// GLOBAL
-// =================================
+---
+---
 
-// Auth state
 var login = $('.js-login');
 if (localStorage.hello || localStorage.token) {
   var base = 'https://api.github.com/';
@@ -11,12 +10,19 @@ if (localStorage.hello || localStorage.token) {
 
   $.get(base + 'user' + auth, function(data) {
     login
-      .addClass('dot inline pad2 fill-darken1')
-      .attr('href', '/contribute/')
+      .addClass('dot inline pad0 fill-darken1')
+      .attr('href', '{{site.baseurl}}/contribute/')
+      .append('<span>');
+
+    login.find('span')
+      .addClass('dot inline')
       .css({
         'background-image': 'url(\'' + data.avatar_url + '\')',
         'background-repeat': 'no-repeat',
-        'background-size': 'contain'
+        'background-size': 'contain',
+        'height': '32px',
+        'width': '32px',
+        'vertical-align': 'middle'
       });
   });
 } else {
