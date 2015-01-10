@@ -115,6 +115,8 @@ label {
   }
   .button.fill-white       { color:#404040; }
   .button.fill-white:hover { background-color:#eee; color:#404040; }
+  .button.fill-light       { background-color:#eee; color:#404040; }
+  .button.fill-light:hover { background-color:#ddd; color:#404040; }
 
 .dot { border-radius:50%; }
 .loading:after,
