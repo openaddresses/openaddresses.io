@@ -31,38 +31,35 @@
 <body{% if page.bodyclass %} class='{{page.bodyclass}}'{% endif %}>
 
 {% if page.noheader != true %}
-<header class='pad2y fill-dark'>
-  <div class='limiter clearfix mobile-cols'>
-    <div class='col6 pad1y'>
-      <a class='color-white color-hover-white' href='{{site.baseurl}}/'>
-        <span class='sprite icon address-post'></span>
-        OpenAddresses
-      </a>
+<header class='fill-dark'>
+  <div class='fill-darken0 pad2y'>
+    <div class='limiter clearfix mobile-cols'>
+      <div class='col6 pad1y'>
+        <a class='color-white color-hover-white strong animate' href='{{site.baseurl}}/'>
+          <span class='sprite icon icon-hover address-post'></span>
+          OpenAddresses
+        </a>
+      </div>
+      <nav class='col6 text-right'>
+        <a href='{{site.baseurl}}/login/' class='strong js-login'></a>
+      </nav>
     </div>
-    <nav class='col6 text-right'>
-      <a href='{{site.baseurl}}/login/' class='js-login'></a>
-    </nav>
   </div>
 </header>
 {% endif %}
 
 {{content}}
 
-<footer class='fill-dark dark'>
-  <div class='fill-darken0'>
-    <div class='limiter clearfix pad2y small'>
-      <div class='col6 space'>
-        <a class='color-white color-hover-white' href='{{site.baseurl}}/'>
-          <span class='sprite icon address-post'></span>
-          OpenAddresses
-        </a>
-      </div>
-      <nav class='col6 text-right'>
-        <a class='quiet' href='mailto:openaddresses@gmail.com'>Contact</a>
-      </nav>
-    </div>
+{% if page.nofooter != true %}
+<footer class='fill-white keyline-top'>
+  <div class='limiter clearfix pad2y small'>
+    <a class='quiet strong' href='mailto:openaddresses@gmail.com'>
+      <span class='sprite icon icon-hover mail'></span>
+      Contact
+    </a>
   </div>
 </footer>
+{% endif %}
 
 <script src='{{site.baseurl}}/index.js'></script>
 <script>

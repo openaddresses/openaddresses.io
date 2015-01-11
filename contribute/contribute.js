@@ -83,7 +83,7 @@ function loadSource(name) {
   $.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources/' + name + GH.auth, function(sourceRaw) {
     GH.currentSource = JSON.parse(atob(sourceRaw.content));
     GH.sha = sourceRaw.sha;
-    GH.filename = 'Edit ' + name;
+    GH.currentSource.filename = 'Edit ' + name;
     renderSource(GH.currentSource);
   });
 }

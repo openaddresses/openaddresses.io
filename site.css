@@ -54,7 +54,6 @@ textarea {
     font-family:'Open Sans Italic', sans-serif;
     font-weight:normal;
     }
-  a,
   label,
   h3,h4,
   .strong,
@@ -174,14 +173,19 @@ label {
     display:inline-block;
     vertical-align:middle;
     }
-    .sprite.icon.down         { background-position:-170px 0; }
-    .sprite.icon.arrow-right  { background-position:-170px -20px; }
-    .sprite.icon.search       { background-position:-170px -40px; }
-    .sprite.icon.refresh      { background-position:-170px -60px; }
-    .sprite.icon.plus         { background-position:-170px -80px; }
-    .sprite.icon.logout       { background-position:-190px 0; }
-    .sprite.icon.help         { background-position:-190px -20px; }
-    .sprite.icon.address-post { background-position:-190px -40px; vertical-align:top; }
+    .sprite.icon.down               { background-position:-170px 0; }
+    .sprite.icon.arrow-right        { background-position:-170px -20px; }
+    .sprite.icon.search             { background-position:-170px -40px; }
+    .sprite.icon.refresh            { background-position:-170px -60px; }
+    .sprite.icon.plus               { background-position:-170px -80px; }
+    .sprite.icon.logout             { background-position:-190px 0; }
+    .sprite.icon.help               { background-position:-190px -20px; }
+    .sprite.icon.address-post       { background-position:-190px -40px; vertical-align:top; }
+    .sprite.icon.address-post-dark  { background-position:-190px -60px; vertical-align:top; }
+    .sprite.icon.mail               { background-position:-190px -80px; }
+
+.icon-hover          { opacity:0.5; }
+a:hover .icon-hover  { opacity:1; }
 
 [data-tooltip] {
   cursor:pointer;
@@ -292,6 +296,8 @@ label {
 
 .color-hover-white.color-hover-white:hover,
 .color-white.color-white { color:#fff; }
+.color-hover-dark.color-hover-dark:hover,
+.color-dark.color-dark { color:#2b332e; }
 
 .overlay {
   position:absolute;

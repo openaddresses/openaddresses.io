@@ -26,7 +26,7 @@ noheader: true
 
   <div class='col12 clearfix'>
     <span class='sprite houses block space-bottom2'></span>
-    <div class='space-bottom2 center col12 clearfix'>
+    <div class='center col12 clearfix'>
       <div class='col8 margin2'>
         <h2 class='space-bottom1'>Address data is essential infrastructure.</h2>
         <p class='prose'>Street names, house numbers and zip codes, when combined with geographic coordinates, are the hub that connects digital to physical places.</p>
@@ -34,18 +34,18 @@ noheader: true
     </div>
   </div>
 
-  <div class='col12 clearfix space-bottom4'>
+  <div class='col12 clearfix pad4y'>
       <div class='col4'>
-        <div class='col12 pad2 prose'>
+        <div class='col12 pad4x pad2y prose'>
           <p><strong>OpenAddresses is open data</strong>. Released under a <a href='http://creativecommons.org/about/cc0'>CC0 License</a>. Individual datasets carry respective licence. </p>
           <a class='button col12' href='http://s3.amazonaws.com/openaddresses/openaddresses-processed.zip'>Download the collection <span class='small quiet'>.csv</span></a>
         </div>
       </div>
 
-      <div class='col4'>
-        <div class='col12 pad2 prose'>
+      <div class='col4 keyline-left keyline-right'>
+        <div class='col12 pad4x pad2y prose'>
           <p><strong>Help contribute</strong>. Grow OpenAddresses by contributing data from any place in the world.</p>
-          <a class='col12 button fill-white' href='{{site.baseurl}}/contribute/'>
+          <a class='col12 button fill-light' href='{{site.baseurl}}/contribute/'>
             Submit a dataset
             <span class='sprite icon arrow-right'></span>
           </a>
@@ -53,9 +53,9 @@ noheader: true
       </div>
 
       <div class='col4'>
-        <div class='col12 pad2 prose'>
+        <div class='col12 pad4x pad2y prose'>
           <p><strong>Develop on GitHub</strong>. Parse &amp; import into a database, put on a map, or use for geocoding.</p>
-          <a class='col12 button fill-white' href='https://github.com/openaddresses/'>
+          <a class='col12 button fill-light' href='https://github.com/openaddresses/'>
             OpenAddresses on GitHub
             <span class='sprite icon arrow-right'></span>
           </a>
@@ -72,7 +72,7 @@ noheader: true
     <div class='col12'>
       <div class='fill-white round space-bottom1 pad2 col12 prose'>
         <h4 class='space-bottom1'>Where's the coverage?</h4>
-        <p>For a detailed coverage report, visit <a href='http://data.openaddresses.io/'>data.openaddresses.io</a>.</p>
+        <p>For a detailed report visit <a href='http://data.openaddresses.io/'>data.openaddresses.io</a>.</p>
       </div>
     </div>
   </div>
@@ -93,10 +93,8 @@ var map = L.mapbox.map('map',  'tristen.0c01f8ab', {
   minZoom: 2
 });
 
-map.setView([32.24,-22.15], 2);
+map.setView([34.60,4.39], 2);
 map.scrollWheelZoom.disable();
-
-console.log(map.getBounds());
 
 new L.Control.Zoom({ position: 'topright' }).addTo(map);
 map.addControl(L.mapbox.geocoderControl('mapbox.places-v1', {
