@@ -6,11 +6,11 @@
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
   <Parameter name="center">15.293,50.8476,4</Parameter>
-  <Parameter name="description"><![CDATA[OpenAddresses data as of 2014-12-15]]></Parameter>
+  <Parameter name="description"><![CDATA[OpenAddresses data as of 2015-01-09]]></Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="name"><![CDATA[OpenAddresses20150105]]></Parameter>
+  <Parameter name="name"><![CDATA[OpenAddresses20150109]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///sbma44.8dkotj4i,mapbox.mapbox-streets-v5]]></Parameter>
 </Parameters>
 
@@ -31,36 +31,6 @@
 
 <Style name="landuse" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([class] = 'park')</Filter>
-    <PolygonSymbolizer fill="#141414" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'park')</Filter>
-    <PolygonSymbolizer fill="#090909" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([class] = 'cemetery')</Filter>
-    <PolygonSymbolizer fill="#141414" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'cemetery')</Filter>
-    <PolygonSymbolizer fill="#090909" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([class] = 'wood')</Filter>
-    <PolygonSymbolizer fill="#141414" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'wood')</Filter>
-    <PolygonSymbolizer fill="#090909" />
-  </Rule>
-  <Rule>
     <Filter>([class] = 'hospital')</Filter>
     <PolygonSymbolizer fill="#101010" />
   </Rule>
@@ -73,11 +43,11 @@
     <PolygonSymbolizer fill="#101010" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'sand')</Filter>
+    <Filter>([class] = 'pitch')</Filter>
     <PolygonSymbolizer fill="#161616" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'pitch')</Filter>
+    <Filter>([class] = 'sand')</Filter>
     <PolygonSymbolizer fill="#161616" />
   </Rule>
 </Style>
@@ -222,19 +192,9 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
 
-<Style name="landuse_overlay" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#141414" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill="#090909" />
-  </Rule>
-</Style>
 <Layer name="landuse_overlay"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>landuse_overlay</StyleName>  </Layer>
+      </Layer>
 
 <Style name="tunnel" filter-mode="first" opacity="0.5">
   <Rule>

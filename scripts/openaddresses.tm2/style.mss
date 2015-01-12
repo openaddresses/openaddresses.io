@@ -55,15 +55,6 @@ Map { background-color: @land; }
   [zoom>=8] { line-width: 1.8; }
 }
 
-// Land Features //
-#landuse[class='cemetery'],
-#landuse[class='park'],
-#landuse[class='wood'],
-#landuse_overlay {
-  polygon-fill: darken(@land,3);
-  [zoom>=15] { polygon-fill:mix(@land,@fill4,95); }
-}
-
 #landuse[class='pitch'],
 #landuse[class='sand'] { 
   polygon-fill: mix(@land,@fill4,90);
