@@ -4,7 +4,7 @@ var GH = {
     masterRef: 'openaddresses/openaddresses/git/refs/heads/master',
     currentSource: {},
     filename: ""
-}
+};
 var newSource = false;
 if (localStorage.hello) GH.auth = '?access_token=' + JSON.parse(localStorage.hello).github.access_token;
 else GH.auth = '?access_token=' + localStorage.token;
@@ -22,7 +22,7 @@ jQuery.get(GH.base + 'repos/' + GH.masterRef + GH.auth, function (data) {
 
 //Create Sidebar by getting list of sources from GH
 jQuery.get(GH.base + 'repos/openaddresses/openaddresses/contents/sources' + GH.auth, function(data) {
-    sidebarList = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1 }) };
+    sidebarList = { "sources": data.filter(function(source) { return source.name.indexOf('.json') !== -1; }) };
     sidebarList.sources = sidebarList.sources.map(function(source) {
         source.country = source.name.split('-')[0];
         return source;
@@ -93,8 +93,11 @@ function getValues() {
     GH.currentSource.data = $('.sourceData').val();
     GH.currentSource.website = $('.sourceWebsite').val();
     GH.currentSource.attribution = $('.sourceAttribution').val();
-    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceType option:selected').val();
-    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.type = $('.sourceCompression option:selected').val();
+    if ($('.sourceType option:selected').val() !== "none") GH.currentSource.type = $('.sourceType option:selected').val();
+    if ($('.sourceCompression option:selected').val() !== "none") GH.currentSource.compression = $('.sourceCompression option:selected').val();
+
+    if (GH.currentSource.compression === "text") delete GH.currentSource.compression;
+    if (GH.currentSource.type === "text") delete GH.currentSource.type;
 }
 
 function renderSource(source) {
