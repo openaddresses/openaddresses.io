@@ -312,9 +312,22 @@ a:hover .icon-hover  { opacity:1; }
           transform:translateY(-50%);
   }
 
+@media only screen and (max-width:770px) {
+  .cta .button {
+    float:none;
+    width:50%;
+    margin:0 auto;
+    }
+  .cta{
+    width:100%;
+    float:none;
+    margin:0;
+    }
+    .keyline-left   { border-left:none; }
+    .keyline-right  { border-right:none; }
+  }
 @media only screen and (max-width:640px) {
-  .keyline-left   { border-left:none; }
-  .keyline-right  { border-right:none; }
+  .cta .button { width:auto; }
   .v-full-height  { height:auto; }
   .map { height:600px; }
   .splash-login { height:200px; }
