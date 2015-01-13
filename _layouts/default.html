@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>OpenAddresses</title>
+  <meta name='robots' content='index'/>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta name='twitter:site' content='@nickingalls' />
+  <meta property='og:site_name' content='OpenAddresses' />
+  <meta name='twitter:url' content='http://openaddresses.io/' />
+  <meta name='twitter:domain' content='http://openaddresses.io/' />
+  <meta property='og:url' content='http://donate.osm.org/' />
+  <meta name='twitter:title' content='OpenAddresses' />
+  <meta property='og:title' content='OpenAddresses' />
+  <meta name='twitter:description' content='The free and open global address collection' />
+  <meta property='og:description' content='The free and open global address collection' />
+  <meta name='twitter:image' content='{{site.baseurl}}/img/twitter-card.png' />
+  <meta name='st:image' content='{{site.baseurl}}img/twitter-card.png' />
+  <meta property='og:image' content='img/twitter-card.png' />
+  <meta property='og:type' content='website' />
+  <meta name='twitter:card' content='summary_large_image' />
+  <link rel='shortcut icon' href='{{site.baseurl}}/img/favicon.png' type='image/x-icon' />
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+  <link href='{{site.baseurl}}/base.css' rel='stylesheet' />
+  <link href='{{site.baseurl}}/site.css' rel='stylesheet' />
+  <script src='{{site.baseurl}}/js/hello.min.js'></script>
+  <script src='{{site.baseurl}}/js/jquery.min.js'></script>
+  <script src='{{site.baseurl}}/js/mustache.js'></script>
+</head>
+<body{% if page.bodyclass %} class='{{page.bodyclass}}'{% endif %}>
+
+{% if page.noheader != true %}
+<header class='fill-dark'>
+  <div class='fill-darken0 pad2y'>
+    <div class='limiter clearfix mobile-cols'>
+      <div class='col6 pad1y'>
+        <a class='color-white color-hover-white strong animate' href='{{site.baseurl}}/'>
+          <span class='sprite icon icon-hover address-post'></span>
+          OpenAddresses
+        </a>
+      </div>
+      <nav class='col6 text-right'>
+        <a href='{{site.baseurl}}/login/' class='strong js-login'></a>
+      </nav>
+    </div>
+  </div>
+</header>
+{% endif %}
+
+{{content}}
+
+{% if page.nofooter != true %}
+<footer class='fill-white keyline-top'>
+  <div class='limiter clearfix pad2y small'>
+    <a class='quiet strong' href='mailto:openaddresses@gmail.com'>
+      <span class='sprite icon icon-hover mail'></span>
+      Contact
+    </a>
+  </div>
+</footer>
+{% endif %}
+
+<script src='{{site.baseurl}}/index.js'></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-49306454-1', 'openaddresses.io');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

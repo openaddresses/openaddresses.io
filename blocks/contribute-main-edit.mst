@@ -1,66 +1,52 @@
-<div class="editor">
+<h2 class="space-bottom2">{{filename}}</h2>
 
-    <div class="toolbar">
-        <div class="tool saveTool actionSave"></div>
-        <div class="tool closeTool actionClose"></div>
-    </div>
+<form class="keyline-all pad2 round space-bottom2">
+  <fieldset>
+    <label>Data <span class='sprite icon help' data-tooltip="Provide a link to the raw data"></span></label>
+    <input id="source-data" class="col12" type="text" value="{{data}}" placeholder="Link to data download" />
+  </fieldset>
+  <fieldset>
+    <label>Website <span class='sprite icon help' data-tooltip="The link to the human readable web portal"></span></label>
+    <input id="source-website"  class="col12" type="text" value="{{website}}" placeholder="Link to homepage" />
+  </fieldset>
 
-    <h1>{{filename}}</h1>
+  <fieldset>
+    <label>Attribution <span class='sprite icon help' data-tooltip="If the source requires attribution, add it here."></span></label>
+    <input id="source-attribution" class="col12" type="text" value="{{attribution}}" placeholder="Attribution"></input>
+  </fieldset>
 
-    <div class="pane">
-        <div class="paneTitle">Data:</div>
-        <div class="inputContainer">
-            <input placeholder="Link to data download" class="sourceData" id="hoverEdit" type="text" name="input" value="{{data}}"></input>
-            <div class="status help helpData"></div>
-        </div>
+  <fieldset>
+    <label>Type <span class='sprite icon help' data-tooltip="The protocol used to download the file"></span></label>
+    <select id="source-type" class="col12">
+      <option class="text" value="text">Select a download type</option>
+      <option class="ESRI" value="ESRI">ESRI</option>
+      <option class="ftp" value="ftp">FTP</option>
+      <option class="http" value="http">HTTP(S)</option>
+    </select>
+  </fieldset>
 
-        <div class="paneTitle">Website:</div>
-        <div class="inputContainer">
-            <input placeholder="Link to homepage" class="sourceWebsite" id="hoverEdit" type="text" name="input" value="{{website}}"></input>
-            <div class="status help helpWebsite"></div>
-        </div>
+  <fieldset>
+    <label>Conpression <span class='sprite icon help' data-tooltip="Is the source a zipfile?"></span></label>
+    <select id="source-compression" class="col12">
+      <option class="text" value="text">Select a compression type</option>
+      <option class="zip" value="zip">.zip</option>
+      <option class="none" value="none">none</option>
+    </select>
+  </fieldset>
 
-        <div class="paneTitle">Attribution:</div>
-        <div class="inputContainer">
-            <input placeholder="Attribution" class="sourceAttribution" id="hoverEdit" type="text" name="input" value="{{attribution}}"></input>
-            <div class="status help helpAttribution"></div>
-        </div>
+  <fieldset>
+    <label>License <span class='sprite icon help' data-tooltip="If a license is listed for the data, link to it here or cite the licence name"></span></label>
+    <input id="source-license" class="col12" type="text" value="{{license}}" placeholder="License"></input>
+  </fieldset>
 
-        <div class="paneTitle">Type:</div>
-        <div class="inputContainer">
-            <select class="type sourceType">
-                <option class="text" value="text">Select a download type</option>
-                <option class="ESRI" value="ESRI">ESRI</option>
-                <option class="ftp" value="ftp">FTP</option>
-                <option class="http" value="http">HTTP(S)</option>
-            </select>
-            <div class="status help helpType"></div>
-        </div>
+  <fieldset>
+    <label>Note <span class='sprite icon help' data-tooltip="Add any additional notes about the data here."></span></label>
+    <input id="source-note" class="col12" type="text" value="{{note}}" placeholder="Notes"></input>
+  </fieldset>
+</form>
 
-        <div class="paneTitle">Compression:</div>
-        <div class="inputContainer">
-            <select class="compression sourceCompression">
-                <option class="text" value="text">Select a compression type</option>
-                <option class="zip" value="zip">.zip</option>
-                <option class="none" value="none">none</option>
-            </select>
-            <div class="status help helpCompression"></div>
-        </div>
-
-        <div class="paneTitle">License:</div>
-            <div class="inputContainer">
-                <input placeholder="License" class="sourceLicense" id="hoverEdit" type="text" name="input" value="{{license}}"></input>
-            <div class="status help helpLicense"></div>
-        </div>
-
-        <div class="paneTitle">Note:</div>
-            <div class="inputContainer">
-                <input placeholder="Notes" class="sourceNote" id="hoverEdit" type="text" name="input" value="{{note}}"></input>
-            <div class="status help helpNote"></div>
-        </div>
-    </div>
-    <div class="buttonContainer">
-        <div class="button right actionSave">Save</div>
-        <div class="button right actionClose">Close</div>
-    </div>
+<div class="pill col12 clearfix"><!--
+  --><a href='#' class="col4 button quiet js-close">Cancel</a><!--
+  --><a href='#' class="col4 button js-save">Save</a>
 </div>
+

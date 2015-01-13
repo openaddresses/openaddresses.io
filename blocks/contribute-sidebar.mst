@@ -1,20 +1,15 @@
-<div class="buttonContainer newSource">
-    <div class="infoButton green"></div>
-    <div class="mainButton">
-        <div class="buttonImage plus"></div>
-        <div class="buttonTextContainer">
-            <div class="buttonText">Add New Source</div>
-        </div>
-    </div>
-</div>
+<a href='#' class="button fill-green col12 js-add-source space-bottom1">
+  <div class="icon sprite plus"></div>
+  Add data source
+</a>
+
 {{#sources}}
-    <div class="buttonContainer">
-        <div class="infoButton green"></div>
-        <div class="mainButton">
-            <div class="buttonImage {{country}}"></div>
-            <div class="buttonTextContainer">
-                <div class="buttonText">{{name}}</div>
-            </div>
-        </div>
-    </div>
+<a href='#' class="data-source js-data-source space-bottom0 keyline-all col12 round contain clearfix">
+  <div class='col2 keyline-right pad1'>
+    <div class='flag {{country}}'></div>
+  </div>
+  <div class='col9 truncate small pad1'>{{name}}</div>
+  <div class='pad0 pin-right fill-green round-right'>
+  </div>
+</a>
 {{/sources}}

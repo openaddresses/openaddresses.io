@@ -1,63 +1,111 @@
-<html>
-    <head>
-        <meta charset=utf-8 />
-        <title>OpenAddresses</title>
-        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-        <link href='css/reset.css' rel='stylesheet' />
-        <link href='css/style.css' rel='stylesheet' />
-        <link rel='shortcut icon' href='img/17.png'>
-        <link rel='apple-touch-icon-precomposed' href='img/17.png'>
-        <script src="lib/jquery.min.js"></script>
-        <script> $(function(){ $(".nav-container").load("blocks/nav.html"); });</script>
-        <script src="./js/index.js"></script>
-    </head>
-    <body>
-        <!--<div class='news'>Urgent News Header</div>-->
-        <div class='bg'>
-            <a class="home" href="index.html">
-                <div class='logo'>
-                    OpenAddresses
-                </div>
-            </a>
-            <div class='nav-container'>
-                <!-- blocks/nav.html dynamically loaded here-->
-            </div>
-            <div class='tagline'>
-                The free and open global address collection
-            </div>
-        </div>
-        <div class='divider'>
-            <div class='down'></div>
-            Addresses are meant to be free. Join the conversation!
-        </div>
+---
+layout: default
+noheader: true
+---
 
-        <div class='col-pane'>
-            <div class='col'>
-                <div class='img leftimg'></div>
-                CC0 Licensed. Address files licensed individually.
-                Leave the work to us, download the processed files below.
-                <div class ="button"><a class="link" href="http://s3.amazonaws.com/openaddresses/openaddresses-processed.zip">Download</a></div>
-            </div>
-            <div class='col'>
-                <div class='img midimg'></div>
-                Help grow OpenAddresses and submit an address file, or add an address file directly through Github.
-                <div class ="button"><a class="link" href="https://github.com/openaddresses/openaddresses/issues">Submit</a></div>
-            </div>
-            <div class='col'>
-                <div class='img rightimg'></div>
-                Parse them, import them into a database, put them on a map, or use them for geocoding. The choice is yours!
-                <div class ="button"><a class="link" href="http://www.github.com/openaddresses/openaddresses">Github</a></div>
-            </div>
-        </div>
+<div class='limiter contain'>
+  <div class='pin-topright pad2y z10'>
+    <a href='{{site.baseurl}}/login/' class='js-login'></a>
+  </div>
+</div>
 
-        <div class='divider map-divider'>
-            Check out our coverage!
-        </div>
+<section class='splash dark v-full-height space-bottom4'>
+  <div class='center limiter space-top8'>
+    <a href='{{site.baseurl}}/' class='block sprite logo-big space-bottom1'></a>
+    <h1 class='space-bottom4'>The free and open global address collection</h1>
+    <div class='col12 clearfix'>
+      <a href='#' class='pad4x space-bottom4 button button-large fill-green js-more'>
+        Learn more <div class='sprite icon down'></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <div id='map'>
-            <iframe src="https://www.mapbox.com/bites/00079/" height='90%' width='100%'></iframe>
+<section id='js-more' class='limiter clearfix'>
+  <div class='col12 clearfix'>
+    <span class='sprite houses block space-bottom2'></span>
+    <div class='center col12 clearfix'>
+      <div class='col8 margin2'>
+        <h2 class='space-bottom1'>Address data is essential infrastructure.</h2>
+        <p class='prose'>Street names, house numbers and zip codes, when combined with geographic coordinates, are the hub that connects digital to physical places.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class='col12 clearfix pad4y'>
+      <div class='cta col4'>
+        <div class='col12 pad4x pad2y prose'>
+          <p><strong>OpenAddresses is open data</strong>. Released under a <a href='http://creativecommons.org/about/cc0'>CC0 License</a>. Individual datasets carry respective licence. </p>
+          <a class='button col12' href='http://s3.amazonaws.com/openaddresses/openaddresses-processed.zip'>Download the collection <span class='small quiet'>.csv</span></a>
         </div>
-    </body>
-</html>
+      </div>
+
+      <div class='cta col4 keyline-left keyline-right'>
+        <div class='col12 pad4x pad2y prose'>
+          <p><strong>Help contribute</strong>. Grow OpenAddresses by contributing data from any place in the world.</p>
+          <a class='col12 button fill-light' href='{{site.baseurl}}/contribute/'>
+            Submit a dataset
+            <span class='sprite icon arrow-right'></span>
+          </a>
+        </div>
+      </div>
+
+      <div class='cta col4'>
+        <div class='col12 pad4x pad2y prose'>
+          <p><strong>Develop on GitHub</strong>. Parse &amp; import into a database, put on a map, or use for geocoding.</p>
+          <a class='col12 button fill-light' href='https://github.com/openaddresses/'>
+            OpenAddresses on GitHub
+            <span class='sprite icon arrow-right'></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+</section>
+
+<div class='contain'>
+  <div id='map' class='map'></div>
+
+  <div class='pin-topleft z100 pad2 col3 prose'>
+    <div class='col12'>
+      <div class='fill-white round space-bottom1 pad2 col12 prose'>
+        <h4 class='space-bottom1'>What areas are covered?</h4>
+        <p>For a detailed report visit <a href='http://data.openaddresses.io/'>data.openaddresses.io</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class='pin-bottomleft z100 pad2'>
+    <div class='fill-white round pad0y pad1x'>
+      <span class='dot fill-orange inline pad0 dot-legend'></span> <em class='quiet small'>= address</em>
+    </div>
+  </div>
+</div>
+
+<script>
+// Initialize map
+L.mapbox.accessToken = 'pk.eyJ1IjoidHJpc3RlbiIsImEiOiJiUzBYOEJzIn0.VyXs9qNWgTfABLzSI3YcrQ';
+
+var map = L.mapbox.map('map',  'tristen.0c01f8ab', {
+  zoomControl: false,
+  minZoom: 2
+});
+
+map.setView([34.60,4.39], 2);
+map.scrollWheelZoom.disable();
+
+new L.Control.Zoom({ position: 'topright' }).addTo(map);
+map.addControl(L.mapbox.geocoderControl('mapbox.places-v1', {
+  autocomplete: true,
+  position: 'topright'
+}));
+
+$('.js-more').on('click', function() {
+  $('html,body').animate({scrollTop: ($('#js-more').offset().top - 40)}, 300);
+  return false;
+});
+
+if (localStorage.hello || localStorage.token) {
+  $('.js-mode').text('Contribute').attr('href', '{{site.baseurl}}/contribute/');
+}
+</script>
