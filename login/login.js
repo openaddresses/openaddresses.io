@@ -5,7 +5,7 @@
 hello.init({
   github : '4b8d48289d4d2d36833d'
 },{
-  redirect_uri : 'contribute.html',
+  redirect_uri : 'http://openaddresses.io/login/index.html',
   oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
 });
 
