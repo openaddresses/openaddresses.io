@@ -45,5 +45,5 @@ then
     cd $ROOTDIR/mapbox-upload
     git fetch && git checkout -b cli origin/cli
     npm install
-    nodejs $ROOTDIR/mapbox-upload/bin/upload.js sbma44.8dkotj4i $ROOTDIR/openaddresses.mbtiles
+    nodejs $ROOTDIR/mapbox-upload/bin/upload.js open-addresses.lec54np1 $ROOTDIR/openaddresses.mbtiles
 fi
