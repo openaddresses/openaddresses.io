@@ -35,6 +35,13 @@
   </fieldset>
 
   <fieldset>
+    <label>Coverage <span class='sprite icon help' data-tooltip="Geographic extent of source"></span></label>
+    <input id="source-coverage-country" class="col3" type="text", value="{{coverage.country}}" placeholder="Country">
+    <input id="source-coverage-state" class="col3" type="text", value="{{coverage.state}}" placeholder="Region">
+    <input id="source-coverage-city" class="col6" type="text", value="{{coverage.city}}" placeholder="City">
+  </fieldset>
+
+  <fieldset>
     <label>License <span class='sprite icon help' data-tooltip="If a license is listed for the data, link to it here or cite the licence name"></span></label>
     <input id="source-license" class="col12" type="text" value="{{license}}" placeholder="License"></input>
   </fieldset>
