@@ -37,7 +37,7 @@
   <fieldset>
     <label>Coverage <span class='sprite icon help' data-tooltip="Geographic extent of source"></span></label>
     <input id="source-coverage-country" class="col3" type="text", value="{{coverage.country}}" placeholder="Country">
-    <input id="source-coverage-region" class="col3" type="text", value="{{coverage.state}}" placeholder="Region">
+    <input id="source-coverage-state" class="col3" type="text", value="{{coverage.state}}" placeholder="Region">
     <input id="source-coverage-city" class="col6" type="text", value="{{coverage.city}}" placeholder="City">
   </fieldset>
 
