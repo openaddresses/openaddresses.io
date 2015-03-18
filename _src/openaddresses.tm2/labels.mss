@@ -86,8 +86,8 @@
   [labelrank=1] { 
     text-size: 18;
     text-wrap-width: 120;
-    text-character-spacing:	4;
-    text-line-spacing:	8;
+    text-character-spacing: 4;
+    text-line-spacing:  8;
   }
   [labelrank=2] { text-size: 14; }
   [labelrank=3] { text-size: 11; }
@@ -151,7 +151,7 @@
 
   // Cities
   [type='city'][zoom<=15] {
-  	text-face-name: @sans_md;
+    text-face-name: @sans_md;
     text-size: 16;
     text-line-spacing:-7;
 
@@ -190,7 +190,7 @@
   [type='suburb'],
   [type='neighbourhood'] {
     text-fill: #633;
-    text-face-name:	@sans_it;
+    text-face-name: @sans_it;
     text-transform: none;
     text-margin:80;
     text-halo-radius: 2.5;
@@ -265,7 +265,7 @@
     text-halo-radius: 1;
     text-halo-rasterizer: fast;
     text-wrap-width: 60;
-    text-line-spacing:	-4;
+    text-line-spacing:  -4;
     [maki!=null] { text-dy: 8; }
   }
 }

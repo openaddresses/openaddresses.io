@@ -1,5 +1,5 @@
 _prefs: 
-  mapid: tristen.0c01f8ab
+  mapid: open-addresses.lg9k5n9i
   saveCenter: true
 _properties: 
   bridge: 
@@ -11,9 +11,9 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -93.6914
-  - 43.2932
-  - 4
+  - -4.5703
+  - 38.0654
+  - 3
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
@@ -46,8 +46,8 @@ layers:
   - openaddresses
 maxzoom: 22
 minzoom: 0
-name: OpenAddresses
-source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,sbma44.8dkotj4i"
+name: Point Map
+source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,open-addresses.lp611yvi"
 styles: 
   - style.mss
   - road.mss

@@ -5,6 +5,8 @@ set -e
 
 ROOTDIR=`pwd`
 
+if [  ]
+
 rm -rf tippecanoe build openaddresses-download
 
 sudo apt-get update -y
@@ -16,10 +18,11 @@ curl https://raw.githubusercontent.com/sbma44/monoxylon/master/monoxylon.js > $R
 # download OpenAddresses data
 mkdir $ROOTDIR/openaddresses-download
 cd $ROOTDIR/openaddresses-download
-for a in $(aws s3 ls s3://data.openaddresses.io | awk -F ' ' '{print $4}' | grep csv)
-do
-    aws s3 cp --region us-east-1 s3://data.openaddresses.io/$a $ROOTDIR/openaddresses-download/$a
-done
+#for a in $(aws s3 ls s3://data.openaddresses.io | awk -F ' ' '{print $4}' | grep csv)
+#do
+#    aws s3 cp --region us-east-1 s3://data.openaddresses.io/$a $ROOTDIR/openaddresses-download/$a
+#done
+parallel "aws s3 cp --region us-east-1 s3://data.openaddresses.io/{} $ROOTDIR/openaddresses-download/{}" ::: $(aws s3 ls s3://data.openaddresses.io | awk -F ' ' '{print $4}' | grep csv)
 
 # concatenate address files, stripping headers
 mkdir $ROOTDIR/build

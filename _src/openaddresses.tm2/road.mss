@@ -201,10 +201,10 @@
       line-width: 0.3;
       line-color: #999;
       [zoom>=16] {
-      	// Hatching
-      	h/line-width: 2;
-      	h/line-color: #bbb;
-      	h/line-dasharray: 1,10;
+        // Hatching
+        h/line-width: 2;
+        h/line-color: #bbb;
+        h/line-dasharray: 1,10;
       }
     }
   }
