@@ -5,7 +5,7 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-4.5703,38.0654,3</Parameter>
+  <Parameter name="center">5.7519,51.971,13</Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
@@ -8634,26 +8634,31 @@
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <MarkersSymbolizer width="3" fill-opacity="0.75" fill="#f87244" stroke-width="0" allow-overlap="true" />
+    <MarkersSymbolizer width="3.3" fill-opacity="0.75" fill="#f87244" stroke-width="0" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <MarkersSymbolizer fill-opacity="0.75" fill="#f87244" stroke-width="0" allow-overlap="true" width="2" />
+    <MarkersSymbolizer fill-opacity="0.75" width="3.7" fill="#f87244" stroke-width="0" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <MarkersSymbolizer fill-opacity="0.5" fill="#f87244" stroke-width="0" allow-overlap="true" width="2" />
+    <MarkersSymbolizer fill-opacity="0.5" width="3.5" fill="#f87244" stroke-width="0" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <MarkersSymbolizer fill-opacity="0.3" width="3.4" fill="#f87244" stroke-width="0" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <MarkersSymbolizer fill-opacity="0.1" fill="#f87244" stroke-width="0" allow-overlap="true" width="2" />
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <MarkersSymbolizer fill-opacity="0.2" width="3.2" fill="#f87244" stroke-width="0" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000000</MinScaleDenominator>
-    <MarkersSymbolizer fill="#f87244" fill-opacity="0.4" stroke-width="0" allow-overlap="true" width="2" />
+    <MarkersSymbolizer fill="#f87244" fill-opacity="0.4" stroke-width="0" allow-overlap="true" width="2.5" />
   </Rule>
 </Style>
 <Layer name="openaddresses"
