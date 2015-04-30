@@ -5,8 +5,6 @@ set -e
 
 ROOTDIR=`pwd`
 
-if [  ]
-
 rm -rf tippecanoe build openaddresses-download
 
 sudo apt-get update -y
