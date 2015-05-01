@@ -47,7 +47,7 @@ layers:
 maxzoom: 22
 minzoom: 0
 name: Point Map
-source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,open-addresses.lp611yvi"
+source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,open-addresses.5tztcsor"
 styles: 
   - style.mss
   - road.mss
