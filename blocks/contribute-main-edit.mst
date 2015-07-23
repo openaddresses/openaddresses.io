@@ -26,7 +26,7 @@
   </fieldset>
 
   <fieldset>
-    <label>Conpression <span class='sprite icon help' data-tooltip="Is the source a zipfile?"></span></label>
+    <label>Compression <span class='sprite icon help' data-tooltip="Is the source a zipfile?"></span></label>
     <select id="source-compression" class="col12">
       <option class="text" value="text">Select a compression type</option>
       <option class="zip" value="zip">.zip</option>
