@@ -1,5 +1,5 @@
 _prefs: 
-  mapid: open-addresses.lg9k5n9i
+  mapid: open-addresses.raster-point-map
   saveCenter: true
 _properties: 
   bridge: 
@@ -47,7 +47,7 @@ layers:
 maxzoom: 22
 minzoom: 0
 name: Point Map
-source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,open-addresses.5tztcsor"
+source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,open-addresses.lec54np1"
 styles: 
   - style.mss
   - road.mss
