@@ -1,0 +1,79 @@
+---
+layout: default
+permalink: /attribution/
+---
+
+<style lang="text/css">
+<!--
+
+    ul#attributions
+    {
+        list-style-type: disc;
+        padding-left: 1.5em;
+    }
+    
+    ul#attributions li a { white-space: nowrap }
+
+-->
+</style>
+
+<section id="js-more" class="limiter clearfix">
+  <div class="col12 clearfix pad4y">
+    <span class="sprite houses block space-bottom2"></span>
+    <div class="col12 clearfix">
+      <div class="col8 margin2">
+        <h2 class="space-bottom1">Required Attribution</h2>
+        <p class="prose">Data can be copied, redistributed, and adapted. For these sources, attribution is required:</p>
+        <ul id="attributions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script language="javascript">
+<!--
+
+var req = new XMLHttpRequest();
+req.open("GET", "http://127.0.0.1:5000/latest/licenses.json", false);
+req.send();
+
+var data = JSON.parse(r.responseText),
+    list = document.getElementById('attributions'),
+    defined = function(a) { return a['attribution'] != undefined },
+    compare = function(a, b) { return (a['attribution'] > b['attribution']) ? 1 : -1 },
+    licenses = data['licenses'].filter(defined).sort(compare);
+
+for(var i = 0; i < licenses.length; i++)
+{
+    var item = document.createElement('li');
+
+    item.appendChild(document.createTextNode(licenses[i]['attribution']));
+    item.appendChild(document.createTextNode(' – '));
+    
+    if(licenses[i]['sources'].length > 2)
+    {
+        item.appendChild(document.createElement('br'));
+    }
+    
+    for(var j = 0; j < licenses[i]['sources'].length; j++)
+    {
+        var link = document.createElement('a'),
+            name = licenses[i]['sources'][j][0].replace('.json', ''),
+            href = licenses[i]['sources'][j][1];
+
+        if(href) { link['href'] = href }
+        link.appendChild(document.createTextNode(name));
+        item.appendChild(link);
+        
+        if(j + 1 < licenses[i]['sources'].length) {
+            item.appendChild(document.createTextNode(', '));
+        } else {
+            item.appendChild(document.createTextNode('.'));
+        }
+    }
+    
+    list.appendChild(item);
+}
+
+-->
+</script>
