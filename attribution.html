@@ -34,10 +34,10 @@ permalink: /attribution/
 <!--
 
 var req = new XMLHttpRequest();
-req.open("GET", "http://127.0.0.1:5000/latest/licenses.json", false);
+req.open("GET", "http://results.openaddresses.io/latest/licenses.json", false);
 req.send();
 
-var data = JSON.parse(r.responseText),
+var data = JSON.parse(req.responseText),
     list = document.getElementById('attributions'),
     defined = function(a) { return a['attribution'] != undefined },
     compare = function(a, b) { return (a['attribution'] > b['attribution']) ? 1 : -1 },
@@ -45,27 +45,29 @@ var data = JSON.parse(r.responseText),
 
 for(var i = 0; i < licenses.length; i++)
 {
-    var item = document.createElement('li');
+    var item = document.createElement('li'),
+        attr = licenses[i]['attribution'],
+        sources = licenses[i]['sources'];
 
-    item.appendChild(document.createTextNode(licenses[i]['attribution']));
+    item.appendChild(document.createTextNode(attr));
     item.appendChild(document.createTextNode(' – '));
     
-    if(licenses[i]['sources'].length > 2)
+    if(sources.length > 2)
     {
         item.appendChild(document.createElement('br'));
     }
     
-    for(var j = 0; j < licenses[i]['sources'].length; j++)
+    for(var j = 0; j < sources.length; j++)
     {
         var link = document.createElement('a'),
-            name = licenses[i]['sources'][j][0].replace('.json', ''),
-            href = licenses[i]['sources'][j][1];
+            name = sources[j][0].replace('.json', ''),
+            href = sources[j][1];
 
         if(href) { link['href'] = href }
         link.appendChild(document.createTextNode(name));
         item.appendChild(link);
         
-        if(j + 1 < licenses[i]['sources'].length) {
+        if(j + 1 < sources.length) {
             item.appendChild(document.createTextNode(', '));
         } else {
             item.appendChild(document.createTextNode('.'));
