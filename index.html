@@ -88,6 +88,7 @@ var map = new mapboxgl.Map({
     zoom: 1.2
 });
 map.addControl(new mapboxgl.Navigation());
+map.scrollZoom.disable();
 
 $('.js-more').on('click', function() {
   $('html,body').animate({scrollTop: ($('#js-more').offset().top - 40)}, 300);
