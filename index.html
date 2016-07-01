@@ -88,7 +88,7 @@ var map = new mapboxgl.Map({
     zoom: 1.2
 });
 map.addControl(new mapboxgl.Navigation());
-map.addControl(new mapboxgl.Geocoder());
+map.addControl(new mapboxgl.Geocoder({position: 'top-right'}));
 map.scrollZoom.disable();
 
 $('.js-more').on('click', function() {
