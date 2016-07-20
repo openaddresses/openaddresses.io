@@ -1,3 +1,6 @@
+---
+---
+
 /* @FontFace
 ------------------------------------------------------- */
 @font-face {
@@ -208,8 +211,8 @@ a:hover .icon-hover  { opacity:1; }
   content:'';
   display:block;
   border-left:5px solid transparent;
-	border-right:5px solid transparent;
-	border-top:5px solid #404040; 
+    border-right:5px solid transparent;
+    border-top:5px solid #404040;
   display:none;
   position:absolute;
   bottom:15px;
@@ -256,7 +259,7 @@ a:hover .icon-hover  { opacity:1; }
   }
   .data-source.active,
   .data-source:hover {
-    background-color:#f0f0f0; 
+    background-color:#f0f0f0;
     }
 
 /* Flags */
