@@ -8,9 +8,8 @@
   * @description
   * Selection of different headers
   *
-  * @demo styles/demos/headers.html
+  * @iframe styles/demos/headers.html
 **/
-
 
 h1, h2, h3, h4, h5, h6 {
     font-weight:normal;
@@ -18,22 +17,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size:30px;
-  line-height:40px;
-  }
+    font-size:30px;
+    line-height:40px;
+}
+
 h2 {
-  font-size:22px;
-  line-height:30px;
-  padding-top: 5px;
-  padding-bottom:5px;
-  }
+    font-size:22px;
+    line-height:30px;
+}
 
 h3 {
-  font-size:15px;
-  line-height:20px;
-  }
+    font-size:15px;
+    line-height:20px;
+}
 
 h4, h5, h6 {
-  font-size:12px;
-  line-height:20px;
-  }
+    font-size:12px;
+    line-height:20px;
+}
