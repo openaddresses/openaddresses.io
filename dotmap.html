@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8' />
-    <title>Dotmap – OpenAddresses</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
-</head>
-<body>
+---
+layout: default
+noheader: true
+---
+
 <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
     #map canvas {
         cursor: crosshair;
     }
@@ -32,6 +26,7 @@
       display: none;
     }
 </style>
+
 <div id="map"></div>
 <div id="address">
     <table>
@@ -50,6 +45,11 @@
 <div id="zoom-in">
     Zoom in for address details
 </div>
+<div id="layer-toggle">
+    <button onclick="map.setStyle(styles.streets)">Streets</button>
+    <button onclick="map.setStyle(styles.satellite)">Satellite</button>
+</div>
+
 <script>
 
 var styles = {
@@ -123,9 +123,3 @@ map.on('mousemove', function (e)
 });
 
 </script>
-<div id="layer-toggle">
-    <button onclick="map.setStyle(styles.streets)">Streets</button>
-    <button onclick="map.setStyle(styles.satellite)">Satellite</button>
-</div>
-</body>
-</html>
