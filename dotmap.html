@@ -1,0 +1,130 @@
+---
+layout: default
+noheader: true
+---
+
+<style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    #map canvas {
+        cursor: crosshair;
+    }
+    #address, #zoom-in, #layer-toggle {
+      top: 1em;
+      left: 1em;
+      padding: .5em;
+      background-color: rgba(255, 255, 255, .95);
+      border-radius: 3px;
+      border: 1px solid black;
+      position: absolute;
+      z-index: 999;
+      font-family: monospace;
+      font-size: 9pt;
+    }
+    #address, #zoom-in {
+      display: none;
+    }
+    
+    #address table tr td { padding: 0 .5em }
+</style>
+
+<div id="map"></div>
+<div id="address">
+    <table>
+        <tr><td>Number</td><td id="address-number">Yo</td></tr>
+        <tr><td>Street</td><td id="address-street">Yo</td></tr>
+        <tr><td>Unit</td><td id="address-unit">Yo</td></tr>
+        <!--
+        <tr><td>City</td><td id="address-city">Yo</td></tr>
+        <tr><td>Region</td><td id="address-region">Yo</td></tr>
+        <tr><td>Postcode</td><td id="address-postcode">Yo</td></tr>
+        <tr><td>Hash</td><td id="address-hash">Yo</td></tr>
+        <tr><td>Source</td><td id="address-source_path">Yo</td></tr>
+        -->
+    </table>
+</div>
+<div id="zoom-in">
+    Zoom in for address details
+</div>
+<div id="layer-toggle">
+    <button onclick="map.setStyle(styles.streets)">Streets</button>
+    <button onclick="map.setStyle(styles.satellite)">Satellite</button>
+</div>
+
+<script>
+
+var styles = {
+    streets: 'mapbox://styles/open-addresses/cj2jh1ya2002v2sn09o0pr5de',
+    satellite: 'mapbox://styles/open-addresses/cj2jjjbc200002sodyrg69639',
+};
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoib3Blbi1hZGRyZXNzZXMiLCJhIjoiSGx0a1B1NCJ9.2O1QelK6jnFXfDznC2pNSw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: styles.streets,
+    center: [-96, 37.8],
+    zoom: 3,
+    hash: true
+});
+
+map.addControl(new MapboxGeocoder({position: 'top-right', accessToken: mapboxgl.accessToken}));
+map.addControl(new mapboxgl.NavigationControl());
+
+map.on('mousemove', function (e)
+{
+    var bbox = [[e.point.x - 3, e.point.y - 3], [e.point.x + 3, e.point.y + 3]],
+        features = map.queryRenderedFeatures(bbox);
+
+    var canvas = document.getElementById('map').getElementsByTagName('canvas')[0],
+        fields = ['number', 'street', 'unit']; //, 'city', 'region', 'postcode', 'hash', 'source_path'],
+        label = document.getElementById('address'),
+        zoom_in = document.getElementById('zoom-in'),
+        props = {};
+
+    for(var i in features)
+    {
+        if(map.getZoom() < 12)
+        {
+            break;
+        }
+        
+        if(features[i].layer.id.substr(0, 'openaddresses'.length) == 'openaddresses')
+        {
+            for(key in features[i].properties)
+            {
+                props[key.toLowerCase()] = features[i].properties[key];
+            }
+
+            console.log(JSON.stringify(features[i].properties, null, 2))
+            canvas.style.cursor = 'pointer';
+
+            if('number' in props && 'street' in props)
+            {
+                for(i in fields)
+                {
+                    key = fields[i];
+                    document.getElementById('address-' + key).innerText = (props[key] || '');
+                }
+                label.style.display = 'block';
+                zoom_in.style.display = 'none';
+                label.style.left = (e.point.x - 20) + 'px';
+                label.style.top = (e.point.y - label.clientHeight - 10) + 'px';
+                return;
+            }
+
+            label.style.display = 'none';
+            zoom_in.style.display = 'block';
+            zoom_in.style.left = (e.point.x - 20) + 'px';
+            zoom_in.style.top = (e.point.y - zoom_in.clientHeight - 10) + 'px';
+            return;
+        }
+    }
+
+    canvas.style.cursor = 'crosshair';
+    label.style.display = 'none';
+    zoom_in.style.display = 'none';
+    return;
+});
+
+</script>
