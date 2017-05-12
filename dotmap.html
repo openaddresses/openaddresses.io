@@ -25,6 +25,8 @@ noheader: true
     #address, #zoom-in {
       display: none;
     }
+    
+    #address table tr td { padding: 0 .5em }
 </style>
 
 <div id="map"></div>
@@ -65,6 +67,9 @@ var map = new mapboxgl.Map({
     zoom: 3,
     hash: true
 });
+
+map.addControl(new MapboxGeocoder({position: 'top-right', accessToken: mapboxgl.accessToken}));
+map.addControl(new mapboxgl.NavigationControl());
 
 map.on('mousemove', function (e)
 {
