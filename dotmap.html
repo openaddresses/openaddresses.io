@@ -1,6 +1,7 @@
 ---
 layout: default
 noheader: true
+nofooter: true
 ---
 
 <style>
@@ -11,7 +12,7 @@ noheader: true
         cursor: crosshair;
     }
     #address, #zoom-in, #layer-toggle {
-      top: 1em;
+      bottom: 1em;
       left: 1em;
       padding: .5em;
       background-color: rgba(255, 255, 255, .95);
@@ -53,7 +54,6 @@ noheader: true
 </div>
 
 <script>
-
 var styles = {
     streets: 'mapbox://styles/open-addresses/cj2jh1ya2002v2sn09o0pr5de',
     satellite: 'mapbox://styles/open-addresses/cj2jjjbc200002sodyrg69639',
@@ -68,7 +68,29 @@ var map = new mapboxgl.Map({
     hash: true
 });
 
-map.addControl(new MapboxGeocoder({position: 'top-right', accessToken: mapboxgl.accessToken}));
+var geocoder = new MapboxGeocoder({
+    position: 'top-right', 
+    accessToken: mapboxgl.accessToken,
+    flyTo: false
+})
+
+map.addControl(geocoder);
+
+geocoder.on('result', function (evt)
+{
+    // skip the default animated transition and center on the geocoding result bbox (or center)
+    if(evt.result.bbox) {
+        map.fitBounds(evt.result.bbox, {
+            animate: false
+        });
+    } else{
+        map.jumpTo({
+            center: evt.result.center,
+            zoom: 14
+        });
+    }
+});
+
 map.addControl(new mapboxgl.NavigationControl());
 
 map.on('mousemove', function (e)
