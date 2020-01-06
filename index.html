@@ -27,35 +27,35 @@ noheader: true
   </div>
 
   <div class='col12 clearfix pad4y'>
-      <div class='cta col4'>
-        <div class='col12 pad4x pad2y prose'>
-          <p><strong>Develop on GitHub</strong>. Parse &amp; import into a database, put on a map, or use for geocoding.</p>
-          <a class='col12 button fill-light' href='https://github.com/openaddresses/'>
-            OpenAddresses on GitHub
-            <span class='sprite icon arrow-right'></span>
-          </a>
-        </div>
+    <div class='cta col4'>
+      <div class='col12 pad4x pad2y prose'>
+        <p><strong>Develop on GitHub</strong>. Parse &amp; import into a database, put on a map, or use for geocoding.</p>
+        <a class='col12 button fill-light' href='https://github.com/openaddresses/'>
+          OpenAddresses on GitHub
+          <span class='sprite icon arrow-right'></span>
+        </a>
       </div>
-
-      <div class='cta col4 keyline-left keyline-right'>
-        <div class='col12 pad4x pad2y prose'>
-          <p><strong>OpenAddresses is open data</strong>.
-            All data is openly licensed. Most sources only require attribution.</p>
-          <a class='button col12' href='http://results.openaddresses.io'>View download options</a>
-        </div>
-      </div>
-
-      <div class='cta col4'>
-        <div class='col12 pad4x pad2y prose'>
-          <p><strong>Help contribute</strong>. Grow OpenAddresses by contributing data from any place in the world.</p>
-          <a class='col12 button fill-light' href='https://github.com/openaddresses/openaddresses/blob/master/CONTRIBUTING.md'>
-            Submit a dataset
-            <span class='sprite icon arrow-right'></span>
-          </a>
-        </div>
-      </div>
-
     </div>
+
+    <div class='cta col4 keyline-left keyline-right'>
+      <div class='col12 pad4x pad2y prose'>
+        <p><strong>OpenAddresses is open data</strong>.
+          All data is openly licensed. Most sources only require attribution.</p>
+        <a class='button col12' href='http://results.openaddresses.io'>View download options</a>
+      </div>
+    </div>
+
+    <div class='cta col4'>
+      <div class='col12 pad4x pad2y prose'>
+        <p><strong>Help contribute</strong>. Grow OpenAddresses by contributing data from any place in the world.</p>
+        <a class='col12 button fill-light' href='https://github.com/openaddresses/openaddresses/blob/master/CONTRIBUTING.md'>
+          Submit a dataset
+          <span class='sprite icon arrow-right'></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <div class='contain'>
@@ -84,7 +84,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoib3Blbi1hZGRyZXNzZXMiLCJhIjoiSGx0a1B1NCJ9.2O1Q
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/open-addresses/cj2jh1ya2002v2sn09o0pr5de',
-    center: [-30,0],
+    center: [-30,18],
     zoom: 1.2
 });
 map.addControl(new MapboxGeocoder({position: 'top-right', accessToken: mapboxgl.accessToken}));
