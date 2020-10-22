@@ -87,7 +87,11 @@ var map = new mapboxgl.Map({
     center: [-30,18],
     zoom: 1.2
 });
-map.addControl(new MapboxGeocoder({position: 'top-right', accessToken: mapboxgl.accessToken}));
+map.addControl(new MapboxGeocoder({
+  position: 'top-right',
+  accessToken: mapboxgl.accessToken,
+  types: 'country,region,postcode,district,place,locality,neighborhood',
+}));
 map.addControl(new mapboxgl.NavigationControl());
 map.scrollZoom.disable();
 
