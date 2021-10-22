@@ -1,0 +1,55 @@
+{
+    "name": "openaddresses.io",
+    "version": "1.0.0",
+    "description": " Repo for the openaddresses.io website. ",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build --dest docs/",
+        "lint": "vue-cli-service lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/openaddresses/openaddresses.io.git"
+    },
+    "author": "",
+    "bugs": {
+        "url": "https://github.com/openaddresses/openaddresses.io/issues"
+    },
+    "homepage": "https://github.com/openaddresses/openaddresses.io#readme",
+    "dependencies": {
+        "@mapbox/mapbox-gl-geocoder": "^4.7.0",
+        "mapbox-gl": "^2.2.0",
+        "vue": "^2.6.12"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.12",
+        "@vue/cli-plugin-eslint": "^4.5.12",
+        "@vue/cli-service": "^4.5.12",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.24.0",
+        "eslint-plugin-vue": "^7.9.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

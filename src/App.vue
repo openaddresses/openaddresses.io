@@ -1,0 +1,109 @@
+<template>
+<div id='app'>
+    <section class='splash dark v-full-height space-bottom4'>
+      <div class='center limiter space-top8'>
+        <a href='/' class='block sprite logo-big space-bottom1'></a>
+        <h1 class='space-bottom4'>The free and open global address collection</h1>
+        <div class='col12 clearfix'>
+          <a href='#' class='pad4x space-bottom4 button button-large fill-green js-more'>
+            Learn more <div class='sprite icon down'></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id='js-more' class='limiter clearfix'>
+      <div class='col12 clearfix'>
+        <span class='sprite houses block space-bottom2'></span>
+        <div class='center col12 clearfix'>
+          <div class='col8 margin2'>
+            <h2 class='space-bottom1'>Address data is essential infrastructure.</h2>
+            <p class='prose'>Street names, house numbers and postal codes, when combined with geographic coordinates, are the hub that connects digital to physical places.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class='col12 clearfix pad4y'>
+        <div class='cta col4'>
+          <div class='col12 pad4x pad2y prose'>
+            <p><strong>Develop on GitHub</strong>. Parse &amp; import into a database, put on a map, or use for geocoding.</p>
+            <a class='col12 button fill-light' href='https://github.com/openaddresses/'>
+              OpenAddresses on GitHub
+              <span class='sprite icon arrow-right'></span>
+            </a>
+          </div>
+        </div>
+
+        <div class='cta col4 keyline-left keyline-right'>
+          <div class='col12 pad4x pad2y prose'>
+            <p><strong>OpenAddresses is open data</strong>.
+              All data is openly licensed. Most sources only require attribution.</p>
+            <a class='button col12' href='https://batch.openaddresses.io'>View download options</a>
+          </div>
+        </div>
+
+        <div class='cta col4'>
+          <div class='col12 pad4x pad2y prose'>
+            <p><strong>Help contribute</strong>. Grow OpenAddresses by contributing data from any place in the world.</p>
+            <a class='col12 button fill-light' href='https://github.com/openaddresses/openaddresses/blob/master/CONTRIBUTING.md'>
+              Submit a dataset
+              <span class='sprite icon arrow-right'></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class='contain'>
+      <div id='map' class='map'></div>
+
+      <div class='pin-topleft z100 pad2 col3 prose'>
+        <div class='col12'>
+          <div class='fill-white round space-bottom1 pad2 col12 prose'>
+            <h4 class='space-bottom1'>What areas are covered?</h4>
+            <p>For a detailed report visit <a href='https://batch.openaddresses.io/'>batch.openaddresses.io</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class='pin-bottomleft z100 pad2'>
+        <div class='fill-white round pad0y pad1x'>
+          <span class='dot fill-orange inline pad0 dot-legend'></span> <em class='quiet small'>= address</em>
+        </div>
+      </div>
+    </div>
+</div>
+</template>
+
+<script>
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+
+export default {
+    name: 'OpenAddresses',
+    data: function() {
+        return {};
+    },
+    mounted: function() {
+        // Initialize map
+        mapboxgl.accessToken = 'pk.eyJ1Ijoib3Blbi1hZGRyZXNzZXMiLCJhIjoiSGx0a1B1NCJ9.2O1QelK6jnFXfDznC2pNSw';
+
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/open-addresses/cj2jh1ya2002v2sn09o0pr5de',
+            center: [-30,18],
+            zoom: 1.2
+        });
+        map.addControl(new MapboxGeocoder({
+          position: 'top-right',
+          accessToken: mapboxgl.accessToken,
+          types: 'country,region,postcode,district,place,locality,neighborhood',
+        }));
+        map.addControl(new mapboxgl.NavigationControl());
+        map.scrollZoom.disable();
+    }
+}
+
+</script>
