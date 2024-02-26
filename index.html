@@ -59,8 +59,6 @@ noheader: true
 </section>
 
 <div class='contain'>
-  <div id='map' class='map'></div>
-
   <div class='pin-topleft z100 pad2 col3 prose'>
     <div class='col12'>
       <div class='fill-white round space-bottom1 pad2 col12 prose'>
@@ -76,31 +74,3 @@ noheader: true
     </div>
   </div>
 </div>
-
-<script>
-// Initialize map
-mapboxgl.accessToken = 'pk.eyJ1Ijoib3Blbi1hZGRyZXNzZXMiLCJhIjoiY2xyazU4eGp4MDVyMDJrbWlhZDA5OWJsdCJ9.yyNi31R-cQ8wYhf3y_FojA';
-
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/open-addresses/cj2jh1ya2002v2sn09o0pr5de',
-    center: [-30,18],
-    zoom: 1.2
-});
-map.addControl(new MapboxGeocoder({
-  position: 'top-right',
-  accessToken: mapboxgl.accessToken,
-  types: 'country,region,postcode,district,place,locality,neighborhood',
-}));
-map.addControl(new mapboxgl.NavigationControl());
-map.scrollZoom.disable();
-
-$('.js-more').on('click', function() {
-  $('html,body').animate({scrollTop: ($('#js-more').offset().top - 40)}, 300);
-  return false;
-});
-
-if (localStorage.hello || localStorage.token) {
-  $('.js-mode').text('Contribute').attr('href', '{{site.baseurl}}/contribute/');
-}
-</script>
